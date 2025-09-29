@@ -4,45 +4,15 @@ class commentCard extends BasePage {
     constructor(page) {
         super(page);
         //test 14
-        this.shareButton = page.locator('button[data-testid="board-share-button"]');
+        this.commentBox = page.locator('button[data-testid="card-back-new-comment-input-skeleton"]');
+        this.inputComment = page.locator('[data-testid="editor-content-container"] .ProseMirror[contenteditable="true"]');
+        this.saveComment = page.locator('button[data-testid="card-back-comment-save-button"]');
+        this.comments = page.locator('[data-testid="comment-container"] p');
     }
-    async writeUser(name, ok) {
-        await this.shareButton.click();
-        await this.addMembers.fill(name);
-        await this.addMembers.press('Space');
-        await this.addMembers.press('Backspace');
-        if (ok === true) {
-            await this.suggestions.first().click();
-            await this.inviteButton.click();
-        }
-    }
-
-    async menuLabel() {
-        await this.menuButtonPage.click();
-        await this.menuLabelPage.click();
-    }
-
-    async createLabel(nameLabel) {
-        await this.newLabel.click();
-        await this.nameLabel.fill(nameLabel);
-        await this.page.keyboard.press('Enter');
-    }
-
-    async getLastLabelAria() {
-        return await this.labelsExist.last().getAttribute('aria-label');
-    }
-
-    async editLastLabel(newName, color) {
-        await this.labelsExist.last().click();
-        await this.nameLabel.fill(newName);
-        await this.page.locator(`button[data-testid="color-tile-${color}"]`).click();
-        await this.page.keyboard.press('Enter');
-    }
-
-    async deleteLabel() {
-        await this.labelsExist.last().click();
-        await this.deleteButton.click();
-        await this.deleteButton.click();
+    async writeComment(comment) {
+        await this.commentBox.click();
+        await this.inputComment.fill(comment);
+        await this.saveComment.click();
     }
 }
-module.exports = { BoardSharePage };
+module.exports = { commentCard };

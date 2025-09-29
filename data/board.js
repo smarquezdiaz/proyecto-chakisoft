@@ -20,7 +20,7 @@ export const test = base.extend({
     const createdBoardUrl = page;
 
     // 👉 Pasamos la URL al test
-    await use(createdBoardUrl);
+    await use(page);
 
     // --- TEARDOWN: borrar el tablero ---
     await page.keyboard.press('Escape');
