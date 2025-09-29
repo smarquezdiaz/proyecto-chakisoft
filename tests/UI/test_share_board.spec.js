@@ -1,6 +1,6 @@
 const { expect } = require('@playwright/test');
 const { test } = require('../../data/board');
-const { BoardSharePage } = require('../../pages/BoardForSharePAge');
+const { BoardSharePage } = require('../../pages/BoardForSharePage');
 const scenarios = [{ input: 'David Gregori Rodriguez Calle', ok: true }, { input: 'www.str_hpl@hotmail.com', ok: true }, { input: 'usuarioquenoexiste', ok: false }];
 
 test.use({ storageState: 'playwright/.auth/user.json' });
@@ -8,11 +8,10 @@ test.use({ storageState: 'playwright/.auth/user.json' });
 scenarios.forEach(({ input, ok }) => {
     test(`Asignar usuario a tablero ${input}`, async ({ boardUrl }) => {
         const boardPage = new BoardSharePage(boardUrl);
-        boardPage.writeUser(input, ok);
+        await boardPage.writeUser(input, ok);
         if (ok === true) {
             await expect(boardPage.nameMembers.last()).toHaveText('David Gregori Rodriguez Calle');
         } else {
-            //await expect(boardPage.unregistered).toHaveText('No se encontraron miembros');
             await expect(boardPage.unregistered).toBeVisible();
         }
     });

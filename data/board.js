@@ -25,6 +25,7 @@ export const test = base.extend({
     // --- TEARDOWN: borrar el tablero ---
     await page.keyboard.press('Escape');
     await page.keyboard.press('Escape');
+    await page.keyboard.press('Escape');
     await page.locator('[aria-label="Mostrar menú"]').click();
     await page.locator('span[aria-label="Cerrar tablero"]').click();
     await page.getByTestId('popover-close-board-confirm').click();
