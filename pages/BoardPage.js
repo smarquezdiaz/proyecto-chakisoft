@@ -22,4 +22,17 @@ export class BoardPage{
         // TODO verificar titulo 
         await expect(this.page.getByText(`${title}`)).toBeVisible();
     }
+
+    async deleteBoard(title) {
+        const openBoardBtn = this.page.getByRole('a', { hasText: `${title}` });
+        // await openBoardBtn.click();
+        const openMenuBtn = this.page.locator('button[aria-label="Mostrar menú"]')
+        await openMenuBtn.click();
+        const closeBtn = this.page.locator('span[aria-label="Cerrar tablero"]')
+        await closeBtn.click();
+        const confirmDeleteBtn =  this.page.locator('[data-testid="popover-close-board-confirm"]');
+        await confirmDeleteBtn.click();
+        await this.goTo();
+        await expect(openBoardBtn).toHaveCount(0);
+    }
 }

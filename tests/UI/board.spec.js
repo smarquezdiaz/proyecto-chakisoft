@@ -10,14 +10,14 @@ test.describe('Test Cases para Board', () => {
     });
 
     test('test para verificar creacion exitosa de tablero', async ({ page }) => {
-        await board.createBoard('ewe');
+        await board.createBoard('molly');
     });
 
-    test('test para verificar creacion exitosa de tablero', async ({ page }) => {
-        await board.createBoard('owo');
-    });
+    // test('test para verificar creacion exitosa de tablero', async ({ page }) => {
+    //     await board.createBoard('owo');
+    // });
 
     test.afterEach(async ({ page }) => {
-        // borrar despues de cada creacion pasandole el titulo 
+        await board.deleteBoard('molly');
     });
 });
