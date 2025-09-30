@@ -14,12 +14,15 @@ export class BoardPage{
         await this.page.goto('https://trello.com/u/lomardiego17/boards');
     }
 
-    async createBoard(title) { // TODO aumentar luego otros parametros para tc
+    async createBoard(title) {
         await this.createBtn.click();
         await this.createBoardBtn.click();
         await this.nameField.fill(title);
+        if (title == "") {
+            await expect(this.submitBtn).toBeDisabled();
+            return;
+        }
         await this.submitBtn.click();
-        // TODO verificar titulo 
         await expect(this.page.getByText(`${title}`)).toBeVisible();
     }
 
