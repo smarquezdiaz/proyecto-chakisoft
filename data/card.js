@@ -15,6 +15,7 @@ export const test = boardUrl.extend({
 
         await boardUrl.getByTestId('list-card-composer-textarea').fill('Tarjeta QA');
         await boardUrl.getByRole('button', { name: 'Añadir tarjeta' }).click();
+        await expect(boardUrl.getByText('Tarjeta QA')).toBeVisible();
 
         // Abrir la tarjeta recién creada
         await boardUrl.keyboard.press('Escape');

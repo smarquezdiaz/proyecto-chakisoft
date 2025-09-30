@@ -1,12 +1,9 @@
 const { test : base} = require('@playwright/test');
-import path from 'path';
-
-const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 
 export const test = base.extend({
   boardUrl: async ({ page }, use) => {
     // Usamos el estado de login
-    await page.goto('https://trello.com/u/lomardiego17/boards');
+    await page.goto('https://trello.com/u/lomardiego17/boards'),{delay:2000};
 
     // Crear tablero
     await page.getByTestId('header-create-menu-button').click();
@@ -16,13 +13,11 @@ export const test = base.extend({
     await page.fill('[data-testid="create-board-title-input"]', 'pruebadesdeui');
     await page.getByTestId('create-board-submit-button').click();
 
-
-    const createdBoardUrl = page;
-
     // 👉 Pasamos la URL al test
     await use(page);
 
     // --- TEARDOWN: borrar el tablero ---
+    await page.keyboard.press('Escape');
     await page.keyboard.press('Escape');
     await page.keyboard.press('Escape');
     await page.keyboard.press('Escape');
