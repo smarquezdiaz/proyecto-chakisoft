@@ -1,4 +1,4 @@
-class BasePage {
+export class BasePage {
  
   constructor(page) {
     this.page = page;
@@ -16,5 +16,3 @@ class BasePage {
     await this.page.click(selector);
   }
 }
-
-module.exports = { BasePage };

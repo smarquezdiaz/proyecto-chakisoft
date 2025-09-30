@@ -5,7 +5,7 @@ import { LoginPage } from '../pages/loginPage';
 const authFile = path.join(__dirname, '../playwright/.auth/user.json');
 
 setup('authenticate', async ({ page }) => {
-    // Cambiar url, y credenciales como variables /?
+    // TODO Cambiar url, y credenciales como variables /?
     const Login = new LoginPage(page);
     await Login.goTo();
     await Login.login('lomardiego17@gmail.com', 'Aa123456789-1');

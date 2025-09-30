@@ -1,6 +1,7 @@
-import {expect, Locator, Page} from "@playwright/test";
 
 export class LoginPage{
+
+    // TODO Aplicar Herencia
 
     constructor(page){
         this.page = page;
