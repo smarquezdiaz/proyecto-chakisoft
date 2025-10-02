@@ -1,6 +1,6 @@
 import { expect } from "@playwright/test";
 
-export class BoardPage{
+export class BoardPage {
 
     constructor(page) {
         this.page = page;
@@ -27,15 +27,32 @@ export class BoardPage{
     }
 
     async deleteBoard(title) {
+        await this.page.waitForTimeout(3000); // Waits for 3 seconds
         const openBoardBtn = this.page.getByRole('a', { hasText: `${title}` });
-        // await openBoardBtn.click();
+        await this.page.waitForSelector('button[aria-label="Mostrar menú"]');
         const openMenuBtn = this.page.locator('button[aria-label="Mostrar menú"]')
+        await this.page.waitForTimeout(3000);
         await openMenuBtn.click();
         const closeBtn = this.page.locator('span[aria-label="Cerrar tablero"]')
         await closeBtn.click();
-        const confirmDeleteBtn =  this.page.locator('[data-testid="popover-close-board-confirm"]');
+        const confirmDeleteBtn = this.page.locator('[data-testid="popover-close-board-confirm"]');
         await confirmDeleteBtn.click();
         await this.goTo();
         await expect(openBoardBtn).toHaveCount(0);
+    }
+
+    async openBoard(title) {
+        const openBoardLink = this.page.getByRole('link', { name: `${title}` }).first();
+        await openBoardLink.click();
+        await expect(this.page.getByText(`${title}`).first()).toBeVisible();
+    }
+
+    async updateBoard(title, newTitle) {
+        // const openBoardBtn = this.page.getByRole('a', { hasText: `${title}` });
+        // await openBoardBtn.click();
+        const input = this.page.locator('[data-testid="board-name-input"]');
+        await input.fill(newTitle);
+        const h1Content = this.page.locator('[data-testid="board-name-display"]');
+        await expect(h1Content).toHaveText(newTitle);
     }
 }
