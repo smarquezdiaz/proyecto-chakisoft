@@ -1,13 +1,13 @@
 const { expect } = require('@playwright/test');
-const { test } = require('../../data/board');
-const { BoardSharePage } = require('../../pages/BoardForSharePage');
-const { labelScenarios, editLabel } = require('../../data/labelData');
+const { test } = require('../../fixtures/shareBoardFixture');
+const { BoardSharePage } = require('../../pages/boardShareAndLabelPage');
+const { labelScenarios, editLabel } = require('../../data/labelBoardData');
 
 test.use({ storageState: 'playwright/.auth/user.json' });
 
 labelScenarios.forEach(({ title, input, color }) => {
-    test(`Verificar crear etiqueta - ${title}`, async ({ boardUrl }) => {
-        const boardPage = new BoardSharePage(boardUrl);
+    test(`Verificar crear etiqueta - ${title}`, async ({ createBoardPage }) => {
+        const boardPage = new BoardSharePage(createBoardPage);
         await boardPage.menuLabel();
         await boardPage.createLabel(input);
         const ariaLabel = await boardPage.getLastLabelAria();
@@ -31,8 +31,8 @@ labelScenarios.forEach(({ title, input, color }) => {
 });
 
 editLabel.forEach(({ input, color, ariaColor }) => {
-    test(`Verificar edicion de etiqueta con nombre: ${input} y color: ${color}`, async ({ boardUrl }) => {
-        const boardPage = new BoardSharePage(boardUrl);
+    test(`Verificar edicion de etiqueta con nombre: ${input} y color: ${color}`, async ({ createBoardPage }) => {
+        const boardPage = new BoardSharePage(createBoardPage);
         await boardPage.menuLabel();
         await boardPage.editLastLabel(input, color);
         const ariaLabel = await boardPage.getLastLabelAria();
@@ -41,16 +41,16 @@ editLabel.forEach(({ input, color, ariaColor }) => {
     });
 });
 
-test("Verificar eliminar etiqueta", async ({ boardUrl }) => {
-    const boardPage = new BoardSharePage(boardUrl);
+test("Verificar eliminar etiqueta", async ({ createBoardPage }) => {
+    const boardPage = new BoardSharePage(createBoardPage);
     await boardPage.menuLabel();
     await boardPage.deleteLabel();
     const ariaLabel = await boardPage.getLastLabelAria();
     await expect(ariaLabel).toContain('morado');
 });
 
-test("Verificar Habilitar/Deshabilitar modo daltónico", async ({ boardUrl }) => {
-    const boardPage = new BoardSharePage(boardUrl);
+test("Verificar Habilitar/Deshabilitar modo daltónico", async ({ createBoardPage }) => {
+    const boardPage = new BoardSharePage(createBoardPage);
     await boardPage.menuLabel();
     await boardPage.enableColorblindButton.click();
     await expect(boardPage.disableColorblindButton).toBeVisible();
