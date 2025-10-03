@@ -105,5 +105,13 @@ class BoardSharePage extends BasePage {
         await this.disableColorblindButton.click();
         await expect(this.enableColorblindButton).toBeVisible();
     }
+
+    async expectUser(ok) {
+        if (ok === true) {
+            await expect(this.nameMembers.last()).toHaveText(process.env.NAME_SHARE);
+        } else {
+            await expect(this.unregistered).toBeVisible();
+        }
+    }
 }
 module.exports = { BoardSharePage };

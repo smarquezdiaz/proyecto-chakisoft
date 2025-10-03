@@ -9,11 +9,7 @@ boardUsers.forEach(({ input, ok }) => {
     test(`Verificar que ${input} al tablero`, async ({ createBoardPage }) => {
         const boardPage = new BoardSharePage(createBoardPage);
         await boardPage.writeUser(input, ok);
-        if (ok === true) {
-            await expect(boardPage.nameMembers.last()).toHaveText(process.env.NAME_SHARE);
-        } else {
-            await expect(boardPage.unregistered).toBeVisible();
-        }
+        await boardPage.expectUser(ok);
     });
 });
 
