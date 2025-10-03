@@ -1,69 +1,80 @@
-// tests/UI/list.spec.js
-const { test, expect } = require('@playwright/test');
-const { ListPage } = require('../../pages/ListPage');
+// tests/UI/listFlujoCompleto.spec.js
+import { test, expect } from '../../fixtures/listFixturesUI.js';
 
 test.use({ storageState: 'playwright/.auth/user.json' });
 
-test.describe('CRUD Listas Trello', () => {
+test.describe('flujo de Listas Trello', () => {
     test.describe.configure({ mode: 'serial' });
     
-    let page, listPage;
-    
+    // ✅ NAVEGACIÓN AL TABLERO ANTES DE TODOS LOS TESTS
     test.beforeAll(async ({ browser }) => {
-        page = await browser.newPage();
-        listPage = new ListPage(page);
+        const context = await browser.newContext({
+            storageState: 'playwright/.auth/user.json'
+        });
+        const page = await context.newPage();
         await page.goto('https://trello.com/b/AcEzc2Wb/mi-tablero-de-trello');
+        await page.waitForLoadState('networkidle');
+        await page.waitForTimeout(2000);
+        await page.close();
+        await context.close();
     });
-    
-    test('Crear lista', async () => {
+
+    test.beforeEach(async ({ page, uiHelpers }) => {
+        // ✅ Navegar al tablero en cada test
+        await page.goto('https://trello.com/b/AcEzc2Wb/mi-tablero-de-trello');
+        await page.waitForLoadState('networkidle');
+        await page.waitForTimeout(1500);
+        await uiHelpers.closeAllForms();
+    });
+
+    test('TC-01: Crear lista', async ({ listPage }) => {
         await listPage.createList('Test Lista 1');
         expect(await listPage.listExists('Test Lista 1')).toBe(true);
     });
-    
-    test('Renombrar lista', async () => {
-        await listPage.renameList('Test Lista 1', 'Test Lista Renombrada');
-        expect(await listPage.listExists('Test Lista Renombrada')).toBe(true);
+
+    test('TC-02: Renombrar lista', async ({ listPage }) => {
+        await listPage.renameList('Test Lista 1', 'Test Lista RenombradaUI');
+        expect(await listPage.listExists('Test Lista RenombradaUI')).toBe(true);
     });
-    
-    test('Mover lista', async () => {
+
+    test('TC-03: Mover lista', async ({ listPage, uiHelpers }) => {
         await listPage.createList('Test Lista 2');
-        await page.waitForTimeout(1000);
+        await uiHelpers.safeWait(1000);
         
-        await listPage.moveList('Test Lista Renombrada', 2);
-        await page.waitForTimeout(1000);
+        await listPage.moveListToPosition('Test Lista RenombradaUI', 2);
+        await uiHelpers.safeWait(1000);
         
         const allNames = await listPage.getAllListNames();
-        expect(allNames.includes('Test Lista Renombrada')).toBe(true);
+        expect(allNames.includes('Test Lista RenombradaUI')).toBe(true);
     });
-    
-    test('Copiar lista', async () => {
+
+    test('TC-04: Copiar lista', async ({ listPage, uiHelpers }) => {
         const initialCount = (await listPage.getAllListNames()).length;
-        await listPage.copyList('Test Lista Renombrada');
-        await page.waitForTimeout(2000);
+        await listPage.copyList('Test Lista RenombradaUI');
+        await uiHelpers.safeWait(2000);
         
         const finalCount = (await listPage.getAllListNames()).length;
         expect(finalCount).toBeGreaterThan(initialCount);
     });
-    
-    test('Archivar lista', async () => {
-        await listPage.archiveList('Test Lista 2');
-        await page.waitForTimeout(1000);
-        expect(await listPage.listExists('Test Lista 2')).toBe(false);
-    });
-    
-    test('Eliminar lista archivada', async () => {
-        await listPage.deleteArchivedList('Test Lista 2');
-        await page.waitForTimeout(1000);
-        expect(await listPage.listExists('Test Lista 2')).toBe(false);
-    });
-    
 
-    test.afterAll(async () => {
+    test('TC-05: Archivar lista', async ({ listPage, uiHelpers }) => {
+        await listPage.archiveList('Test Lista 2');
+        await uiHelpers.safeWait(1000);
+        expect(await listPage.listExists('Test Lista 2')).toBe(false);
+    });
+
+    test('TC-06: Eliminar lista archivada', async ({ listPage, uiHelpers }) => {
+        await listPage.deleteArchivedList('Test Lista 2');
+        await uiHelpers.safeWait(1000);
+        expect(await listPage.listExists('Test Lista 2')).toBe(false);
+    });
+
+    // ✅ CORRECCIÓN: No usar fixtures en afterAll
+    test.afterAll(async ({ browser }) => {
         try {
-            console.log('Cerrando navegador...');
-            await page.close();
+            console.log('Tests completados');
         } catch (e) {
-            console.log('Navegador cerrado');
+            console.log('Cleanup finalizado');
         }
     });
 });
