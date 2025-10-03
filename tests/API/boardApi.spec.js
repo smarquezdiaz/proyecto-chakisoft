@@ -1,7 +1,7 @@
 import { expect, test } from '@playwright/test';
 import { httpGet, httpPost, httpDelete, httpPut } from "../../fixtures/apiConfig";
 import { getDynamicEndpoint } from "../../utils/utils";
-import { BOARD } from "../../utils/config";
+import { BOARD, MEMBER } from "../../utils/config";
 
 let id;
 
@@ -105,7 +105,7 @@ test.describe('Pruebas de api para crear un tablero', () => {
         test.beforeEach(async ({ }) => {
             const endpoint = getDynamicEndpoint(BOARD, '', { name: 'RANDOM' }, true);
             const response = await httpPost(endpoint);
-            expect(response.status()).toBe(200); 
+            expect(response.status()).toBe(200);
             const responseBody = await response.json();
             id = responseBody.id;
         });
@@ -128,7 +128,7 @@ test.describe('Pruebas de api para crear un tablero', () => {
         });
 
         test('Cerrar tablero con codigo 200', async ({ }) => {
-            const endpoint = getDynamicEndpoint(BOARD, id, { closed: true}, true);
+            const endpoint = getDynamicEndpoint(BOARD, id, { closed: true }, true);
             const response = await httpPut(endpoint);
             expect(response.status()).toBe(200);
             const responseBody = await response.json();
@@ -137,13 +137,13 @@ test.describe('Pruebas de api para crear un tablero', () => {
         });
 
         test('Abrir tablero con codigo 200', async ({ }) => {
-            let endpoint = getDynamicEndpoint(BOARD, id, { closed: true}, true);
+            let endpoint = getDynamicEndpoint(BOARD, id, { closed: true }, true);
             let response = await httpPut(endpoint);
             expect(response.status()).toBe(200);
             let responseBody = await response.json();
             expect(responseBody).toHaveProperty('name', responseBody.name);
             expect(responseBody).toHaveProperty('closed', responseBody.closed);
-            endpoint = getDynamicEndpoint(BOARD, id, { closed: false}, true);
+            endpoint = getDynamicEndpoint(BOARD, id, { closed: false }, true);
             response = await httpPut(endpoint);
             expect(response.status()).toBe(200);
             responseBody = await response.json();
@@ -157,4 +157,28 @@ test.describe('Pruebas de api para crear un tablero', () => {
         });
     })
 
+    test.describe('Pruebas de api para poner en favorito un tablero', () => {
+        test.beforeEach(async ({ }) => {
+            const endpoint = getDynamicEndpoint(BOARD, '', { name: 'RANDOM' }, true);
+            const response = await httpPost(endpoint);
+            expect(response.status()).toBe(200);
+            const responseBody = await response.json();
+            id = responseBody.id;
+        });
+
+        test('Creacion de estrella para un tablero con codigo 200', async ({ }) => {
+            const endpoint = getDynamicEndpoint(MEMBER,`me/boardStars`, { idBoard: id , pos: 1}, true);
+            const response = await httpPost(endpoint);
+            expect(response.status()).toBe(200);
+            const responseBody = await response.json();
+            // id = responseBody.id;
+        });
+
+        test.afterEach(async ({ }, testInfo) => {
+            expect(id).toBeDefined();
+            const endpoint = getDynamicEndpoint(BOARD, id, null, true);
+            const response = await httpDelete(endpoint);
+            expect(response.status()).toBe(200);
+        });
+    })
 })

@@ -1,4 +1,4 @@
-import { BASE_URL_API, TOKEN, KEY, BOARD } from "../utils/config";
+import { BASE_URL_API, TOKEN, KEY } from "../utils/config";
 var randomstring = require("randomstring");
 
 export function getDynamicEndpoint(module, path, query, authorization) {
