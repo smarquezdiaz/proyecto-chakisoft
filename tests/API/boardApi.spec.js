@@ -1,5 +1,5 @@
 import { expect, test } from '@playwright/test';
-import { httpGet, httpPost, httpDelete } from "../../fixtures/apiConfig";
+import { httpGet, httpPost, httpDelete, httpPut } from "../../fixtures/apiConfig";
 import { getDynamicEndpoint } from "../../utils/utils";
 import { BOARD } from "../../utils/config";
 
@@ -60,11 +60,11 @@ test.describe('Pruebas de api para crear un tablero', () => {
         expect(responseBody).toHaveProperty('name', responseBody.name);
     });
 
-   test('Creacion de tablero con codigo 401', async ({ }) => {
+    test('Creacion de tablero con codigo 401', async ({ }) => {
         const endpoint = getDynamicEndpoint(BOARD, '', { name: 'RANDOM' }, false);
         const response = await httpPost(endpoint);
         expect(response.status()).toBe(401);
-    }); 
+    });
 
     test('Creacion de tablero con nombre vacio con codigo 400', async ({ }) => {
         const endpoint = getDynamicEndpoint(BOARD, '', { name: 'EMPTY' }, true);
@@ -100,4 +100,61 @@ test.describe('Pruebas de api para crear un tablero', () => {
         const response = await httpDelete(endpoint);
         expect(response.status()).toBe(200);
     });
+
+    test.describe('Pruebas de api para actualizar un tablero', () => {
+        test.beforeEach(async ({ }) => {
+            const endpoint = getDynamicEndpoint(BOARD, '', { name: 'RANDOM' }, true);
+            const response = await httpPost(endpoint);
+            expect(response.status()).toBe(200); 
+            const responseBody = await response.json();
+            id = responseBody.id;
+        });
+
+        test('Actualizacion de tablero con codigo 200', async ({ }) => {
+            const endpoint = getDynamicEndpoint(BOARD, id, { name: 'RANDOM' }, true);
+            const response = await httpPut(endpoint);
+            expect(response.status()).toBe(200);
+            const responseBody = await response.json();
+            expect(responseBody).toHaveProperty('name', responseBody.name);
+        });
+
+        test('Actualizacion de la descripcion del tablero con codigo 200', async ({ }) => {
+            const endpoint = getDynamicEndpoint(BOARD, id, { name: 'RANDOM', desc: 'RANDOM' }, true);
+            const response = await httpPut(endpoint);
+            expect(response.status()).toBe(200);
+            const responseBody = await response.json();
+            expect(responseBody).toHaveProperty('name', responseBody.name);
+            expect(responseBody).toHaveProperty('desc', responseBody.desc);
+        });
+
+        test('Cerrar tablero con codigo 200', async ({ }) => {
+            const endpoint = getDynamicEndpoint(BOARD, id, { closed: true}, true);
+            const response = await httpPut(endpoint);
+            expect(response.status()).toBe(200);
+            const responseBody = await response.json();
+            expect(responseBody).toHaveProperty('name', responseBody.name);
+            expect(responseBody).toHaveProperty('closed', responseBody.closed);
+        });
+
+        test('Abrir tablero con codigo 200', async ({ }) => {
+            let endpoint = getDynamicEndpoint(BOARD, id, { closed: true}, true);
+            let response = await httpPut(endpoint);
+            expect(response.status()).toBe(200);
+            let responseBody = await response.json();
+            expect(responseBody).toHaveProperty('name', responseBody.name);
+            expect(responseBody).toHaveProperty('closed', responseBody.closed);
+            endpoint = getDynamicEndpoint(BOARD, id, { closed: false}, true);
+            response = await httpPut(endpoint);
+            expect(response.status()).toBe(200);
+            responseBody = await response.json();
+        });
+
+        test.afterEach(async ({ }, testInfo) => {
+            expect(id).toBeDefined();
+            const endpoint = getDynamicEndpoint(BOARD, id, null, true);
+            const response = await httpDelete(endpoint);
+            expect(response.status()).toBe(200);
+        });
+    })
+
 })
