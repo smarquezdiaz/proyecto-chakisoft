@@ -2,8 +2,8 @@ const { test: base, expect } = require('@playwright/test'); // agregado expect
 
 export const test = base.extend({
   createBoardPage: async ({ page }, use) => {
-     // Usamos el estado de login
-    await page.goto('https://trello.com/u/lomardiego17/boards'); 
+    // Usamos el estado de login
+    await page.goto('https://trello.com/u/lomardiego17/boards');
 
     // Crear tablero
     await expect(page.getByTestId('header-create-menu-button')).toBeVisible(); // agregado
@@ -15,7 +15,7 @@ export const test = base.extend({
     // esperar a que el input esté visible antes de escribir
     await expect(page.getByTestId('create-board-title-input')).toBeVisible(); // agregado
     await page.fill('[data-testid="create-board-title-input"]', 'pruebadesdeui');
-    
+
     // esperar a que el botón esté habilitado
     await expect(page.getByTestId('create-board-submit-button')).toBeEnabled(); // agregado
     await page.getByTestId('create-board-submit-button').click();
@@ -28,7 +28,7 @@ export const test = base.extend({
     await page.keyboard.press('Escape');
     await page.keyboard.press('Escape');
     await page.keyboard.press('Escape');
-
+    await page.waitForTimeout(2000);
     // agregado: esperar a que el menú esté visible antes de abrirlo
     await expect(page.locator('[aria-label="Mostrar menú"]')).toBeVisible(); // agregado
     await page.locator('[aria-label="Mostrar menú"]').click();

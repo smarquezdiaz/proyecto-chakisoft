@@ -1,3 +1,4 @@
+const { expect } = require('@playwright/test');
 const { BasePage } = require('./BasePage');
 const path = require('path');
 
@@ -107,6 +108,48 @@ class commentCard extends BasePage {
         await this.emojiPickerpage.click();
         await this.emojiPicker.click();
         await this.saveComment.click();
+    }
+
+    async typeComment(comment, type) {
+        switch (type) {
+            case 'normal':
+                await this.writeComment(comment);
+                await expect(this.comments.first()).toHaveText(comment);
+                break;
+            case 'negrilla':
+                await this.ctrlBComment(comment);
+                await expect(this.boldText.first()).toBeVisible();
+                break;
+            case 'numerado':
+                await this.listComment(comment);
+                await expect(this.lastCommentActions.locator('ol')).toBeVisible();
+                break;
+            default:
+                throw new Error(`Escenario no manejado: ${type}`);
+        }
+    }
+
+    async truncatedOrTxt(type) {
+        if (type === 'truncado') {
+            await this.addTruncateButton.click();
+            await expect(this.saveComment).toBeVisible();
+            await this.saveComment.click();
+        } else {
+            await this.addAttachment();
+            await expect(this.attachmentName).toHaveText('comment.txt');
+        }
+    }
+
+    async openHelp() {
+        await this.commentBox.click();
+        await expect(this.helpButton).toBeVisible();
+        await this.helpButton.click();
+        await expect(this.modal).toBeVisible();
+    }
+
+    async closeHelp() {
+        await this.closeButtonHelp.click();
+        await expect(this.modal).toBeHidden();
     }
 }
 module.exports = { commentCard };

@@ -1,3 +1,4 @@
+const { expect } = require('@playwright/test');
 const { BasePage } = require('./BasePage');
 
 class BoardSharePage extends BasePage {
@@ -30,16 +31,6 @@ class BoardSharePage extends BasePage {
         this.enableColorblindButton = page.getByRole('button', { name: 'Habilitar el modo apto para daltónicos' });
         this.disableColorblindButton = page.getByRole('button', { name: 'Deshabilitar el modo apto para daltónicos' });
     }
-    async writeUser(name, ok) {
-        await this.shareButton.click();
-        await this.addMembers.fill(name);
-        await this.addMembers.press('Space');
-        await this.addMembers.press('Backspace');
-        if (ok === true) {
-            await this.suggestions.first().click();
-            await this.inviteButton.click();
-        }
-    }
 
     async menuLabel() {
         await this.menuButtonPage.click();
@@ -67,6 +58,52 @@ class BoardSharePage extends BasePage {
         await this.labelsExist.last().click();
         await this.deleteButton.click();
         await this.deleteButton.click();
+    }
+
+    async writeUser(name, ok) {
+        await this.shareButton.click();
+        await this.addMembers.fill(name);
+        await this.addMembers.press('Space');
+        await this.addMembers.press('Backspace');
+        if (ok === true) {
+            await this.suggestions.first().click();
+            await this.inviteButton.click();
+        }
+    }
+
+    async copyLink() {
+        await this.shareButton.click();
+        await this.createLink.click();
+    }
+
+    async deleteLinkCopy() {
+        await this.deleteLink.click();
+        await this.confirmDelete.click();
+    }
+
+    async typeLabel(input, color) {
+        const ariaLabel = await this.getLastLabelAria();
+        if (input === '') {
+            await this.expectInputAndColor(ariaLabel, 'ninguno', color);
+        } else {
+            await this.expectInputAndColor(ariaLabel, input, color);
+        }
+    }
+
+    async expectInputAndColor(contains, input, color) {
+        await expect(contains).toContain(input);
+        await expect(contains).toContain(color);
+    }
+
+    async enableColorblind() {
+        await this.enableColorblindButton.click();
+        await expect(this.disableColorblindButton).toBeVisible();
+
+    }
+
+    async disableColorblind() {
+        await this.disableColorblindButton.click();
+        await expect(this.enableColorblindButton).toBeVisible();
     }
 }
 module.exports = { BoardSharePage };

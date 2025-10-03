@@ -8,27 +8,12 @@ test.use({ storageState: 'playwright/.auth/user.json' });
 commentType.forEach(({ comment, type }) => {
     test(`Verificar escribir comentario de tipo: ${type}`, async ({ createCardPage }) => {
         const commentPage = new commentCard(createCardPage);
-        switch (type) {
-            case 'normal':
-                await commentPage.writeComment(comment);
-                await expect(commentPage.comments.first()).toHaveText(comment);
-                break;
-            case 'negrilla':
-                await commentPage.ctrlBComment(comment);
-                await expect(commentPage.boldText.first()).toBeVisible();
-                break;
-            case 'numerado':
-                await commentPage.listComment(comment);
-                await expect(commentPage.lastCommentActions.locator('ol')).toBeVisible();
-                break;
-            default:
-                throw new Error(`Escenario no manejado: ${type}`);
-        }
+        await commentPage.typeComment(comment, type);
     });
 });
 
 commentEditDelete.forEach(({ input, edit }) => {
-    test("Verificar editar comentario", async ({ createCardPage }) => {
+    test("Verificar editar comentario recien creado", async ({ createCardPage }) => {
         const commentPage = new commentCard(createCardPage);
         await commentPage.writeComment(input);
         await commentPage.editComment(edit);
@@ -37,7 +22,7 @@ commentEditDelete.forEach(({ input, edit }) => {
 });
 
 commentEditDelete.forEach(({ input, edit }) => {
-    test("Verificar eliminar un comentario", async ({ createCardPage }) => {
+    test("Verificar eliminar un comentario el ultimo creado", async ({ createCardPage }) => {
         const commentPage = new commentCard(createCardPage);
         await commentPage.writeComment(input);
         await commentPage.writeComment(edit);
@@ -52,7 +37,7 @@ test("Verificar subir imagen en un comentario", async ({ createCardPage }) => {
     await expect(commentPage.attachmentName).toHaveText('imageForComment.png');
 });
 
-test("Verificar que no se pueda mencionar en comentario a miembros que no esyan el board", async ({ createCardPage }) => {
+test("Verificar que no se pueda mencionar en comentario a miembros que no estan el board", async ({ createCardPage }) => {
     const commentPage = new commentCard(createCardPage);
     await commentPage.fillComment("@perosonanoesta");
     await expect(commentPage.commentMention).toHaveCount(0);
@@ -69,25 +54,14 @@ commentLarge.forEach(({ input, type }) => {
     test(`Verificar que al llegar al limite de cracteres en comentario se pueda publicar como ${type}`, async ({ createCardPage }) => {
         const commentPage = new commentCard(createCardPage);
         await commentPage.fillComment(input);
-        if (type === 'truncado') {
-            await commentPage.addTruncateButton.click();
-            await expect(commentPage.saveComment).toBeVisible();
-            await commentPage.saveComment.click();
-        } else {
-            await commentPage.addAttachment();
-            await expect(commentPage.attachmentName).toHaveText('comment.txt');
-        }
+        await commentPage.truncatedOrTxt(type);
     });
 });
 
 test("Verificar que el icono de ayuda abre documentación", async ({ createCardPage }) => {
     const commentPage = new commentCard(createCardPage);
-    await commentPage.commentBox.click();
-    await expect(commentPage.helpButton).toBeVisible();
-    await commentPage.helpButton.click();
-    await expect(commentPage.modal).toBeVisible();
-    await commentPage.closeButtonHelp.click();
-    await expect(commentPage.modal).toBeHidden();
+    await commentPage.openHelp();
+    await commentPage.closeHelp();
 });
 
 test("Verificar guardar borrador de comentario", async ({ createCardPage }) => {
