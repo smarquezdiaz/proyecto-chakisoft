@@ -1,7 +1,7 @@
 import { BASE_URL_API, TOKEN, KEY, BOARD } from "../utils/config";
 var randomstring = require("randomstring");
 
-export function getDynamicEndpoint(module, path, query) {
+export function getDynamicEndpoint(module, path, query, authorization) {
     let url = `${BASE_URL_API}${module}${path ? path : ''}`;
     const params = [];
     if (Array.isArray(query)) {
@@ -12,8 +12,10 @@ export function getDynamicEndpoint(module, path, query) {
             }
         });
     }
-    params.push(`key=${KEY}`);
-    params.push(`token=${TOKEN}`);
+    if (authorization === true) {
+        params.push(`key=${KEY}`);
+        params.push(`token=${TOKEN}`);
+    }
     if (params.length > 0) {
         url += `?${params.join('&')}`;
     }
