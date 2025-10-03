@@ -1,4 +1,4 @@
-import { expect } from "@playwright/test";
+import { test, expect } from "@playwright/test";
 
 export class BoardPage {
 
@@ -27,11 +27,9 @@ export class BoardPage {
     }
 
     async deleteBoard(title) {
-        await this.page.waitForTimeout(3000); // Waits for 3 seconds
         const openBoardBtn = this.page.getByRole('a', { hasText: `${title}` });
         await this.page.waitForSelector('button[aria-label="Mostrar menú"]');
         const openMenuBtn = this.page.locator('button[aria-label="Mostrar menú"]')
-        await this.page.waitForTimeout(3000);
         await openMenuBtn.click();
         const closeBtn = this.page.locator('span[aria-label="Cerrar tablero"]')
         await closeBtn.click();
@@ -54,5 +52,11 @@ export class BoardPage {
         await input.fill(newTitle);
         const h1Content = this.page.locator('[data-testid="board-name-display"]');
         await expect(h1Content).toHaveText(newTitle);
+    }
+
+    async addFavorite(title) {
+        const contenedorTablero = this.page.locator(`.Dm9SyZvpL8MyK1:has-text("${title}")`);
+        const botonEstrella = contenedorTablero.locator('[data-testid="board-star"]').first();
+        await botonEstrella.click();
     }
 }

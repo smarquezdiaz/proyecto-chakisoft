@@ -33,26 +33,40 @@ test.describe('Test Cases para Crear Board', () => {
     });
 });
 
-test.describe('Test Cases E2E para CRUD de Board', () => {
-    test.beforeEach(async ({ page }) => {
+test.describe('Test Cases para poner en favoritos un tablero', () => {
+   test.beforeEach(async ({ page }) => {
         board = new BoardPage(page);
         await board.goTo();
-    });
-
-    test('Flujo CRUD de Board', async () => {
         boardTitle = randomstring.generate(5);
         await board.createBoard(boardTitle);
-        await board.goTo();
-        await board.openBoard(boardTitle);
-        await board.goTo();
-        // updateTitle = randomstring.generate(5);
-        // await board.updateBoard(boardTitle, updateTitle);
     });
 
-    test.afterAll(async ({ }) => {
-        await board.deleteBoard(boardTitle);
-    });
-});
+    test('test para verificar que permite poner un tablero en favoritos', async () => {
+        await board.goTo();
+        await board.addFavorite(boardTitle);
+    })
+
+})
+// test.describe('Test Cases E2E para CRUD de Board', () => {
+//     test.beforeEach(async ({ page }) => {
+//         board = new BoardPage(page);
+//         await board.goTo();
+//     });
+
+//     test('Flujo CRUD de Board', async () => {
+//         boardTitle = randomstring.generate(5);
+//         await board.createBoard(boardTitle);
+//         await board.goTo();
+//         await board.openBoard(boardTitle);
+//         await board.goTo();
+//         // updateTitle = randomstring.generate(5);
+//         // await board.updateBoard(boardTitle, updateTitle);
+//     });
+
+//     test.afterAll(async ({ }) => {
+//         await board.deleteBoard(boardTitle);
+//     });
+// });
 
 
 // test('mock API response', async ({ page }) => {
