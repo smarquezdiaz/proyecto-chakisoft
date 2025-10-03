@@ -32,3 +32,29 @@ export async function httpPost(
   const response = await context.post(url, { data, headers });
   return response;
 }
+
+export async function httpPatch(
+  url,
+  data,
+  headers
+) {
+  const response = await context.patch(url, { data, headers });
+  return response;
+}
+
+export async function httpPut(
+  url,
+  data,
+  headers
+) {
+  const response = await context.put(url, { data, headers });
+  return response;
+}
+
+export async function httpDelete(
+  url,
+  headers
+) {
+  const response = await context.delete(url, { headers });
+  return response;
+}
