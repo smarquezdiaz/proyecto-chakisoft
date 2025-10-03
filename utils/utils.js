@@ -4,13 +4,18 @@ var randomstring = require("randomstring");
 export function getDynamicEndpoint(module, path, query, authorization) {
     let url = `${BASE_URL_API}${module}${path ? path : ''}`;
     const params = [];
-    if (Array.isArray(query)) {
-        query.forEach(paramName => {
-            if (typeof paramName === 'string') {
-                const randomValue = randomstring.generate(5);
-                params.push(`${paramName}=${randomValue}`);
+    if (query && typeof query === 'object' && !Array.isArray(query)) {
+        for (const paramName in query) {
+            let paramValue = query[paramName];
+            if (paramValue === 'RANDOM') {
+                paramValue = randomstring.generate(5);
             }
-        });
+            if (paramValue === 'EMPTY') {
+                params.push(paramName);
+            } else {
+                params.push(`${paramName}=${paramValue}`);
+            }
+        }
     }
     if (authorization === true) {
         params.push(`key=${KEY}`);
