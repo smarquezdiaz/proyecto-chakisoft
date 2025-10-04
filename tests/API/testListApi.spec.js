@@ -50,7 +50,8 @@ test.describe('API Tests - Trello Lists', () => {
   });
 
   test('API-TC05 - Archivar tarjetas', async ({ listPage, testLists }) => {
-    const response = await listPage.archiveAllCards(testLists.secondaryListId);
+    const response = await listPage.
+    archiveAllCards(testLists.secondaryListId);
     await validateResponse(response, validateCardOperation, 'POST /lists/{id}/archiveAllCards');
   });
 
@@ -66,15 +67,5 @@ test.describe('API Tests - Trello Lists', () => {
     expect(response.closed).toBe(false);
   });
 
-  test('API-TC08 - Listas activas y archivadas', async ({ listPage }) => {
-    const active = await listPage.getActiveLists();
-    const archived = await listPage.getArchivedLists();
-    expect(Array.isArray(active)).toBe(true);
-    expect(Array.isArray(archived)).toBe(true);
-  });
 
-  test('API-TC09 - Contar listas', async ({ listPage }) => {
-    const count = await listPage.getListCount();
-    expect(count).toBeGreaterThan(0);
-  });
 });

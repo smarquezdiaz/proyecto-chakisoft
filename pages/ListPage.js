@@ -38,9 +38,14 @@ class ListPage {
      */
     async createList(name) {
         await this.getAddListButton().click();
-        await this.page.locator(this.selectors.listNameInput).first().fill(name);
-        await this.page.locator(this.selectors.submitListButton).first().click();
-        await this.helpers.safeWait(1500);
+        const nameInput = this.page.locator(this.selectors.listNameInput).first();
+        await expect(nameInput).toBeVisible();
+        
+        await nameInput.fill(name);
+        const submitButton = this.page.locator(this.selectors.submitListButton).first();
+        await submitButton.click();
+        
+        await expect(this.page.locator(`${this.selectors.listNameHeader}:has-text("${name}")`).first()).toBeVisible();
     }
 
     /**
@@ -50,57 +55,68 @@ class ListPage {
         const list = await this.findListByName(oldName);
         const headerButton = list.locator(`${this.selectors.listNameHeader} button`).first();
         await headerButton.click();
-        await this.helpers.safeWait(500);
         
         const textarea = this.page.locator(this.selectors.listNameInput).first();
-        await textarea.waitFor({ state: 'visible' });
+        await expect(textarea).toBeVisible();
+        
         await textarea.selectText();
         await textarea.fill(newName);
         await textarea.press('Enter');
-        await this.helpers.safeWait(1500);
+        
+        await expect(this.page.locator(`${this.selectors.listNameHeader}:has-text("${newName}")`).first()).toBeVisible();
     }
 
     /**
      * Abre el menú de una lista
      */
     async openListMenu(listName) {
-        const list = await this.findListByName(listName);
-        await list.scrollIntoViewIfNeeded();
-        await this.helpers.safeWait(500);
-        
-        const menuButton = list.locator(this.selectors.listMenuButton).first();
-        await menuButton.waitFor({ state: 'visible', timeout: 5000 });
-        await menuButton.click();
-        await this.helpers.safeWait(1000);
-    }
-
+    const list = await this.findListByName(listName);
+    await list.scrollIntoViewIfNeeded();
+    
+    const menuButton = list.locator(this.selectors.listMenuButton).first();
+    await expect(menuButton).toBeVisible();
+    await menuButton.click();
+    
+    // Esperar que el menú se abra
+    await this.page.waitForTimeout(1500);
+}
     /**
      * Mueve una lista a otro tablero
      */
     async moveListToBoard(listName, targetBoardName) {
-        await this.openListMenu(listName);
-        
-        const moveButton = this.page.locator(this.selectors.moveListButton).first();
-        await moveButton.waitFor({ state: 'visible', timeout: 5000 });
-        await moveButton.click();
-        await this.helpers.safeWait(1200);
-        
-        const boardSelect = this.page.locator(this.selectors.boardSelect).first();
-        await boardSelect.waitFor({ state: 'visible', timeout: 5000 });
-        await boardSelect.click();
-        await this.helpers.safeWait(800);
-        
-        const boardOption = this.page.locator(`li:has-text("${targetBoardName}")`).first();
-        await boardOption.waitFor({ state: 'visible', timeout: 5000 });
-        await boardOption.click();
-        await this.helpers.safeWait(1000);
-        
-        const moveSubmitButton = this.page.locator('button:has-text("Mover")').first();
-        await moveSubmitButton.waitFor({ state: 'visible', timeout: 5000 });
-        await moveSubmitButton.click();
-        await this.helpers.safeWait(3000);
-    }
-
+    const list = await this.findListByName(listName);
+    await list.scrollIntoViewIfNeeded();
+    
+    // 1. Abrir menú de la lista (tres puntos)
+    const menuButton = list.locator('button[data-testid="list-edit-menu-button"]').first();
+    await menuButton.waitFor({ state: 'visible', timeout: 5000 });
+    await menuButton.click();
+    await this.page.waitForTimeout(2500);
+    
+    // 2. Click en "Mover lista"
+    const moveButton = this.page.locator('button[data-testid="list-actions-move-list-button"]').first();
+    await moveButton.waitFor({ state: 'visible', timeout: 10000 });
+    await moveButton.click();
+    await this.page.waitForTimeout(1500);
+    
+    // 3. Click en el selector de tablero
+    const boardSelect = this.page.locator('input[id="move-list-screen-board-options-select"]').first();
+    await boardSelect.waitFor({ state: 'visible', timeout: 5000 });
+    await boardSelect.click();
+    await this.page.waitForTimeout(800);
+    
+    // 4. Seleccionar el tablero "pruebas mover"
+    const boardOption = this.page.locator(`div[role="option"]:has-text("${targetBoardName}")`).first();
+    await boardOption.waitFor({ state: 'visible', timeout: 5000 });
+    await boardOption.click();
+    await this.page.waitForTimeout(1000);
+    
+    // 5. Click en el botón "Mover"
+    const moveSubmitButton = this.page.locator('button[type="submit"]:has-text("Mover")').first();
+    await moveSubmitButton.waitFor({ state: 'visible', timeout: 5000 });
+    await moveSubmitButton.click();
+    await this.page.waitForTimeout(3000);
+}
     /**
      * Mueve una lista a una posición específica
      */
@@ -108,24 +124,21 @@ class ListPage {
         await this.openListMenu(listName);
         
         const moveButton = this.page.locator(this.selectors.moveListButton).first();
-        await moveButton.waitFor({ state: 'visible', timeout: 5000 });
         await moveButton.click();
-        await this.helpers.safeWait(1000);
         
         const positionInput = this.page.locator(this.selectors.positionSelect).first();
-        await positionInput.waitFor({ state: 'visible', timeout: 5000 });
+        await expect(positionInput).toBeVisible();
         await positionInput.click();
-        await this.helpers.safeWait(800);
         
         const option = this.page.locator(`li:text-is("${targetPosition}")`).first();
-        await option.waitFor({ state: 'visible', timeout: 5000 });
+        await expect(option).toBeVisible();
         await option.click();
-        await this.helpers.safeWait(800);
         
         const submitButton = this.page.locator(this.selectors.submitMoveButton).first();
-        await submitButton.waitFor({ state: 'visible', timeout: 5000 });
+        await expect(submitButton).toBeVisible();
         await submitButton.click();
-        await this.helpers.safeWait(2000);
+        
+        await expect(submitButton).not.toBeVisible();
     }
 
     /**
@@ -135,17 +148,19 @@ class ListPage {
         await this.openListMenu(listName);
         
         const copyButton = this.page.locator(this.selectors.copyListButton).first();
-        await copyButton.waitFor({ state: 'visible', timeout: 5000 });
+        await expect(copyButton).toBeVisible();
         await copyButton.click();
-        await this.helpers.safeWait(1200);
         
         const createButton = this.page.locator('button:has-text("Crear lista")').first();
-        await createButton.waitFor({ state: 'visible', timeout: 10000 });
+        await expect(createButton).toBeVisible();
         await createButton.click();
-        await this.helpers.safeWait(4000);
         
-        await this.helpers.waitForNetworkIdle();
-        await this.helpers.safeWait(1000);
+        // Esperar que Trello procese la copia 
+        await this.page.waitForLoadState('networkidle');
+        await this.page.waitForTimeout(5000);
+        
+        const copiedList = this.page.locator(`${this.selectors.listWrapper}:has-text("${listName}")`).last();
+        await expect(copiedList).toBeVisible();
     }
 
     /**
@@ -156,56 +171,57 @@ class ListPage {
         
         const archiveButton = this.page.locator(this.selectors.archiveListButton).first();
         await archiveButton.click();
-        await this.helpers.safeWait(1000);
+        
+        const archivedList = this.page.locator(`${this.selectors.listWrapper}:has-text("${listName}")`);
+        await expect(archivedList).not.toBeVisible();
     }
 
     /**
      * Sigue una lista
      */
     async followList(listName) {
-        await this.openListMenu(listName);
-        
-        const followButton = this.page.locator(this.selectors.followListButton).first();
-        await followButton.waitFor({ state: 'visible', timeout: 5000 });
-        await followButton.click();
-        await this.helpers.safeWait(1000);
-        
-        await this.page.keyboard.press('Escape');
-        await this.helpers.safeWait(500);
-    }
+    await this.openListMenu(listName);
+    
+    const followButton = this.page.locator('button[data-testid="list-actions-watch-list-button"]').first();
+    await followButton.waitFor({ state: 'visible', timeout: 10000 });
+    await followButton.click();
+    await this.page.waitForTimeout(1000);
+    
+    await this.page.keyboard.press('Escape');
+    console.log(`✓ Lista seguida: ${listName}`);
+}
 
     /**
      * Desarchivar lista
      */
     async unarchiveList(listName) {
-        try {
-            await this.helpers.openArchivedItems();
-            await this.helpers.switchToArchivedLists();
-            
-            const listItem = this.page.locator(`li:has-text("${listName}")`).first();
-            await listItem.waitFor({ state: 'visible', timeout: 5000 });
-            await listItem.hover();
-            await this.helpers.safeWait(800);
-            
-            // Intentar múltiples estrategias para el botón restaurar
-            let restoreButton = this.page.locator('button:has-text("Restaurar")').first();
-            
-            if (!await this.helpers.isVisible('button:has-text("Restaurar")')) {
-                restoreButton = this.page.locator('[data-testid="RefreshIcon"]')
-                    .locator('xpath=ancestor::button').first();
-            }
-            
-            await restoreButton.waitFor({ state: 'visible', timeout: 5000 });
-            await restoreButton.click();
-            await this.helpers.safeWait(2000);
-            
-            await this.page.keyboard.press('Escape');
-            await this.helpers.safeWait(1000);
-        } catch (error) {
-            await this.helpers.takeDebugScreenshot('unarchive-error');
-            await this.page.keyboard.press('Escape');
-            throw error;
+        console.log(`Desarchivando: ${listName}`);
+        
+        await this.page.goto('https://trello.com/b/AcEzc2Wb/mi-tablero-de-trello');
+        await this.page.waitForLoadState('networkidle');
+
+        const menuButton = this.page.locator('button[aria-label="Mostrar menú"]');
+        await expect(menuButton).toBeVisible();
+        await menuButton.click();
+
+        const archivedItemsButton = this.page.locator('button:has-text("Elementos archivados")');
+        await expect(archivedItemsButton).toBeVisible();
+        await archivedItemsButton.click();
+
+        const cambiarBtn = this.page.locator('button:has-text("Cambiar a listas")');
+        if (await cambiarBtn.isVisible()) {
+            await cambiarBtn.click();
+            await expect(cambiarBtn).not.toBeVisible();
         }
+
+        const listRow = this.page.locator(`.WSMoQ6pckTKoQo:text-is("${listName}")`).locator('..');
+        const restoreButton = listRow.locator('button:has-text("Restaurar")');
+        await expect(restoreButton).toBeVisible();
+        await restoreButton.click();
+
+        await this.page.keyboard.press('Escape');
+        
+        console.log(` Lista desarchivada: ${listName}`);
     }
 
     /**
@@ -217,26 +233,23 @@ class ListPage {
             await this.helpers.switchToArchivedLists();
             
             const listText = this.page.locator(`text="${listName}"`).first();
-            await listText.waitFor({ state: 'visible', timeout: 5000 });
+            await expect(listText).toBeVisible();
             await listText.hover();
-            await this.helpers.safeWait(500);
             
             const container = listText.locator('..');
             const deleteBtn = container.locator('button').last();
             await deleteBtn.click();
-            await this.helpers.safeWait(1000);
             
-            await this.page.locator('h2:has-text("¿Eliminar la lista?")')
-                .waitFor({ state: 'visible', timeout: 5000 });
-            await this.helpers.safeWait(500);
+            const confirmDialog = this.page.locator('h2:has-text("¿Eliminar la lista?")');
+            await expect(confirmDialog).toBeVisible();
             
             const confirmButton = this.page.locator('button.wxzsFisvWmMGpf:has-text("Eliminar")').first();
-            await confirmButton.waitFor({ state: 'visible', timeout: 5000 });
+            await expect(confirmButton).toBeVisible();
             await confirmButton.click();
-            await this.helpers.safeWait(1500);
+            
+            await expect(listText).not.toBeVisible();
             
             await this.page.keyboard.press('Escape');
-            await this.helpers.safeWait(500);
         } catch (error) {
             await this.page.keyboard.press('Escape');
             throw error;
