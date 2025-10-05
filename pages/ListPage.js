@@ -1,6 +1,6 @@
 // pages/ListPage.js
 const { expect } = require('@playwright/test');
-const { UIHelpers } = require('../utils/UI-ListHelpers');
+const { UIHelpers } = require('../utils/helperListUI');
 
 class ListPage {
     constructor(page) {

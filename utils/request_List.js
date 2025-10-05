@@ -1,9 +1,14 @@
-// import fetch from 'node-fetch';
+import dotenv from 'dotenv';
+import { expect } from '@playwright/test';
 
-const key = '5e757829ec9ca787c647d01e126b476b';
-const token = 'ATTA5b7ff9373f9a61301f5dc68f630a7763771ea987fdd4fdc5c15e67207fb215880E09D7AD';
+// Cargar variables del entorno (.env)
+dotenv.config();
+
+const key = process.env.API_KEY;
+const token = process.env.API_TOKEN;
 
 // ==================== LISTS API ====================
+
 export async function getBoardLists(boardId) {
   const url = `https://api.trello.com/1/boards/${boardId}/lists?key=${key}&token=${token}`;
   const res = await fetch(url);
@@ -24,7 +29,6 @@ export async function renameList(listId, newName) {
   if (!res.ok) throw new Error(`PUT /lists/${listId} failed: ${res.status}`);
   return res.json();
 }
-
 
 export async function archiveList(listId, archive = true) {
   const url = `https://api.trello.com/1/lists/${listId}/closed?key=${key}&token=${token}&value=${archive}`;
@@ -55,6 +59,7 @@ export async function moveAllCards(listId, idBoard, targetListId) {
 }
 
 // ==================== CARDS API ====================
+
 export async function createCard(cardData) {
   const params = new URLSearchParams({ key, token, idList: cardData.idList });
   if (cardData.name) params.append('name', cardData.name);
@@ -78,4 +83,25 @@ export async function getCardsFromList(listId) {
   const res = await fetch(url);
   if (!res.ok) throw new Error(`GET /lists/${listId}/cards failed: ${res.status}`);
   return res.json();
+}
+
+// ==================== VALIDADORES / LOGGING ====================
+
+export async function validateResponse(response, validator, testName) {
+  expect(response).toBeDefined();
+  expect(response).not.toBeNull();
+
+  const isValid = validator(response);
+  if (!isValid) {
+    console.error(`[${testName}]  Schema failed:`, JSON.stringify(validator.errors, null, 2));
+  }
+
+  expect(isValid, JSON.stringify(validator.errors, null, 2)).toBe(true);
+  console.log(`[${testName}]  Response 200 OK - Schema validado`);
+
+  return response;
+}
+
+export function logStep(message) {
+  console.log(` ${message}`);
 }

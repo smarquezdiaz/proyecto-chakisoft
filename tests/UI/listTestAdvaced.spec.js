@@ -1,5 +1,5 @@
 // tests/UI/listTest.spec.js
-import { test, expect } from '../../fixtures/listFixturesUI.js';
+import { test, expect } from '../../fixtures/ListUIFixture.js';
 import { testData } from '../../data/dataList.js';
 
 test.use({ storageState: 'playwright/.auth/user.json' });

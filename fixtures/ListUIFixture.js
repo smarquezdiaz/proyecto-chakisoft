@@ -1,7 +1,7 @@
 // fixtures/listFixturesUI.js
 const { test: base, expect } = require('@playwright/test');
 const { ListPage } = require('../pages/ListPage');
-const { UIHelpers } = require('../utils/UI-ListHelpers');
+const { UIHelpers } = require('../utils/helperListUI');
 
 const BOARD_URL = 'https://trello.com/b/AcEzc2Wb/mi-tablero-de-trello';
 
