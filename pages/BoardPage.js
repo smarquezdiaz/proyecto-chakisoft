@@ -48,8 +48,16 @@ export class BoardPage {
     async updateBoard(title, newTitle) {
         // const openBoardBtn = this.page.getByRole('a', { hasText: `${title}` });
         // await openBoardBtn.click();
+        const boardNameDisplay = this.page.locator('[data-testid="board-name-display"]');
+        await boardNameDisplay.click();
         const input = this.page.locator('[data-testid="board-name-input"]');
         await input.fill(newTitle);
+        await input.press('Enter');
+        if (newTitle == "") {
+            const h1Content = this.page.locator('[data-testid="board-name-display"]');
+            await expect(h1Content).toHaveText(title);
+            return;
+        }
         const h1Content = this.page.locator('[data-testid="board-name-display"]');
         await expect(h1Content).toHaveText(newTitle);
     }
@@ -58,5 +66,27 @@ export class BoardPage {
         const contenedorTablero = this.page.locator(`.Dm9SyZvpL8MyK1:has-text("${title}")`);
         const botonEstrella = contenedorTablero.locator('[data-testid="board-star"]').first();
         await botonEstrella.click();
+    }
+
+    async deleteClosedBoards() {
+        const deleteBtn = this.page.getByText('Ver todos los tableros cerrados');
+        await deleteBtn.click();
+        const boardItemsLocator = this.page.locator('ul.g8RdqvgKdVNk0C > li.d0sKN6fe14jaBa');
+        const initialCount = await boardItemsLocator.count();
+         console.log(initialCount);
+        if (initialCount === 0) {
+            return;
+        }
+        while (await boardItemsLocator.count() > 0) {
+            const firstBoardItem = boardItemsLocator.first();
+            const deleteButton = firstBoardItem.locator('[data-testid="close-board-delete-board-button"]');
+            await deleteButton.click();
+            const confirmDeleteButton = this.page.locator('[data-testid="close-board-delete-board-confirm-button"]');
+            await page.waitForSelector('[data-testid="close-board-delete-board-confirm-button"]', { state: 'visible' });
+            await confirmDeleteButton.click();
+            await firstBoardItem.waitFor({ state: 'detached', timeout: 5000 });
+        }
+        const finalCount = await boardItemsLocator.count();
+        expect(finalCount).toBe(0);
     }
 }

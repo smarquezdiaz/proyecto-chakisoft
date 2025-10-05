@@ -1,5 +1,6 @@
 import { test } from '@playwright/test';
 import { BoardPage } from '../../pages/BoardPage';
+const { allure } = require('allure-playwright');
 
 let board;
 let boardTitle;
@@ -14,6 +15,9 @@ test.describe('Test Cases para Crear Board', () => {
     });
 
     test('test para verificar creacion exitosa de tablero', async () => {
+        // allure.tag('UI');
+        // allure.tag('Regression');
+        // allure.tag('Negative');
         boardTitle = randomstring.generate(5);
         await board.createBoard(boardTitle);
     });
@@ -34,7 +38,7 @@ test.describe('Test Cases para Crear Board', () => {
 });
 
 test.describe('Test Cases para poner en favoritos un tablero', () => {
-   test.beforeEach(async ({ page }) => {
+    test.beforeEach(async ({ page }) => {
         board = new BoardPage(page);
         await board.goTo();
         boardTitle = randomstring.generate(5);
@@ -47,6 +51,46 @@ test.describe('Test Cases para poner en favoritos un tablero', () => {
     })
 
 })
+
+test.describe('Test Cases para Actualizar Board', () => {
+    test.beforeEach(async ({ page }) => {
+        board = new BoardPage(page);
+        await board.goTo();
+        boardTitle = randomstring.generate(5);
+        await board.createBoard(boardTitle);
+    });
+
+    test('test para verificar actualizacion exitosa de tablero', async () => {
+        updateTitle = randomstring.generate(5);
+        await board.updateBoard(boardTitle, updateTitle);
+    });
+
+    test('test para verificar que no permita actualizar un tablero con titulo vacio', async () => {
+        updateTitle = "";
+        await board.updateBoard(boardTitle, updateTitle);
+    });
+
+    test.afterEach(async ({ }, testInfo) => {
+        if (testInfo.title === 'test para verificar que no permita actualizar un tablero con titulo vacio') {
+            await board.deleteBoard(boardTitle);
+            return;
+        }
+        await board.deleteBoard(updateTitle);
+        // if (testInfo.status !== testInfo.expectedStatus)
+        //     console.log(`${testInfo.title} did not run as expected!`);
+    });
+});
+
+test.describe('Test Cases eliminar tableros cerrados', () => {
+    test.beforeEach(async ({ page }) => {
+        board = new BoardPage(page);
+        await board.goTo();
+    });
+
+    test('test para verificar eliminar todos los tableros cerrados', async () => {
+        await board.deleteClosedBoards();
+    });
+});
 // test.describe('Test Cases E2E para CRUD de Board', () => {
 //     test.beforeEach(async ({ page }) => {
 //         board = new BoardPage(page);
