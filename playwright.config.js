@@ -1,6 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
-
+require('dotenv').config();
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -32,11 +32,14 @@ export default defineConfig({
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
   },
-
+timeout: 90000, // 90 segundos por test
+  expect: {
+    timeout: 15000 // 15 segundos para assertions
+  },
   /* Configure projects for major browsers */
   projects: [
     // Setup project
-    { name: 'setup', testMatch: /.*\.setup\.js/ },
+    // { name: 'setup', testMatch: /.*\.setup\.js/ },
     {
       name: 'chromium',
       use: {
@@ -44,7 +47,7 @@ export default defineConfig({
         // Use prepared auth state.
         storageState: 'playwright/.auth/user.json',
       },
-      dependencies: ['setup'],
+      // dependencies: ['setup'],
     },
 
     /* {
