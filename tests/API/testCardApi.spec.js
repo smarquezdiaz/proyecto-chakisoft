@@ -78,10 +78,9 @@ test.describe("🔹 Pruebas API Trello - Gestión de Tarjetas", () => {
 
   test("TC02 - Crear tarjeta con 6 caracteres", async ({ card }) => {
     const newCard = await card.createRandomCard(6);
-    expect(newCard.name.length).toBe(6); // validamos que tenga 6 chars
+    expect(newCard.name.length).toBe(6);
     console.log(`✓ Tarjeta creada con nombre: ${newCard.name}`);
-
-    await card.deleteCard(newCard.id); // teardown
+    await card.deleteCard(newCard.id);
   });
 
   test("TC03 - Crear tarjeta con nombre largo (256 chars)", async ({
@@ -95,7 +94,7 @@ test.describe("🔹 Pruebas API Trello - Gestión de Tarjetas", () => {
       `✓ Tarjeta creada con nombre largo (${newCard.name.length} chars)`
     );
 
-    await card.deleteCard(newCard.id); // teardown
+    await card.deleteCard(newCard.id);
   });
 
   //Metodo GET
@@ -160,12 +159,11 @@ test.describe("🔹 Casos negativos de APIKey y Token", () => {
     console.log("✓ Token inválido rechazado correctamente");
   });
 
-  test("TC-N03 - Crear tarjeta con nombre vacío (BUG)", async ({ card }) => {
+  test("TC-N03 - Crear tarjeta con nombre vacío", async ({ card }) => {
     const emptyName = "";
     const newCard = await card.createRandomCard(0);
 
     if (newCard && newCard.id) {
-      // Trello devolvió 200 (BUG)
       console.warn(
         "⚠ BUG detectado: Trello permite crear tarjeta con nombre vacío (status 200)"
       );

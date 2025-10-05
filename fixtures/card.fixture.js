@@ -1,23 +1,36 @@
 // fixtures/card.fixture.js
-import { test as base, expect } from "@playwright/test";
-import data from "../data/cards.json" assert { type: "json" };
-import { rid } from "../utils/random.js";
+import { test as base } from "@playwright/test";
 import { CardPage } from "../pages/CardPage.js";
-
-const BOARD_URL = data.boardUrl;
-const LIST_NAME = data.listName || "Tareas Asignadas";
+import { ridApi } from "../utils/random.js";
 
 export const test = base.extend({
-  // Inyecta el Page Object
-  cardPage: async ({ page }, use) => {
-    await use(new CardPage(page));
-  },
+  cardUI: async ({ page }, use) => {
+    const cardPage = new CardPage(page);
 
-  // Genera un título único para usar en los tests
-  uniqueTitle: async ({}, use) => {
-    const title = rid("TC");
-    await use(title);
+    // Navegar al tablero de Trello antes de cada test
+    await page.goto("https://trello.com/b/9ETDtbZp/wewe");
+    await page.waitForLoadState("networkidle");
+    await page.waitForTimeout(2000);
+
+    // Función helper para crear tarjeta con nombre aleatorio
+    async function createRandomCard(listName, length = 6) {
+      const cardName = ridApi(length);
+      await cardPage.createCard(listName, cardName);
+      return cardName;
+    }
+
+    // Pasamos el objeto con helpers al test
+    await use({
+      page: cardPage,
+      createRandomCard,
+      archiveCard: async (cardTitle) => {
+        try {
+          await cardPage.archiveCard(cardTitle);
+          console.log(`✓ Tarjeta archivada en teardown: ${cardTitle}`);
+        } catch (err) {
+          console.log("⚠ No se pudo archivar tarjeta:", err.message);
+        }
+      },
+    });
   },
 });
-
-export { expect };
