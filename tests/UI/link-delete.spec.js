@@ -1,6 +1,6 @@
 // tests/UI/link-delete.spec.js
 const { test, expect } = require('@playwright/test');
-const BoardPage = require('../../pages/BoardPage'); 
+const BoardPage = require('../../pages/BoardPageCardTre'); 
 const CardModalPage = require('../../pages/CardModalPage');
 const testData = require('../../data/linkTestData.json');
 const { shortWait, mediumWait, longWait } = require('../../utils/waits');

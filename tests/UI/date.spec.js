@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-const BoardPage = require('../../pages/BoardPage');
+const BoardPage = require('../../pages/BoardPageCardTre');
 const CardModalPage = require('../../pages/CardModalPage');
 const testData = require('../../data/datesTestData.json');
 const { shortWait } = require('../../utils/waits');
