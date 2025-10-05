@@ -1,0 +1,11 @@
+{
+  "dateScenarios": [
+    {
+      "testName": "Fecha corta - 2 semanas",
+      "startDate": "16/9/2025",
+      "dueDate": "30/9/2025",
+      "time": "2:16",
+      "reminder": "15 minutos antes"
+    }
+  ]
+}

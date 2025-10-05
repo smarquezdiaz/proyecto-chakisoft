@@ -1,0 +1,23 @@
+{
+  "linkOperations": [
+    {
+      "testName": "Agregar y editar adjunto URL básico",
+      "cardName": "Agregar",
+      "initialLink": {
+        "url": "https://filmora.wondershare.net/es/editor-de-video/?",
+        "text": "arañita"
+      },
+      "editedLink": {
+        "url": "https://www.java.com/es/",
+        "text": "Editor."
+      }
+    }
+  ],
+  "deleteOperations": [
+    {
+      "testName": "Eliminar adjunto URL editado",
+      "cardName": "Agregar",
+      "linkToDelete": "https://www.java.com/es/"
+    }
+  ]
+}
