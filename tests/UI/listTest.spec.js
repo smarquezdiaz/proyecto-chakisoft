@@ -78,29 +78,27 @@ test.describe('Casos de prueba avanzados - Listas Trello', () => {
 
       const listCountAfter = (await listPage.getAllListNames()).length;
       expect(listCountAfter).toBe(listCountBefore);
-      console.log('✓ El botón no creó una lista vacía');
+      
     }
 
     await page.keyboard.press('Escape');
   });
 
   test('TC-09: Mover lista a otro tablero', async ({ listPage, uiHelpers }) => {
-    console.log('Paso 1: Crear lista ejemplo2');
+  
     await listPage.createList(testData.lists.moveTest);
     await uiHelpers.safeWait(1500);
     
     let exists = await listPage.listExists(testData.lists.moveTest);
     expect(exists).toBe(true);
-    console.log('✓ Lista "ejemplo2" creada correctamente');
+   
     
-    console.log(`Paso 2: Mover lista a tablero "${testData.board.targetBoard}"`);
+  
     await listPage.moveListToBoard(testData.lists.moveTest, testData.board.targetBoard);
     
-    console.log('Paso 3: Verificar que la lista se movió del tablero actual');
     exists = await listPage.listExists(testData.lists.moveTest);
     expect(exists).toBe(false);
-    console.log('✓ Lista "ejemplo2" ya no existe en el tablero actual');
-    console.log('✓ TC-09: Lista movida exitosamente');
+    
 });
 
   test('UI-TC-10: Desarchivar lista', async ({ page, listPage, uiHelpers }) => {
