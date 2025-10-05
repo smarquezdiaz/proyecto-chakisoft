@@ -114,10 +114,10 @@ const test = base.extend({
         }
       }
       
-      console.log(`  → Cleanup completado. Total eliminadas: ${deletedCount}`);
+      console.log(`   Cleanup completado. Total eliminadas: ${deletedCount}`);
       
     } catch (error) {
-      console.log(`  ✗ Cleanup error: ${error.message}`);
+      console.log(`   Cleanup error: ${error.message}`);
     } finally {
       try {
         await context.close();
