@@ -1,0 +1,10 @@
+{
+  "text": "invalid value for text",
+  "key": "invalid key",
+  "token": {
+    "message": "missing scopes"
+  },
+  "idInvalid": "invalid id",
+  "void": "invalid value for text",
+  "textLarge": "The request could not be satisfied"
+}

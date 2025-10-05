@@ -1,0 +1,51 @@
+{
+  "validChecklists": [
+    {
+      "name": "Tareas Pendientes",
+      "description": "Checklist de tareas por hacer"
+    },
+    {
+      "name": "Tareas Completadas",
+      "description": "Checklist de tareas terminadas"
+    },
+    {
+      "name": "Checklist de Prueba",
+      "description": "Checklist para testing"
+    },
+    {
+      "name": "Sprint Backlog",
+      "description": "Tareas del sprint actual"
+    }
+  ],
+  "updateNames": [
+    "Tareas Actualizadas",
+    "Lista Modificada",
+    "Checklist Revisado"
+  ],
+  "cardIds": {
+    "valid": "68df855b2263454b9d380d47",
+    "invalid": "invalid-card-id-12345"
+  },
+  "invalidScenarios": [
+    {
+      "scenario": "Checklist sin nombre",
+      "name": "",
+      "expectedBehavior": "Puede crear con nombre vacío o generar error"
+    },
+    {
+      "scenario": "Checklist con caracteres especiales",
+      "name": "Test@#$%^&*()",
+      "expectedBehavior": "Debe aceptar caracteres especiales"
+    }
+  ],
+  "expectedStatusCodes": {
+    "success": 200,
+    "created": 201,
+    "badRequest": 400,
+    "unauthorized": 401,
+    "notFound": 404
+  }
+    
+  
+  
+}
