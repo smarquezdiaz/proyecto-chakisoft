@@ -1,0 +1,57 @@
+{
+  "checklists": [
+    {
+      "testName": "Checklist de Tareas del Proyecto",
+      "checklistName": "Tareas",
+      "items": [
+        "Primera tarea",
+        "Segunda tarea"
+      ],
+      "cardName": "Agregar"
+    },
+    {
+      "testName": "Checklist de Compras",
+      "checklistName": "Lista de Compras",
+      "items": [
+        "Comprar café",
+        "Comprar leche",
+        "Comprar pan"
+      ],
+      "cardName": "Agregar"
+    },
+    {
+      "testName": "Checklist de Desarrollo",
+      "checklistName": "Sprint Items",
+      "items": [
+        "Crear componente",
+        "Escribir tests",
+        "Documentar código"
+      ],
+      "cardName": "Agregar"
+    }
+  ],
+  "editOperations": [
+    {
+      "testName": "Editar primera tarea básica",
+      "checklistName": "Tareas",
+      "originalItem": "Primera tarea",
+      "updatedItem": "Primera tarea actualizada",
+      "itemsToCheck": [
+        "Primera tarea actualizada",
+        "Segunda tarea"
+      ],
+      "cardName": "Agregar"
+    },
+    {
+      "testName": "Editar tarea de compras",
+      "checklistName": "Lista de Compras",
+      "originalItem": "Comprar café",
+      "updatedItem": "Comprar café premium",
+      "itemsToCheck": [
+        "Comprar café premium",
+        "Comprar leche"
+      ],
+      "cardName": "Agregar"
+    }
+  ]
+}
