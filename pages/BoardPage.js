@@ -18,7 +18,6 @@ export class BoardPage {
         await this.createBtn.click();
         await this.createBoardBtn.click();
         await this.nameField.fill(title);
-        console.log(title.length);
         if (title == "") {
             await expect(this.submitBtn).toBeDisabled();
             return;
@@ -50,8 +49,6 @@ export class BoardPage {
     }
 
     async updateBoard(title, newTitle) {
-        // const openBoardBtn = this.page.getByRole('a', { hasText: `${title}` });
-        // await openBoardBtn.click();
         const boardNameDisplay = this.page.locator('[data-testid="board-name-display"]');
         await boardNameDisplay.click();
         const input = this.page.locator('[data-testid="board-name-input"]');
