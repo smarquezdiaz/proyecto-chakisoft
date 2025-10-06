@@ -1,4 +1,5 @@
 const { BasePage } = require('./BasePage');
+const { BASE_URL } = require('../utils/config');
 
 export class LoginPage extends BasePage {
 
@@ -10,7 +11,7 @@ export class LoginPage extends BasePage {
         this.passwordInput = page.locator('input[name="password"]');
         this.loginSubmitBtn = page.locator('[data-testid="login-submit-idf-testid"]');
         
-        this.url = 'https://trello.com/';
+        this.url = BASE_URL;
     }
 
     async goTo(){

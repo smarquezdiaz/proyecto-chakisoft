@@ -11,6 +11,8 @@ const BOARD = process.env.BOARD_ENDPOINT;
 const MEMBER = process.env.MEMBER_ENDPOINT;
 const USERNAME = process.env.USERNAME;
 const PASSWORD = process.env.PASSWORD;
+const PRINCIPAL_BOARD_URL = process.env.PRINCIPAL_BOARD_URL;
+
 
 
 
@@ -24,5 +26,6 @@ module.exports = {
   BOARD,
   MEMBER,
   USERNAME,
-  PASSWORD
+  PASSWORD,
+  PRINCIPAL_BOARD_URL
 };
