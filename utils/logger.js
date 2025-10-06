@@ -17,7 +17,7 @@
 
 // const error = (msg) => {
 //   console.error([ERROR] ${new Date().toISOString()} : ${msg});
-//   allure.step([ERROR] ${msg}, () => {});
-// };
+   allure.step([ERROR] ${msg}, () => {});
+ };
 
-// module.exports = { info, success, warn, error };
+ module.exports = { info, success, warn, error };
