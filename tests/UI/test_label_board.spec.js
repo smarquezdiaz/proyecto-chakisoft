@@ -3,10 +3,17 @@ const { test } = require('../../fixtures/shareBoardFixture');
 const { BoardSharePage } = require('../../pages/boardShareAndLabelPage');
 const { labelScenarios, editLabel } = require('../../data/labelBoardAndShareData');
 
+const { allure } = require('allure-playwright');
+const logger = require('../../utils/logger');
+
 test.use({ storageState: 'playwright/.auth/user.json' });
+test.describe.configure({ mode: 'serial' });
 
 labelScenarios.forEach(({ title, input, color }) => {
     test(`Verificar crear etiqueta un ${title}`, async ({ createBoardPage }) => {
+        allure.tag('API');
+        allure.owner('David Gregori Rodriguez Calle');
+        allure.severity('normal');
         const boardPage = new BoardSharePage(createBoardPage);
         await boardPage.menuLabel();
         await boardPage.createLabel(input);
@@ -16,7 +23,9 @@ labelScenarios.forEach(({ title, input, color }) => {
 
 editLabel.forEach(({ input, color, ariaColor }) => {
     test(`Verificar edicion de etiqueta con nombre: ${input} y color: ${ariaColor}`, async ({ createBoardPage }) => {
-        const boardPage = new BoardSharePage(createBoardPage);
+        allure.tag('API');
+        allure.owner('David Gregori Rodriguez Calle');
+        allure.severity('normal'); const boardPage = new BoardSharePage(createBoardPage);
         await boardPage.menuLabel();
         await boardPage.editLastLabel(input, color);
         const ariaLabel = await boardPage.getLastLabelAria();
@@ -25,6 +34,9 @@ editLabel.forEach(({ input, color, ariaColor }) => {
 });
 
 test("Verificar eliminar etiqueta", async ({ createBoardPage }) => {
+    allure.tag('API');
+    allure.owner('David Gregori Rodriguez Calle');
+    allure.severity('normal');
     const boardPage = new BoardSharePage(createBoardPage);
     await boardPage.menuLabel();
     await boardPage.deleteLabel();
@@ -33,6 +45,9 @@ test("Verificar eliminar etiqueta", async ({ createBoardPage }) => {
 });
 
 test("Verificar Habilitar/Deshabilitar modo daltónico", async ({ createBoardPage }) => {
+    allure.tag('API');
+    allure.owner('David Gregori Rodriguez Calle');
+    allure.severity('normal');
     const boardPage = new BoardSharePage(createBoardPage);
     await boardPage.menuLabel();
     await boardPage.enableColorblind();

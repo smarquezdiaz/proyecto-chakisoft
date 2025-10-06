@@ -41,7 +41,7 @@ timeout: 90000, // 90 segundos por test
   /* Configure projects for major browsers */
   projects: [
     // Setup project
-    // { name: 'setup', testMatch: /.*\.setup\.js/ },
+    { name: 'setup', testMatch: /.*\.setup\.js/ },
     {
       name: 'chromium',
       use: {

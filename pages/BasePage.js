@@ -1,5 +1,5 @@
-export class BasePage {
- 
+
+class BasePage {
   constructor(page) {
     this.page = page;
   }
@@ -8,11 +8,18 @@ export class BasePage {
     await this.page.goto(url);
   }
 
-  async fill(selector, value) {
-    await this.page.fill(selector, value);
+  async click(locator) {
+    await locator.click();
   }
 
-  async click(selector) {
-    await this.page.click(selector);
+  async fill(locator, value) {
+    await locator.fill(value);
   }
+
+  async isVisible(locator) {
+    return await locator.isVisible();
+  }
+
 }
+
+module.exports = { BasePage };
