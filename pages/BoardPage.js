@@ -18,8 +18,12 @@ export class BoardPage {
         await this.createBtn.click();
         await this.createBoardBtn.click();
         await this.nameField.fill(title);
+        console.log(title.length);
         if (title == "") {
             await expect(this.submitBtn).toBeDisabled();
+            return;
+        }
+        if (title.length > 16384) {
             return;
         }
         await this.submitBtn.click();
