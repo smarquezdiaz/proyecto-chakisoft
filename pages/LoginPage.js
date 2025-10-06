@@ -1,26 +1,28 @@
+const { BasePage } = require('./BasePage');
 
-export class LoginPage{
-
-    // TODO Aplicar Herencia
+export class LoginPage extends BasePage {
 
     constructor(page){
-        this.page = page;
+        super(page);
+
         this.loginLink = page.locator('[data-uuid="MJFtCCgVhXrVl7v9HA7EH_login"]');
-        this.email = page.locator('input[name="username"]');
-        this.password = page.locator('input[name="password"]');
-        this.loginBtn = page.locator('[data-testid="login-submit-idf-testid"]');
+        this.emailInput = page.locator('input[name="username"]');
+        this.passwordInput = page.locator('input[name="password"]');
+        this.loginSubmitBtn = page.locator('[data-testid="login-submit-idf-testid"]');
+        
+        this.url = 'https://trello.com/';
     }
 
     async goTo(){
-        await this.page.goto('https://trello.com/');
+        await this.goto(this.url);
     }
 
     async login(username, password) {
-        await this.loginLink.click();
-        await this.email.fill(username);
-        await this.loginBtn.click();
-        await this.password.fill(password);
-        await this.loginBtn.click();
+        await this.click(this.loginLink); 
+        await this.fill(this.emailInput, username); 
+        await this.click(this.loginSubmitBtn); 
+        await this.fill(this.passwordInput, password);
+        await this.click(this.loginSubmitBtn);
     }
 
 }

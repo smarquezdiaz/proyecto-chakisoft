@@ -9,6 +9,9 @@ const TOKEN = process.env.TOKEN;
 const BASE_URL_API = process.env.BASE_URL_API || 'https://api.trello.com/1/';
 const BOARD = process.env.BOARD_ENDPOINT;
 const MEMBER = process.env.MEMBER_ENDPOINT;
+const USERNAME = process.env.USERNAME;
+const PASSWORD = process.env.PASSWORD;
+
 
 
 
@@ -19,5 +22,7 @@ module.exports = {
   TOKEN,
   BASE_URL_API,
   BOARD,
-  MEMBER
+  MEMBER,
+  USERNAME,
+  PASSWORD
 };
