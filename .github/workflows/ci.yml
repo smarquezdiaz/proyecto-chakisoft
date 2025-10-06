@@ -1,0 +1,37 @@
+name: Ejecución de tests de API
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+jobs:
+  playwright-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [20.10.0]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configurando Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Cache node_modules
+        uses: actions/cache@v4
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ matrix.node-version }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-${{ matrix.node-version }}-
+
+      - name: Instalar dependencies
+        run: npm install
+
+      - name: Instalar Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Ejecutar tests
+        run: npx playwright test tests/API
