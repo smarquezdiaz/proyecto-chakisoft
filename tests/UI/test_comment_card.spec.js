@@ -3,10 +3,13 @@ const { test } = require('../../fixtures/commetCardFixture');
 const { commentCard } = require('../../pages/commentCardPage');
 const { commentType, commentEditDelete, commentLarge } = require('../../data/commentDataUI');
 
+const { allure } = require('allure-playwright');
+const logger = require('../../utils/logger');
+
 test.use({ storageState: 'playwright/.auth/user.json' });
 
 commentType.forEach(({ comment, type }) => {
-    test(`Verificar escribir comentario de tipo: ${type}`, async ({ createCardPage }) => {
+    test(`Verificar que se pueda comentar un comentario ${type} en una tarjeta`, async ({ createCardPage }) => {
         allure.tag('API');
         allure.owner('David Gregori Rodriguez Calle');
         allure.severity('normal'); const commentPage = new commentCard(createCardPage);
@@ -27,7 +30,7 @@ commentEditDelete.forEach(({ input, edit }) => {
 });
 
 commentEditDelete.forEach(({ input, edit }) => {
-    test("Verificar eliminar un comentario el ultimo creado", async ({ createCardPage }) => {
+    test("Verificar eliminar el ultimo comentario creado", async ({ createCardPage }) => {
         allure.tag('API');
         allure.owner('David Gregori Rodriguez Calle');
         allure.severity('normal');
@@ -39,7 +42,7 @@ commentEditDelete.forEach(({ input, edit }) => {
     });
 });
 
-test("Verificar subir imagen en un comentario", async ({ createCardPage }) => {
+test("Verificar subir imagen por el boton de adjuntar del comentario", async ({ createCardPage }) => {
     allure.tag('API');
     allure.owner('David Gregori Rodriguez Calle');
     allure.severity('normal');
@@ -57,7 +60,7 @@ test("Verificar que no se pueda mencionar en comentario a miembros que no estan 
     await expect(commentPage.commentMention).toHaveCount(0);
 });
 
-test("Verificar poder reaccionar a un comentario", async ({ createCardPage }) => {
+test("Verificar poder reaccionar a un comentario con un emoji", async ({ createCardPage }) => {
     allure.tag('API');
     allure.owner('David Gregori Rodriguez Calle');
     allure.severity('normal');
@@ -87,7 +90,7 @@ test("Verificar que el icono de ayuda abre documentación", async ({ createCardP
     await commentPage.closeHelp();
 });
 
-test("Verificar guardar borrador de comentario", async ({ createCardPage }) => {
+test("Verificar guardar borrador de comentario si se cierra el panel de un tarjeta", async ({ createCardPage }) => {
     allure.tag('API');
     allure.owner('David Gregori Rodriguez Calle');
     allure.severity('normal');
@@ -98,7 +101,7 @@ test("Verificar guardar borrador de comentario", async ({ createCardPage }) => {
     await expect(commentPage.comments.first()).toHaveText('Mi comentario de prueba');
 });
 
-test("Verificar publicar comentario con emoji", async ({ createCardPage }) => {
+test("Verificar publicar comentario con solo un emoji", async ({ createCardPage }) => {
     allure.tag('API');
     allure.owner('David Gregori Rodriguez Calle');
     allure.severity('normal');

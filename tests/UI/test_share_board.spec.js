@@ -3,10 +3,13 @@ const { test } = require('../../fixtures/shareBoardFixture');
 const { BoardSharePage } = require('../../pages/boardShareAndLabelPage');
 const { boardUsers } = require('../../data/labelBoardAndShareData');
 
+const { allure } = require('allure-playwright');
+const logger = require('../../utils/logger');
+
 test.use({ storageState: 'playwright/.auth/user.json' });
 
 boardUsers.forEach(({ input, ok }) => {
-    test(`Verificar que ${input} al tablero`, async ({ createBoardPage }) => {
+    test(`Verificar que ${input} al board`, async ({ createBoardPage }) => {
         allure.tag('API');
         allure.owner('David Gregori Rodriguez Calle');
         allure.severity('normal');
@@ -16,7 +19,7 @@ boardUsers.forEach(({ input, ok }) => {
     });
 });
 
-test('Verificar que se puede copiar enlace de tablero', async ({ createBoardPage }) => {
+test('Verificar que se puede copiar el enlace para compartir el board', async ({ createBoardPage }) => {
     allure.tag('API');
     allure.owner('David Gregori Rodriguez Calle');
     allure.severity('normal');
@@ -25,7 +28,7 @@ test('Verificar que se puede copiar enlace de tablero', async ({ createBoardPage
     await expect(boardPage.linkCopied).toBeVisible();
 });
 
-test('Verificar que se puede eliminar enlace de tablero', async ({ createBoardPage }) => {
+test('Verificar que se puede eliminar el enlace para compartir el board', async ({ createBoardPage }) => {
     allure.tag('API');
     allure.owner('David Gregori Rodriguez Calle');
     allure.severity('normal');
@@ -35,7 +38,7 @@ test('Verificar que se puede eliminar enlace de tablero', async ({ createBoardPa
     await expect(boardPage.createLink).toBeVisible();
 });
 
-test('Verificar que solo usuarios con acceso esten en el tablero', async ({ createBoardPage }) => {
+test('Verificar que solo usuarios con acceso esten en el board', async ({ createBoardPage }) => {
     allure.tag('API');
     allure.owner('David Gregori Rodriguez Calle');
     allure.severity('normal'); const boardPage = new BoardSharePage(createBoardPage);

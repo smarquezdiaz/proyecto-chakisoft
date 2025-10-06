@@ -2,7 +2,7 @@ module.exports = {
   labelScenarios: [
     { title: 'nombre valido', input: 'Etiqueta QA', color: 'celeste' },
     { title: 'nombre vacío', input: '', color: 'celeste' },
-    { title: 'nombre con caracteres especiales', input: '!@#$%&*', color: 'celeste' }
+    { title: 'nombre con solo caracteres especiales', input: '!@#$%&*', color: 'celeste' }
   ],
   editLabel: [
     { input: 'Etiqueta editada verde', color: 'lime_dark', ariaColor: 'lima intenso' },

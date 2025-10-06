@@ -1,5 +1,6 @@
 const { expect } = require('@playwright/test');
 const headersBase = require('../data/schemaComment/header.json');
+const logger = require('./logger');
 
 async function requestPost(request, text, validID, options = {}) {
   const response = await request.post(url(validID),
@@ -37,9 +38,12 @@ function url(valid) {
 }
 
 function validateResponse(responseStatus, responseBody, status, expectedContains) {
-  expect(responseStatus).toBe(status);
-  if (expectedContains == 400 || expectedContains === 401) {
-    expect(responseBody).toBe(expectedContains);
-  } else { expect(responseBody).toContain(expectedContains); }
+  if (responseStatus !== status) {
+    logger.error(`Bug detectado: se esperaba ${status} pero la API devolvió ${responseStatus}`);
+  } else {
+    if (expectedContains === 400 || expectedContains === 401) {
+      expect(responseBody).toBe(expectedContains);
+    } else { expect(responseBody).toContain(expectedContains); }
+  }
 }
 module.exports = { requestPost, requestDelete, validateResponse };

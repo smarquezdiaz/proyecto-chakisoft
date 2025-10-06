@@ -10,7 +10,7 @@ test.use({ storageState: 'playwright/.auth/user.json' });
 test.describe.configure({ mode: 'serial' });
 
 labelScenarios.forEach(({ title, input, color }) => {
-    test(`Verificar crear etiqueta un ${title}`, async ({ createBoardPage }) => {
+    test(`Verificar crear etiqueta con un ${title}`, async ({ createBoardPage }) => {
         allure.tag('API');
         allure.owner('David Gregori Rodriguez Calle');
         allure.severity('normal');
@@ -22,7 +22,7 @@ labelScenarios.forEach(({ title, input, color }) => {
 });
 
 editLabel.forEach(({ input, color, ariaColor }) => {
-    test(`Verificar edicion de etiqueta con nombre: ${input} y color: ${ariaColor}`, async ({ createBoardPage }) => {
+    test(`Verificar editar el nombre: ${input} y color: ${ariaColor} de una etiqueta`, async ({ createBoardPage }) => {
         allure.tag('API');
         allure.owner('David Gregori Rodriguez Calle');
         allure.severity('normal'); const boardPage = new BoardSharePage(createBoardPage);
@@ -33,7 +33,7 @@ editLabel.forEach(({ input, color, ariaColor }) => {
     });
 });
 
-test("Verificar eliminar etiqueta", async ({ createBoardPage }) => {
+test("Verificar eliminar una etiqueta del board", async ({ createBoardPage }) => {
     allure.tag('API');
     allure.owner('David Gregori Rodriguez Calle');
     allure.severity('normal');
@@ -44,7 +44,7 @@ test("Verificar eliminar etiqueta", async ({ createBoardPage }) => {
     await expect(ariaLabel).toContain('morado');
 });
 
-test("Verificar Habilitar/Deshabilitar modo daltónico", async ({ createBoardPage }) => {
+test("Verificar que se pueda Habilitar/Deshabilitar modo daltónico", async ({ createBoardPage }) => {
     allure.tag('API');
     allure.owner('David Gregori Rodriguez Calle');
     allure.severity('normal');

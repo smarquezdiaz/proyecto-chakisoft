@@ -32,13 +32,18 @@ export const test = base.extend({
     await expect(page.locator('[aria-label="Mostrar menú"]')).toBeVisible();
     await page.locator('[aria-label="Mostrar menú"]').click();
 
+    await page.waitForTimeout(2000);
+
     await page.locator('span[aria-label="Cerrar tablero"]').click();
     await page.getByTestId('popover-close-board-confirm').click();
 
+    await page.waitForTimeout(2000);
 
     await expect(page.locator('[aria-label="Mostrar menú"]')).toBeVisible();
     await page.locator('[aria-label="Mostrar menú"]').click();
 
+    await page.waitForTimeout(2000);
+    
     await page.getByTestId('close-board-delete-board-button').click();
     await page.getByTestId('close-board-delete-board-confirm-button').click();
   },
