@@ -23,10 +23,10 @@ export const test = createBoardPage.extend({
         await createBoardPage.getByRole('button', { name: 'Añadir tarjeta' }).click();
 
         await createBoardPage.keyboard.press('Escape');
-        await createBoardPage.waitForTimeout(2000);
         await expect(createBoardPage.getByText('Tarjeta QA')).toBeVisible();
-        await createBoardPage.getByText('Tarjeta QA').click();
-        await createBoardPage.getByText('Tarjeta QA').click();
+        await createBoardPage.waitForTimeout(1000);
+        await createBoardPage.getByTestId('card-done-state').click();
+        //await createBoardPage.getByText('Tarjeta QA').click();
 
         await use(createBoardPage);
     },

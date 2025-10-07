@@ -1,5 +1,6 @@
 const { expect } = require('@playwright/test');
 const { BasePage } = require('./BasePage');
+const logger = require('../utils/logger');
 
 class BoardSharePage extends BasePage {
     constructor(page) {
@@ -33,13 +34,13 @@ class BoardSharePage extends BasePage {
     }
 
     async menuLabel() {
-        await this.menuButtonPage.click();
-        await this.menuLabelPage.click();
+        await this.click(this.menuButtonPage); 
+        await this.click(this.menuLabelPage); 
     }
 
     async createLabel(nameLabel) {
-        await this.newLabel.click();
-        await this.nameLabel.fill(nameLabel);
+        await this.click(this.newLabel); 
+        await this.fill(this.nameLabel, nameLabel);
         await this.page.keyboard.press('Enter');
     }
 
@@ -48,37 +49,37 @@ class BoardSharePage extends BasePage {
     }
 
     async editLastLabel(newName, color) {
-        await this.labelsExist.last().click();
-        await this.nameLabel.fill(newName);
+        await this.click(this.labelsExist.last());
+        await this.fill(this.nameLabel, newName);
         await this.page.locator(`button[data-testid="color-tile-${color}"]`).click();
         await this.page.keyboard.press('Enter');
     }
 
     async deleteLabel() {
-        await this.labelsExist.last().click();
-        await this.deleteButton.click();
-        await this.deleteButton.click();
+        await this.click(this.labelsExist.last()); 
+        await this.click(this.deleteButton); 
+        await this.click(this.deleteButton); 
     }
 
     async writeUser(name, ok) {
-        await this.shareButton.click();
-        await this.addMembers.fill(name);
+        await this.click(this.shareButton); 
+        await this.fill(this.addMembers, name);
         await this.addMembers.press('Space');
         await this.addMembers.press('Backspace');
         if (ok === true) {
-            await this.suggestions.first().click();
-            await this.inviteButton.click();
+            await this.click(this.suggestions.first()); 
+            await this.click(this.inviteButton); 
         }
     }
 
     async copyLink() {
-        await this.shareButton.click();
-        await this.createLink.click();
+        await this.click(this.shareButton);
+        await this.click(this.createLink);
     }
 
     async deleteLinkCopy() {
-        await this.deleteLink.click();
-        await this.confirmDelete.click();
+        await this.click(this.deleteLink);
+        await this.click(this.confirmDelete);
     }
 
     async typeLabel(input, color) {
@@ -96,21 +97,23 @@ class BoardSharePage extends BasePage {
     }
 
     async enableColorblind() {
-        await this.enableColorblindButton.click();
+        await this.click(this.enableColorblindButton);
         await expect(this.disableColorblindButton).toBeVisible();
 
     }
 
     async disableColorblind() {
-        await this.disableColorblindButton.click();
+        await this.click(this.disableColorblindButton);
         await expect(this.enableColorblindButton).toBeVisible();
     }
 
     async expectUser(ok) {
         if (ok === true) {
             await expect(this.nameMembers.last()).toHaveText(process.env.NAME_SHARE);
+            logger.success('miembro agregado');
         } else {
             await expect(this.unregistered).toBeVisible();
+            logger.success('no existe la persona en trello el test funciona');
         }
     }
 }

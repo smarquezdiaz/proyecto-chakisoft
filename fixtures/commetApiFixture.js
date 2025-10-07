@@ -1,6 +1,6 @@
-// fixtures/commentFixture.js
+
 const { test : base } = require('@playwright/test');
-const { requestDelete } = require('../utils/request_comment');
+const { requestDelete } = require('../utils/requestComment');
 
 export const test = base.extend({
   commentId: async ({ request }, use) => {
