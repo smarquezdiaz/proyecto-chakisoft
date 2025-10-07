@@ -1,6 +1,7 @@
 // tests/UI/cards.spec.js
 const { allure } = require("allure-playwright");
 import { test, expect } from "../../fixtures/card.fixture.js";
+const logger = require("../../utils/logger");
 
 test.use({
   storageState: "playwright/.auth/user.json",
@@ -18,20 +19,24 @@ test.describe("Suite de pruebas para crear tarjetas", () => {
   }) => {
     allure.tag("UI");
     allure.owner("Gualberto Choque Choque");
-    allure.severity("smoke, regression, positive");
+    allure.severity("high");
 
-    // Llamar a la función pasando la longitud deseada
+    logger.info("Iniciando test: Creación de tarjeta con 6 caracteres");
+
     const {
       pageObject: cardPage,
       cardTitle,
       listName,
     } = await createCardPage(6);
 
+    logger.info(`Creando tarjeta '${cardTitle}' en lista '${listName}'`);
     await cardPage.createCard(listName, cardTitle);
 
     const exists = await cardPage.cardExists(cardTitle);
     expect(exists).toBe(true);
     expect(cardTitle.length).toBe(6);
+
+    logger.success("Tarjeta creada correctamente con 6 caracteres");
   });
 
   test("Verificar creacion exitosa de tarjeta con 1 caracter", async ({
@@ -39,20 +44,24 @@ test.describe("Suite de pruebas para crear tarjetas", () => {
   }) => {
     allure.tag("UI");
     allure.owner("Gualberto Choque Choque");
-    allure.severity("smoke, regression, positive");
+    allure.severity("medium");
 
-    // Llamar a la función pasando la longitud deseada
+    logger.info("Iniciando test: Creación de tarjeta con 1 caracter");
+
     const {
       pageObject: cardPage,
       cardTitle,
       listName,
     } = await createCardPage(1);
 
+    logger.info(`Creando tarjeta '${cardTitle}' en lista '${listName}'`);
     await cardPage.createCard(listName, cardTitle);
 
     const exists = await cardPage.cardExists(cardTitle);
     expect(exists).toBe(true);
     expect(cardTitle.length).toBe(1);
+
+    logger.success("Tarjeta creada correctamente con 1 caracter");
   });
 
   test("Verificar que no permita crear tarjeta con nombre vacio", async ({
@@ -60,7 +69,9 @@ test.describe("Suite de pruebas para crear tarjetas", () => {
   }) => {
     allure.tag("UI");
     allure.owner("Gualberto Choque Choque");
-    allure.severity("smoke, regression, negative");
+    allure.severity("high");
+
+    logger.info("Iniciando test: Creación de tarjeta con nombre vacío");
 
     const cardPage = negativeCardPage.pageObject;
     const listName = negativeCardPage.listName;
@@ -71,6 +82,8 @@ test.describe("Suite de pruebas para crear tarjetas", () => {
       emptyName
     );
     expect(canCreate).toBe(false);
+
+    logger.success("Validación correcta: no se permite crear tarjeta vacía");
   });
 
   test("Verificar creacion exitosa de tarjeta con 256 caracteres", async ({
@@ -78,20 +91,24 @@ test.describe("Suite de pruebas para crear tarjetas", () => {
   }) => {
     allure.tag("UI");
     allure.owner("Gualberto Choque Choque");
-    allure.severity("smoke, regression, positive");
+    allure.severity("medium");
 
-    // Llamar a la función pasando la longitud deseada
+    logger.info("Iniciando test: Creación de tarjeta con 256 caracteres");
+
     const {
       pageObject: cardPage,
       cardTitle,
       listName,
     } = await createCardPage(256);
 
+    logger.info(`Creando tarjeta larga '${cardTitle.substring(0, 10)}...'`);
     await cardPage.createCard(listName, cardTitle);
 
     const exists = await cardPage.cardExists(cardTitle);
     expect(exists).toBe(true);
     expect(cardTitle.length).toBe(256);
+
+    logger.success("Tarjeta creada correctamente con 256 caracteres");
   });
 });
 
@@ -103,12 +120,15 @@ test.describe("Suite de pruebas para editar tarjetas", () => {
   }) => {
     allure.tag("UI");
     allure.owner("Gualberto Choque Choque");
-    allure.severity("smoke, regression, positive");
+    allure.severity("high");
+
+    logger.info("Iniciando test: Edición de nombre de tarjeta");
 
     const cardPage = updateCardPage.pageObject;
     const originalTitle = updateCardPage.originalTitle;
     const newTitle = updateCardPage.newTitle;
 
+    logger.info(`Renombrando tarjeta '${originalTitle}' a '${newTitle}'`);
     await cardPage.renameCard(originalTitle, newTitle);
 
     const newExists = await cardPage.cardExists(newTitle);
@@ -116,6 +136,8 @@ test.describe("Suite de pruebas para editar tarjetas", () => {
 
     const oldExists = await cardPage.cardExists(originalTitle);
     expect(oldExists).toBe(false);
+
+    logger.success("Tarjeta renombrada correctamente");
   });
 
   test("Verificar que no permita editar tarjeta a nombre vacio", async ({
@@ -123,7 +145,9 @@ test.describe("Suite de pruebas para editar tarjetas", () => {
   }) => {
     allure.tag("UI");
     allure.owner("Gualberto Choque Choque");
-    allure.severity("smoke, regression, negative");
+    allure.severity("medium");
+
+    logger.info("Iniciando test: Intento de renombrar tarjeta a nombre vacío");
 
     const cardPage = updateCardPage.pageObject;
     const originalTitle = updateCardPage.originalTitle;
@@ -137,6 +161,8 @@ test.describe("Suite de pruebas para editar tarjetas", () => {
     expect(canRename).toBe(false);
     const stillExists = await cardPage.cardExists(originalTitle);
     expect(stillExists).toBe(true);
+
+    logger.success("Validación correcta: no se permite renombrar a vacío");
   });
 });
 
@@ -148,7 +174,9 @@ test.describe("Suite de pruebas para visualizar tarjetas", () => {
   }) => {
     allure.tag("UI");
     allure.owner("Gualberto Choque Choque");
-    allure.severity("smoke, regression, positive");
+    allure.severity("low");
+
+    logger.info("Iniciando test: Visualización de detalles de tarjeta");
 
     const cardPage = readCardPage.pageObject;
     const cardTitle = readCardPage.cardTitle;
@@ -162,6 +190,8 @@ test.describe("Suite de pruebas para visualizar tarjetas", () => {
     expect(displayedTitle).toBe(cardTitle);
 
     await cardPage.closeCardModal();
+
+    logger.success("Detalles de tarjeta visualizados correctamente");
   });
 });
 
@@ -173,7 +203,9 @@ test.describe("Suite de pruebas para archivar tarjetas", () => {
   }) => {
     allure.tag("UI");
     allure.owner("Gualberto Choque Choque");
-    allure.severity("smoke, regression, positive");
+    allure.severity("high");
+
+    logger.info("Iniciando test: Archivado de tarjeta");
 
     const cardPage = archiveCardPage.pageObject;
     const cardTitle = archiveCardPage.cardTitle;
@@ -185,6 +217,8 @@ test.describe("Suite de pruebas para archivar tarjetas", () => {
 
     let existsAfter = await cardPage.cardExists(cardTitle);
     expect(existsAfter).toBe(false);
+
+    logger.success("Tarjeta archivada correctamente");
   });
 });
 
@@ -198,32 +232,40 @@ test.describe("Flujo completo de gestion de tarjetas", () => {
   }) => {
     allure.tag("UI");
     allure.owner("Gualberto Choque Choque");
-    allure.severity("e2e");
+    allure.severity("high");
+
+    logger.info("Iniciando test E2E de gestión completa de tarjeta");
 
     const cardTitle = initCardPage.generateCardTitle(6);
     const newTitle = initCardPage.generateCardTitle(8) + "-EDITADA";
     const listName = "Tareas Asignadas";
 
     // Crear
+    logger.info("Paso 1: Creando tarjeta inicial");
     await initCardPage.createCard(listName, cardTitle);
     let exists = await initCardPage.cardExists(cardTitle);
     expect(exists).toBe(true);
 
     // Editar
+    logger.info("Paso 2: Editando tarjeta creada");
     await initCardPage.renameCard(cardTitle, newTitle);
     exists = await initCardPage.cardExists(newTitle);
     expect(exists).toBe(true);
 
     // Visualizar
+    logger.info("Paso 3: Visualizando tarjeta");
     await initCardPage.openCard(newTitle);
     const isVisible = await initCardPage.isCardModalVisible();
     expect(isVisible).toBe(true);
     await initCardPage.closeCardModal();
 
     // Eliminar
+    logger.info("Paso 4: Archivando tarjeta");
     await initCardPage.archiveCard(newTitle);
     exists = await initCardPage.cardExists(newTitle);
     expect(exists).toBe(false);
+
+    logger.success("Flujo completo E2E ejecutado correctamente");
   });
 });
 
@@ -237,13 +279,19 @@ test.describe("Casos Negativos - Tarjetas", () => {
   }) => {
     allure.tag("UI");
     allure.owner("Gualberto Choque Choque");
-    allure.severity("regression, negative");
+    allure.severity("high");
+
+    logger.info("Iniciando test negativo: apertura de tarjeta inexistente");
 
     const cardPage = negativeCardPage.pageObject;
     const fakeCardName = "TARJETA_INEXISTENTE_XYZ123";
 
     const canOpen = await cardPage.attemptOpenNonExistentCard(fakeCardName);
     expect(canOpen).toBe(false);
+
+    logger.success(
+      "Validación correcta: no se puede abrir tarjeta inexistente"
+    );
   });
 
   test("Verificar error al actualizar tarjeta inexistente", async ({
@@ -251,7 +299,11 @@ test.describe("Casos Negativos - Tarjetas", () => {
   }) => {
     allure.tag("UI");
     allure.owner("Gualberto Choque Choque");
-    allure.severity("regression, negative");
+    allure.severity("medium");
+
+    logger.info(
+      "Iniciando test negativo: actualización de tarjeta inexistente"
+    );
 
     const cardPage = negativeCardPage.pageObject;
     const fakeCardName = "TARJETA_FALSA_ABC";
@@ -262,6 +314,10 @@ test.describe("Casos Negativos - Tarjetas", () => {
       newName
     );
     expect(canRename).toBe(false);
+
+    logger.success(
+      "Validación correcta: no se puede editar tarjeta inexistente"
+    );
   });
 
   test("Verificar comportamiento con caracteres especiales", async ({
@@ -269,7 +325,9 @@ test.describe("Casos Negativos - Tarjetas", () => {
   }) => {
     allure.tag("UI");
     allure.owner("Gualberto Choque Choque");
-    allure.severity("regression, negative");
+    allure.severity("high");
+
+    logger.info("Iniciando test negativo: creación con caracteres especiales");
 
     const cardPage = negativeCardPage.pageObject;
     const listName = negativeCardPage.listName;
@@ -283,6 +341,8 @@ test.describe("Casos Negativos - Tarjetas", () => {
     if (result.created) {
       expect(result.exists).toBe(true);
     }
+
+    logger.success("Validación completada para caracteres especiales");
   });
 
   test("Verificar que tarjeta archivada no es visible en tablero", async ({
@@ -290,7 +350,9 @@ test.describe("Casos Negativos - Tarjetas", () => {
   }) => {
     allure.tag("UI");
     allure.owner("Gualberto Choque Choque");
-    allure.severity("regression, negative");
+    allure.severity("high");
+
+    logger.info("Iniciando test negativo: visibilidad de tarjeta archivada");
 
     const cardPage = archiveCardPage.pageObject;
     const cardTitle = archiveCardPage.cardTitle;
@@ -299,5 +361,7 @@ test.describe("Casos Negativos - Tarjetas", () => {
 
     const isVisible = await cardPage.cardExists(cardTitle);
     expect(isVisible).toBe(false);
+
+    logger.success("Validación correcta: tarjeta archivada no visible");
   });
 });

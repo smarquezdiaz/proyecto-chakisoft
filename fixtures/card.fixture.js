@@ -79,14 +79,27 @@ export const test = base.extend({
 
     // Teardown: eliminar tarjeta actualizada o la original si el test falló
     try {
-      const titleToDelete =
-        testInfo.title === "Verificar edicion exitosa de nombre de tarjeta"
-          ? newTitle
-          : originalTitle;
+      // Esperar un poco para que Trello termine de procesar
+      await page.waitForTimeout(2000);
 
-      await cardPage.archiveCard(titleToDelete);
-      await page.waitForTimeout(2500);
-      console.log(`✓ Teardown: Tarjeta eliminada - ${titleToDelete}`);
+      // Intentar eliminar el nuevo título primero (si el test tuvo éxito)
+      if (testInfo.title.includes("Verificar edicion exitosa")) {
+        const newExists = await cardPage.cardExists(newTitle);
+        if (newExists) {
+          await cardPage.archiveCard(newTitle);
+          await page.waitForTimeout(2500);
+          console.log(`✓ Teardown: Tarjeta eliminada - ${newTitle}`);
+          return;
+        }
+      }
+
+      // Si no existe la nueva, intentar eliminar la original
+      const originalExists = await cardPage.cardExists(originalTitle);
+      if (originalExists) {
+        await cardPage.archiveCard(originalTitle);
+        await page.waitForTimeout(2500);
+        console.log(`✓ Teardown: Tarjeta eliminada - ${originalTitle}`);
+      }
     } catch (error) {
       console.log(`⚠ Teardown falló: ${error.message}`);
     }
