@@ -1,14 +1,14 @@
 
 import { test, expect } from '../../fixtures/ListUIFixture.js';
 import { testData } from '../../data/dataList.js';
-const logger = require ("../../utils/logger.js");
+const logger = require("../../utils/logger.js");
 const { allure } = require('allure-playwright');
+
 test.use({ storageState: 'playwright/.auth/user.json' });
 
-test.describe('Casos de prueba avanzados - Listas Trello', () => {
+test.describe('Casos de Prueba Avanzados - Listas Trello', () => {
   test.describe.configure({ mode: 'serial' });
 
-  
   test.beforeEach(async ({ page, uiHelpers }) => {
     await page.goto(testData.board.url);
     await page.waitForLoadState('networkidle');
@@ -16,27 +16,38 @@ test.describe('Casos de prueba avanzados - Listas Trello', () => {
     await uiHelpers.closeAllForms();
   });
 
-  test('AE-UI-TC-07: Verificar límite de 512 caracteres en nombre de lista @Smoke @Regression  ', async ({ page, listPage, uiHelpers }) => {
+  test('AE-UI-TC-07: Verificar límite de 512 caracteres en nombre de lista @Smoke @Regression @positive ', async ({ page, listPage, uiHelpers }) => {
     allure.owner('Andres Adrian Estrada Uzeda');
     allure.severity('medium');
-    logger.info(' Iniciando prueba: Verificar límite de 512 caracteres');
+    allure.description('Verifica que el campo de nombre de lista no permita más de 512 caracteres');
+    allure.tag('boundary-testing', 'validation');
+    
+  
     
     const longName = testData.lists.maxLength;
     const tooLongName = testData.lists.overMaxLength;
 
+    logger.info('Paso 1: Cerrar formularios abiertos');
     await uiHelpers.closeAllForms();
-    logger.info('Formulario cerrado correctamente.');
+    
+    logger.info('Paso 2: Abrir formulario de nueva lista');
     const addButton = listPage.getAddListButton();
     await addButton.click();
 
     const textarea = page.locator('form.Iw4JfvN1O0a3Ol [data-testid="list-name-textarea"]');
     await expect(textarea).toBeVisible();
 
+    logger.info(`Paso 3: Intentar ingresar ${tooLongName.length} caracteres`);
     await textarea.type(tooLongName, { delay: 1 });
+    
     const actualValue = await textarea.inputValue();
-    logger.info(`Longitud ingresada: ${actualValue.length}`);
-    expect(actualValue.length).toBeLessThanOrEqual(512);
+    logger.info(`Longitud ingresada: ${actualValue.length} caracteres`);
+    logger.info(`Longitud máxima permitida: ${testData.validation.maxListNameLength} caracteres`);
+    
+    expect(actualValue.length).toBeLessThanOrEqual(testData.validation.maxListNameLength);
+    logger.info('✓ Validación exitosa: El campo limita correctamente a 512 caracteres');
 
+    logger.info('Paso 4: Crear lista con el nombre truncado');
     const submitButton = page.locator('[data-testid="list-composer-add-list-button"]');
     await submitButton.click();
     
@@ -44,17 +55,23 @@ test.describe('Casos de prueba avanzados - Listas Trello', () => {
 
     const exists = await listPage.listExists(longName);
     expect(exists).toBe(true);
-    logger.info(' Prueba finalizada: Límite de 512 caracteres verificado correctamente.');
+    
+    logger.info('✓ Lista creada exitosamente con nombre de 512 caracteres');
+    
   });
 
-  test('AE-UI-TC-08: Verificar restricción al crear lista con campo vacío @Smoke @Regression', async ({ page, listPage, uiHelpers }) => {
+  test('AE-UI-TC-08: Verificar restricción al crear lista con campo vacío @Smoke @Regression @positive', async ({ page, listPage, uiHelpers }) => {
     allure.owner('Andres Adrian Estrada Uzeda');
     allure.severity('high');
-    logger.info(' Iniciando prueba: No permitir crear lista con campo vacío.');
+    allure.description('Verifica que no se pueda crear una lista con el nombre vacío');
+    allure.tag('negative-testing', 'validation');
     
     
+    
+    logger.info('Paso 1: Desplazar al final del tablero');
     await uiHelpers.scrollToEnd();
 
+    logger.info('Paso 2: Abrir formulario de nueva lista');
     const addButton = listPage.getAddListButton('last');
     await expect(addButton).toBeVisible();
     await addButton.scrollIntoViewIfNeeded();
@@ -63,99 +80,140 @@ test.describe('Casos de prueba avanzados - Listas Trello', () => {
     const textarea = page.locator(listPage.selectors.listNameInput).last();
     await expect(textarea).toBeVisible();
 
+    logger.info('Paso 3: Limpiar el campo de texto');
     await uiHelpers.clearInput(textarea);
 
     const initialValue = await textarea.inputValue();
     logger.info(`Valor del campo: "${initialValue}" (longitud: ${initialValue.length})`);
 
     expect(initialValue.trim()).toBe('');
+    logger.info('✓ Campo está vacío como se esperaba');
 
+    logger.info('Paso 4: Verificar estado del botón "Añadir lista"');
     const submitButton = page.locator(listPage.selectors.submitListButton).first();
     await expect(submitButton).toBeVisible();
 
     const isDisabled = await submitButton.isDisabled();
 
     if (isDisabled) {
-      logger.info(' [AE-UI-TC-08] Botón "Añadir lista" deshabilitado correctamente con campo vacío.')
+      logger.info(' Botón "Añadir lista" está DESHABILITADO correctamente');
       expect(isDisabled).toBe(true);
     } else {
-      console.log('Botón "Añadir lista" deshabilitado correctamente con campo vacío.');
+      logger.warn(' Botón "Añadir lista" está HABILITADO (comportamiento inesperado)');
+      logger.info('Paso 5: Verificar que no se cree la lista al hacer clic');
+      
       const listCountBefore = (await listPage.getAllListNames()).length;
+      logger.info(`Cantidad de listas antes: ${listCountBefore}`);
+      
       await submitButton.click();
-      
       await page.waitForTimeout(1500);
-      const listCountAfter = (await listPage.getAllListNames()).length;
-      expect(listCountAfter).toBe(listCountBefore);
-      logger.info(' Lista no creada con campo vacío.');
       
+      const listCountAfter = (await listPage.getAllListNames()).length;
+      logger.info(`Cantidad de listas después: ${listCountAfter}`);
+      
+      expect(listCountAfter).toBe(listCountBefore);
+      logger.info('✓ No se creó ninguna lista con campo vacío');
     }
 
     await page.keyboard.press('Escape');
+    
+
   });
 
-  test('AE-UI-TC-09: Verificar la funcionalidad mover lista a otro tablero @Smoke @Regression ', async ({ listPage, uiHelpers }) => {
+  test('AE-UI-TC-09: Verificar la funcionalidad mover lista a otro tablero @Smoke @Regression @positive', async ({ listPage, uiHelpers }) => {
     allure.owner('Andres Adrian Estrada Uzeda');
     allure.severity('medium');
-    logger.info('Iniciando prueba: Mover lista a otro tablero.');
+    allure.description('Verifica que una lista se pueda mover a otro tablero diferente');
+    allure.tag('move-list', 'cross-board');
+    
+    
   
+    logger.info('Paso 1: Crear nueva lista para mover');
     await listPage.createList(testData.lists.moveTest);
     await uiHelpers.safeWait(1500);
     
     let exists = await listPage.listExists(testData.lists.moveTest);
     expect(exists).toBe(true);
+    logger.info(`✓ Lista creada: "${testData.lists.moveTest}"`);
    
-    logger.info('Lista creada, procediendo a mover al tablero destino.');
-  
+    logger.info('Paso 2: Mover lista al tablero destino');
+    logger.info(`Tablero destino: "${testData.board.targetBoard}"`);
+    
     await listPage.moveListToBoard(testData.lists.moveTest, testData.board.targetBoard);
     
+    logger.info('Paso 3: Verificar que la lista ya no está en el tablero actual');
     exists = await listPage.listExists(testData.lists.moveTest);
     expect(exists).toBe(false);
-   logger.info(' Lista movida correctamente al tablero destino.'); 
-});
+    logger.info('✓ Lista movida exitosamente al tablero destino');
+    
+    
+  });
 
-  test('AE-UI-TC-10: Verificar la funcionalidad de desarchivar una lista @Smoke @Regression', async ({ page, listPage, uiHelpers }) => {
+  test('AE-UI-TC-10: Verificar la funcionalidad de desarchivar una lista @Smoke @Regression @ positive', async ({ page, listPage, uiHelpers }) => {
     allure.owner('Andres Adrian Estrada Uzeda');
     allure.severity('medium');
-    logger.info('Iniciando prueba: Desarchivar lista.');
+    allure.description('Verifica que una lista archivada se pueda desarchivar correctamente');
+    allure.tag('archive', 'restore');
     
     
+    
+    logger.info('Paso 1: Crear nueva lista para archivar');
     await listPage.createList(testData.lists.archiveTest); 
     await uiHelpers.safeWait(1500);
     
     let exists = await listPage.listExists(testData.lists.archiveTest);
     expect(exists).toBe(true);
+    logger.info(`✓ Lista creada: "${testData.lists.archiveTest}"`);
     
+    logger.info('Paso 2: Archivar la lista');
     await listPage.archiveList(testData.lists.archiveTest);
     await uiHelpers.safeWait(1000);
     
-    const archivedList = page.locator(`${listPage.selectors.listWrapper}:has-text("${testData.lists.archiveTest}")`);
+   const archivedList = page.locator(`${listPage.selectors.listWrapper}:has-text("${testData.lists.archiveTest}")`);
     await expect(archivedList).not.toBeVisible();
     exists = await listPage.listExists(testData.lists.archiveTest);
     expect(exists).toBe(false);
+    logger.info('✓ Lista archivada correctamente');
    
+    logger.info('Paso 3: Desarchivar la lista');
     await listPage.unarchiveList(testData.lists.archiveTest);
     await uiHelpers.safeWait(2000);
     
+    logger.info('Paso 4: Verificar que la lista está visible nuevamente');
     exists = await listPage.listExists(testData.lists.archiveTest);
     expect(exists).toBe(true);
-     logger.info(' Lista desarchivada correctamente.');
-});
-  test('AE-UI-TC-11: Verificar la funcionalidad de seguir una lista @Smoke @Regression', async ({ listPage, uiHelpers }) => {
+    logger.info('✓ Lista desarchivada y visible en el tablero');
+    
+  
+  });
+
+  test('AE-UI-TC-11: Verificar la funcionalidad de seguir una lista @Smoke @Regression @positive', async ({ listPage, uiHelpers }) => {
     allure.owner('Andres Adrian Estrada Uzeda');
     allure.severity('low');
-    logger.info(' Iniciando prueba: Seguir lista.');
+    allure.description('Verifica que se pueda seguir una lista para recibir notificaciones');
+    allure.tag('watch-list', 'notifications');
+    
+    
+    logger.info('Paso 1: Crear nueva lista para seguir');
     await listPage.createList(testData.lists.followTest); 
     await uiHelpers.safeWait(1500);
     
     let exists = await listPage.listExists(testData.lists.followTest);
     expect(exists).toBe(true);
+    logger.info(`✓ Lista creada: "${testData.lists.followTest}"`);
     
+    logger.info('Paso 2: Activar seguimiento de la lista');
     await listPage.followList(testData.lists.followTest);
     await uiHelpers.safeWait(1000);
-     logger.info(' Lista seguida correctamente.');
+    logger.info('✓ Lista seguida correctamente');
     
+    logger.info('Paso 3: Verificar que la lista sigue existiendo');
+    exists = await listPage.listExists(testData.lists.followTest);
+    expect(exists).toBe(true);
+    logger.info('✓ Lista visible en el tablero después de seguir');
     
-});
+
+  });
 
   test.afterAll(async ({ cleanup }) => {
     console.log('\n═══════════════════════════════════════════════════════════');

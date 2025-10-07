@@ -1,6 +1,4 @@
 
-
-
 class UIHelpers {
     constructor(page) {
         this.page = page;
