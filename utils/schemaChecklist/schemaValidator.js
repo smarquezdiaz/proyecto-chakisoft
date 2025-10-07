@@ -93,12 +93,7 @@ class SchemaValidator {
     };
   }
 
-  /**
-   * Validar datos contra un schema
-   * @param {Object} data - Datos a validar
-   * @param {Object} schema - Schema JSON
-   * @returns {Object} { valid: boolean, errors: array }
-   */
+
   validate(data, schema) {
     const validate = this.ajv.compile(schema);
     const valid = validate(data);
@@ -109,38 +104,22 @@ class SchemaValidator {
     };
   }
 
-  /**
-   * Validar respuesta de creación de checklist
-   * @param {Object} data - Datos a validar
-   * @returns {Object} { valid: boolean, errors: array }
-   */
+
   validateCreateChecklist(data) {
     return this.validate(data, this.getCreateChecklistSchema());
   }
 
-  /**
-   * Validar respuesta de obtención/actualización de checklist
-   * @param {Object} data - Datos a validar
-   * @returns {Object} { valid: boolean, errors: array }
-   */
+
   validateGetChecklist(data) {
     return this.validate(data, this.getChecklistSchema());
   }
 
-  /**
-   * Validar respuesta de eliminación de checklist
-   * @param {Object} data - Datos a validar
-   * @returns {Object} { valid: boolean, errors: array }
-   */
+
   validateDeleteChecklist(data) {
     return this.validate(data, this.getDeleteChecklistSchema());
   }
 
-  /**
-   * Formatear errores de validación
-   * @param {Array} errors - Array de errores de AJV
-   * @returns {string} Errores formateados
-   */
+
   formatErrors(errors) {
     return errors.map(err => `${err.instancePath} ${err.message}`).join(', ');
   }
