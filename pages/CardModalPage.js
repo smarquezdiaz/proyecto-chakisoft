@@ -1,13 +1,10 @@
-// pages/CardModalPage.js
-
 const { expect } = require('@playwright/test');
+const { BasePage } = require('./BasePage');
 
-class CardModalPage {
-    /**
-     * @param {import('@playwright/test').Page} page
-     */
+class CardModalPage extends BasePage {
+
     constructor(page) {
-        this.page = page;
+        super(page);
   
         this.addToCardButton = this.page.locator('[data-testid="card-back-add-to-card-button"]');
         this.dueDateBadge = this.page.getByTestId('due-date-badge-with-date-range-picker');
@@ -71,19 +68,19 @@ class CardModalPage {
     // Métodos de Checklist
 
     async createChecklist(checklistName) {
-        await this.addToCardButton.click();
-        await this.checklistMenuButton.click();
-        await this.checklistNameInput.fill(checklistName);
-        await this.checklistAddButton.click();
+        await this.click(this.addToCardButton);
+        await this.click(this.checklistMenuButton);
+        await this.fill(this.checklistNameInput, checklistName);
+        await this.click(this.checklistAddButton);
     }
 
     async addCheckItem(itemName) {
-        await this.checkItemInput.fill(itemName);
-        await this.checkItemAddButton.click();
+        await this.fill(this.checkItemInput, itemName);
+        await this.click(this.checkItemAddButton);
     }
 
     async cancelCheckItemEdition() {
-        await this.checklistCancelButton.click();
+        await this.click(this.checklistCancelButton);
     }
 
     async editCheckItem(oldName, newName) {
@@ -92,7 +89,7 @@ class CardModalPage {
         
         const editInput = this.page.locator('textarea[id^="edit-checkitem"]');
         await editInput.waitFor({ state: 'visible' });
-        await editInput.fill(newName);
+        await this.fill(editInput, newName);
         await this.page.keyboard.press('Enter');
         
         await this.page.waitForTimeout(500);
@@ -104,76 +101,76 @@ class CardModalPage {
     }
 
     async hideCompletedItems() {
-        await this.hideCompletedItemsButton.click();
+        await this.click(this.hideCompletedItemsButton);
     }
 
     async deleteChecklist(checklistName) {
         const deleteButton = this.getChecklistDeleteButton(checklistName);
-        await deleteButton.click();
+        await this.click(deleteButton);
         
         const confirmButton = this.getConfirmChecklistDelButton();
-        await confirmButton.click();
+        await this.click(confirmButton);
     }
-
 
     // Métodos de URL
     async openAttachmentModal() {
-        await this.addToCardButton.click();
-        await this.attachmentButton.click();
+        await this.click(this.addToCardButton);
+        await this.click(this.attachmentButton);
     }
     
     async addOrEditLink(url, text, isEdit = false) {
         if (isEdit) {
-            await this.clearUrlButton.click();
-            await this.clearCommentButton.click();
+            await this.click(this.clearUrlButton);
+            await this.click(this.clearCommentButton);
         }
-        await this.linkUrlInput.fill(url);
-        await this.linkTextInput.fill(text);
-        await this.saveButton.click();
+        await this.fill(this.linkUrlInput, url);
+        await this.fill(this.linkTextInput, text);
+        await this.click(this.saveButton);
     }
 
     async editLinkAttachment() {
-        await this.linkActionsButton.click();
-        await this.editLinkButton.click();
+        await this.click(this.linkActionsButton);
+        await this.click(this.editLinkButton);
     }
 
     async deleteLinkAttachment() {
-        await this.linkActionsButton.click();
-        await this.deleteLinkButton.click();
-        await this.confirmDeleteLinkButton.click();
+        await this.click(this.linkActionsButton);
+        await this.click(this.deleteLinkButton);
+        await this.click(this.confirmDeleteLinkButton);
     }
+
     // Métodos de Fechas
     async selectReminder(reminderText) {
-        await this.reminderDropdown.click();
+        await this.click(this.reminderDropdown);
         await this.page.waitForTimeout(500);
         
         const reminderOption = this.page.locator(`[role="option"]:has-text("${reminderText}")`);
         await reminderOption.scrollIntoViewIfNeeded();
-        await reminderOption.click();
+        await this.click(reminderOption);
     }
 
     async openDatesModal() {
-        await this.addToCardButton.click();
-        await this.dueDateMenuButton.click();
+        await this.click(this.addToCardButton);
+        await this.click(this.dueDateMenuButton);
     }
 
     async setStartDate(date) {
         await this.startDateCheckbox.check({ force: true });
-        await this.startDateInput.fill(date);
+        await this.fill(this.startDateInput, date);
     }
 
     async setDueDate(date) {
-        await this.dueDateInput.fill(date);
+        await this.fill(this.dueDateInput, date);
     }
 
     async setTime(time) {
-        await this.timeInput.fill(time);
+        await this.fill(this.timeInput, time);
     }
 
     async removeDate() {
-        await this.dueDateBadge.click();
+        await this.click(this.dueDateBadge);
         await this.dateRemoveButton.waitFor({ state: 'visible' });
-        await this.dateRemoveButton.click();
+        await this.click(this.dateRemoveButton);
     }
 }
 
