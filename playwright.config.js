@@ -28,6 +28,8 @@ export default defineConfig({
   
   /* Configure projects for major browsers */
   projects: [
+     // Setup project
+      // { name: 'setup', testMatch: /.*\.setup\.js/ },
     // ========================================
     // TESTS API - Ejecución en PARALELO
     // ========================================
@@ -39,6 +41,7 @@ export default defineConfig({
       },
       fullyParallel: true, // Ejecuta tests API en paralelo
       workers: process.env.CI ? 4 : 6, // Más workers para tests API
+       // dependencies: ['setup'],
     },
     
     // ========================================
@@ -58,7 +61,18 @@ export default defineConfig({
       },
       fullyParallel: false, // Ejecuta tests UI en serie
       workers: 1, // Solo 1 worker para ejecución serial
+      //  dependencies: ['setup'],
     },
+
+    // {
+    //   name: 'chromium',
+    //   use: {
+    //     ...devices['Desktop Chrome'],
+    //     // Use prepared auth state.
+    //     storageState: 'playwright/.auth/user.json',
+    //   },
+    //   // dependencies: ['setup'],
+    // },
     
     // ========================================
     // TESTS UI - Firefox (opcional)
