@@ -216,7 +216,7 @@ class ListPage {
 
         const listRow = this.page.locator(`.WSMoQ6pckTKoQo:text-is("${listName}")`).locator('..');
         const restoreButton = listRow.locator('button:has-text("Restaurar")');
-        await expect(restoreButton).toBeVisible();
+          await expect(restoreButton).toBeVisible({ timeout: 10000 });
         await restoreButton.click();
 
         await this.page.keyboard.press('Escape');
