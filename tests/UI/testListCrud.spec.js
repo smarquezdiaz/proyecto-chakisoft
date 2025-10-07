@@ -1,5 +1,5 @@
 import { test, expect } from '../../fixtures/ListUIFixture.js';
-import { testData } from '../../data/dataList.js';
+import { testData } from '../../data/ListDataUI.js';
 const logger = require("../../utils/logger.js");
 const { allure } = require('allure-playwright');
 
@@ -111,6 +111,7 @@ test.describe('CRUD Básico de Listas Trello', () => {
   });
 
   test.afterAll(async ({ cleanup }) => {
+    test.setTimeout(40000);
     console.log('\n═══════════════════════════════════════════════════════════');
     console.log(' EJECUTANDO LIMPIEZA COMPLETA DEL TABLERO');
     console.log('═══════════════════════════════════════════════════════════\n');

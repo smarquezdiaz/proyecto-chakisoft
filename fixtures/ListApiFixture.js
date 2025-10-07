@@ -8,7 +8,7 @@ import {
   renameList,
   getBoardLists
 } from '../utils/requestList.js';
-import { listData } from '../data/dataListApi.js';
+import { listData } from '../data/ListDataApi.js';
 
 const BOARD_ID = '68d5f9c8e35a2a78263b2554';
 
