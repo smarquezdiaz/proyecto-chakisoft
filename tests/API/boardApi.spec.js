@@ -14,10 +14,10 @@ test.describe('Pruebas de api para traer un tablero', () => {
         id = responseBody.id;
     });
 
-    test('Obtencion de tablero con codigo 200', async ({ }) => {
+    test('SM-API-TC-08 Obtencion de tablero con codigo 200 @smoke @regression @positive', async ({ }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, positive');
+        allure.severity('alta');
         expect(id).toBeDefined();
         const endpoint = getDynamicEndpoint(BOARD, id, null, true);
         const response = await httpGet(endpoint);
@@ -25,30 +25,30 @@ test.describe('Pruebas de api para traer un tablero', () => {
         const responseBody = await response.json();
     });
 
-    test('Obtencion de tablero con id vacío con codigo 404', async ({ }) => {
+    test('SM-API-TC-09 Obtencion de tablero con id vacío con codigo 404 @smoke @regression @negative', async ({ }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, negative');
+        allure.severity('media');
         expect(id).toBeDefined();
         const endpoint = getDynamicEndpoint(BOARD, '', null, true);
         const response = await httpGet(endpoint);
         expect(response.status()).toBe(404);
     });
 
-    test('Obtencion de tablero con id inexistente con codigo 400', async ({ }) => {
+    test('SM-API-TC-10 Obtencion de tablero con id inexistente con codigo 400 @smoke @regression @negative', async ({ }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, negative');
+        allure.severity('media');
         expect(id).toBeDefined();
         const endpoint = getDynamicEndpoint(BOARD, 'a', null, true);
         const response = await httpGet(endpoint);
         expect(response.status()).toBe(400);
     });
 
-    test('Obtencion de tablero con codigo 401', async ({ }) => {
+    test('SM-API-TC-11 Obtencion de tablero con codigo 401 @smoke @regression @negative', async ({ }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, negative');
+        allure.severity('alta');
         expect(id).toBeDefined();
         const endpoint = getDynamicEndpoint(BOARD, id, null, false);
         const response = await httpGet(endpoint);
@@ -65,10 +65,10 @@ test.describe('Pruebas de api para traer un tablero', () => {
 
 test.describe('Pruebas de api para crear un tablero', () => {
     let id;
-    test('Creacion de tablero con codigo 200', async ({ }) => {
+    test('SM-API-TC-12 Creacion de tablero con codigo 200 @smoke @regression @positive', async ({ }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, positive');
+        allure.severity('alta');
         const endpoint = getDynamicEndpoint(BOARD, '', { name: 'RANDOM' }, true);
         const response = await httpPost(endpoint);
         expect(response.status()).toBe(200);
@@ -77,40 +77,39 @@ test.describe('Pruebas de api para crear un tablero', () => {
         expect(responseBody).toHaveProperty('name', responseBody.name);
     });
 
-    test('Creacion de tablero con codigo 401', async ({ }) => {
+    test('SM-API-TC-13 Creacion de tablero con codigo 401 @smoke @regression @negative', async ({ }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, negative');
+        allure.severity('alta');
         const endpoint = getDynamicEndpoint(BOARD, '', { name: 'RANDOM' }, false);
         const response = await httpPost(endpoint);
         expect(response.status()).toBe(401);
     });
 
-    test('Creacion de tablero con nombre vacio con codigo 400', async ({ }) => {
+    test('SM-API-TC-14 Creacion de tablero con nombre vacio con codigo 400 @smoke @regression @negative', async ({ }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, negative');
+        allure.severity('media');
         const endpoint = getDynamicEndpoint(BOARD, '', { name: 'EMPTY' }, true);
         const response = await httpPost(endpoint);
         expect(response.status()).toBe(400);
     });
 
-    test('Creacion de tablero con nombre numerico con codigo 400', async ({ }) => {
+    test('SM-API-TC-15 Creacion de tablero con nombre numerico con codigo 400 @smoke @regression @negative', async ({ }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, negative');
+        allure.severity('media');
         const endpoint = getDynamicEndpoint(BOARD, '', { name: 1 }, true);
         const response = await httpPost(endpoint);
-        // expect(response.status()).toBe(400);
         expect(response.status()).toBe(200);
         const responseBody = await response.json();
         id = responseBody.id;
     });
 
-    test('Creacion de tablero con descripcion con codigo 200', async ({ }) => {
+    test('SM-API-TC-16 Creacion de tablero con descripcion con codigo 200 @smoke @regression @positive', async ({ }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, positive');
+        allure.severity('media');
         const endpoint = getDynamicEndpoint(BOARD, '', { name: 'RANDOM', desc: 'RANDOM' }, true);
         const response = await httpPost(endpoint);
         expect(response.status()).toBe(200);
@@ -121,7 +120,7 @@ test.describe('Pruebas de api para crear un tablero', () => {
     });
 
     test.afterEach(async ({ }, testInfo) => {
-        if (testInfo.title === 'Creacion de tablero con codigo 401' || testInfo.title === 'Creacion de tablero con nombre vacio con codigo 400') {
+        if (testInfo.title.includes('401') || testInfo.title.includes('nombre vacio')) {
             return;
         }
         expect(id).toBeDefined();
@@ -129,8 +128,6 @@ test.describe('Pruebas de api para crear un tablero', () => {
         const response = await httpDelete(endpoint);
         expect(response.status()).toBe(200);
     });
-
-
 })
 
 test.describe('Pruebas de api para actualizar un tablero', () => {
@@ -143,10 +140,10 @@ test.describe('Pruebas de api para actualizar un tablero', () => {
         id = responseBody.id;
     });
 
-    test('Actualizacion de tablero con codigo 200', async ({ }) => {
+    test('SM-API-TC-17 Actualizacion de tablero con codigo 200 @smoke @regression @positive', async ({ }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, positive');
+        allure.severity('alta');
         const endpoint = getDynamicEndpoint(BOARD, id, { name: 'RANDOM' }, true);
         const response = await httpPut(endpoint);
         expect(response.status()).toBe(200);
@@ -155,10 +152,10 @@ test.describe('Pruebas de api para actualizar un tablero', () => {
         expect(responseBody).toHaveProperty('name', responseBody.name);
     });
 
-    test('Actualizacion de la descripcion del tablero con codigo 200', async ({ }) => {
+    test('SM-API-TC-18 Actualizacion de la descripcion del tablero con codigo 200 @smoke @regression @positive', async ({ }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, positive');
+        allure.severity('media');
         const endpoint = getDynamicEndpoint(BOARD, id, { name: 'RANDOM', desc: 'RANDOM' }, true);
         const response = await httpPut(endpoint);
         expect(response.status()).toBe(200);
@@ -168,10 +165,10 @@ test.describe('Pruebas de api para actualizar un tablero', () => {
         expect(responseBody).toHaveProperty('desc', responseBody.desc);
     });
 
-    test('Cerrar tablero con codigo 200', async ({ }) => {
+    test('SM-API-TC-19 Cerrar tablero con codigo 200 @smoke @regression @positive', async ({ }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, positive');
+        allure.severity('media');
         const endpoint = getDynamicEndpoint(BOARD, id, { closed: true }, true);
         const response = await httpPut(endpoint);
         expect(response.status()).toBe(200);
@@ -181,10 +178,10 @@ test.describe('Pruebas de api para actualizar un tablero', () => {
         expect(responseBody).toHaveProperty('closed', responseBody.closed);
     });
 
-    test('Abrir tablero con codigo 200', async ({ }) => {
+    test('SM-API-TC-20 Abrir tablero con codigo 200 @smoke @regression @positive', async ({ }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, positive');
+        allure.severity('media');
         let endpoint = getDynamicEndpoint(BOARD, id, { closed: true }, true);
         let response = await httpPut(endpoint);
         expect(response.status()).toBe(200);
@@ -206,12 +203,12 @@ test.describe('Pruebas de api para actualizar un tablero', () => {
 })
 
 test.describe('Pruebas de api para poner en favorito un tablero', () => {
-    test('Creacion de estrella para un tablero con codigo 200', async ({ boardId }) => {
+    test('SM-API-TC-21 Creacion de estrella para un tablero con codigo 200 @smoke @regression @positive', async ({ boardId }) => {
         allure.tag('API');
         allure.owner('Sol Abril Marquez Diaz');
-        allure.severity('smoke, regression, positive');
+        allure.severity('baja');
         const endpoint = getDynamicEndpoint(MEMBER, `me/boardStars`, { idBoard: boardId, pos: 1 }, true);
         const response = await httpPost(endpoint);
         expect(response.status()).toBe(200);
-    });
+    })
 })
