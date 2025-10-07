@@ -1,98 +1,79 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 require('dotenv').config();
-/**
- * Read environment variables from file.
- * https://github.com/motdotla/dotenv
- */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
 
-/**
- * @see https://playwright.dev/docs/test-configuration
- */
+
 export default defineConfig({
   testDir: './tests',
-  /* Run tests in files in parallel */
-  fullyParallel: true,
-  /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
+  
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-   reporter: [['html'], ["line"], ["allure-playwright"]],
+  reporter: [['html'], ["line"], ["allure-playwright"]],
+  
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    // baseURL: 'http://localhost:3000',
-
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    screenshot: 'only-on-failure', // solo captura en fallos
-    video: 'retain-on-failure'     // opcional: guarda video en fallos
+    screenshot: 'only-on-failure',
+    video: 'retain-on-failure'
   },
-timeout: 90000, // 90 segundos por test
+  
+  timeout: 30000, // 30 segundos por test
   expect: {
     timeout: 15000 // 15 segundos para assertions
   },
+  
   /* Configure projects for major browsers */
   projects: [
-    // Setup project
-    { name: 'setup', testMatch: /.*\.setup\.js/ },
+    // ========================================
+    // TESTS API - Ejecución en PARALELO
+    // ========================================
     {
-      name: 'chromium',
+      name: 'api-tests',
+      testMatch: /.*\/API\/.*\.spec\.js$/,
       use: {
         ...devices['Desktop Chrome'],
-        // Use prepared auth state.
-        storageState: 'playwright/.auth/user.json',
       },
-      // dependencies: ['setup'],
+      fullyParallel: true, // Ejecuta tests API en paralelo
+      workers: process.env.CI ? 4 : 6, // Más workers para tests API
     },
-
+    
+    // ========================================
+    // TESTS UI - Ejecución en SERIE (headed)
+    // ========================================
+    {
+      name: 'ui-tests-chromium',
+      testMatch: /.*\/UI\/.*\.spec\.js$/,
+      use: {
+        ...devices['Desktop Chrome'],
+        storageState: 'playwright/.auth/user.json',
+        headless: false, // Modo headed para tests UI
+        viewport: { width: 1920, height: 1080 },
+        launchOptions: {
+          slowMo: 100, // Ralentiza las acciones para mejor visualización
+        },
+      },
+      fullyParallel: false, // Ejecuta tests UI en serie
+      workers: 1, // Solo 1 worker para ejecución serial
+    },
+    
+    // ========================================
+    // TESTS UI - Firefox (opcional)
+    // ========================================
     /* {
-      name: 'firefox',
+      name: 'ui-tests-firefox',
+      testMatch: /.*\/UI\/.*\.spec\.js$/,
       use: {
         ...devices['Desktop Firefox'],
-        // Use prepared auth state.
         storageState: 'playwright/.auth/user.json',
+        headless: false,
+        viewport: { width: 1920, height: 1080 },
       },
-      dependencies: ['setup'],
-    },
-
-    {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
+      fullyParallel: false,
+      workers: 1,
     }, */
-
-    /* Test against mobile viewports. */
-    // {
-    //   name: 'Mobile Chrome',
-    //   use: { ...devices['Pixel 5'] },
-    // },
-    // {
-    //   name: 'Mobile Safari',
-    //   use: { ...devices['iPhone 12'] },
-    // },
-
-    /* Test against branded browsers. */
-    // {
-    //   name: 'Microsoft Edge',
-    //   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    // },
-    // {
-    //   name: 'Google Chrome',
-    //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
-    // },
   ],
-
-  /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   url: 'http://localhost:3000',
-  //   reuseExistingServer: !process.env.CI,
-  // },
 });
-
