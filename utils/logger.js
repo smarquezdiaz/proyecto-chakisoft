@@ -2,7 +2,7 @@ const { allure } = require('allure-playwright');
 
 const info = (msg) => {
   console.log(`[INFO] ${new Date().toISOString()} : ${msg}`);
-  allure.step(`[INFO] ${msg}`, () => {});
+  allure.step(`[INFO] ${msg}`, () => {}); 
 };
 
 const success = (msg) => {
