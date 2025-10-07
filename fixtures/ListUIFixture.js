@@ -1,4 +1,4 @@
-// fixtures/listFixturesUI.js
+
 const { test: base, expect } = require('@playwright/test');
 const { ListPage } = require('../pages/ListPage');
 const { UIHelpers } = require('../utils/helperListUI');
@@ -34,7 +34,7 @@ const test = base.extend({
       await page.goto(BOARD_URL, { waitUntil: 'networkidle', timeout: 30000 });
       await page.waitForTimeout(2000);
       
-      // Archivar todas las listas visibles
+      
       console.log('  → Archivando listas...');
       let listCount = await page.locator('li[data-testid="list-wrapper"]').count();
       console.log(`  → Listas encontradas: ${listCount}`);
@@ -62,7 +62,7 @@ const test = base.extend({
         listCount = await page.locator('li[data-testid="list-wrapper"]').count();
       }
 
-      // Abrir menú de elementos archivados
+     
       console.log('  → Abriendo elementos archivados...');
       await page.waitForTimeout(1000);
       
@@ -76,7 +76,7 @@ const test = base.extend({
       await archivedButton.click();
       await page.waitForTimeout(1500);
       
-      // Cambiar a vista de listas si es necesario
+     
       const listsTab = page.locator('button:has-text("Cambiar a listas")');
       const isListsTabVisible = await listsTab.isVisible().catch(() => false);
       if (isListsTabVisible) {
@@ -84,7 +84,7 @@ const test = base.extend({
         await page.waitForTimeout(1000);
       }
 
-      // Eliminar todas las listas archivadas
+      
       console.log('  → Eliminando listas archivadas...');
       let deletedCount = 0;
       
@@ -126,7 +126,7 @@ const test = base.extend({
   };
 
   await use(cleanupFn);
-  await cleanupFn();
+ 
 }
   
 });

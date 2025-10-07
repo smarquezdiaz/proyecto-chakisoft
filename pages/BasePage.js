@@ -15,4 +15,5 @@ export class BasePage {
   async click(selector) {
     await this.page.click(selector);
   }
+
 }

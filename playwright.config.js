@@ -34,7 +34,7 @@ export default defineConfig({
     screenshot: 'only-on-failure', // solo captura en fallos
     video: 'retain-on-failure'     // opcional: guarda video en fallos
   },
-timeout: 90000, // 90 segundos por test
+timeout: 30000, // 10 segundos por test
   expect: {
     timeout: 15000 // 15 segundos para assertions
   },
