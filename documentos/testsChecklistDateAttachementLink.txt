@@ -1,0 +1,1797 @@
+Test De UI 
+Test cases automatizados 
+Código existen 3 test de los módulos, agregar fecha, agregar checklist, agregar, adjunto, link, cada test case es un flujo completo , y dentro de los flujos completos se encuentran mas test cases automatizados 
+Módulo: Gestión de Fechas
+
+ID: DL-UI-TC-01
+Título: Flujo completo creación de fechas 
+Descripción: Verificar que se puede agregar una fecha de inicio, fecha de vencimiento, hora y recordatorio en una tarjeta de Trello, y posteriormente eliminarla correctamente.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en el botón "Añadir a la tarjeta"
+Seleccionar "Fechas" del menú
+Activar el checkbox "Fecha de inicio"
+Ingresar fecha de inicio: 16/9/2025
+Ingresar fecha de vencimiento: 30/9/2025
+Ingresar hora: 2:16
+Seleccionar recordatorio: "15 minutos antes"
+Hacer clic en "Guardar"
+Hacer clic en el badge de fecha para abrir el modal
+Hacer clic en "Quitar"
+Resultado esperado:
+El modal de fechas se abre correctamente
+Las fechas se ingresan sin errores
+El recordatorio se selecciona correctamente
+El badge de fecha aparece en la tarjeta mostrando el rango de fechas
+Al hacer clic en "Quitar", la fecha se elimina completamente
+El badge de fecha desaparece de la tarjeta
+Tipo de prueba: Smoke, Positive, Regression
+
+ID: DL-UI-TC-02
+Título: Abrir modal de fechas en tarjeta de Trello
+Descripción: Verificar que el modal de fechas se abre correctamente desde una tarjeta.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en el botón "Añadir a la tarjeta"
+Seleccionar "Fechas" del menú
+Resultado esperado:
+El modal de fechas se abre correctamente
+Se muestran los campos para fecha de inicio y vencimiento
+El modal es interactivo y funcional
+Tipo de prueba: Smoke, Positive, Regression
+
+ID: DL-UI-TC-03
+Título: Habilitar fecha de inicio mediante checkbox
+Descripción: Verificar que se puede activar el checkbox de fecha de inicio para habilitar el campo correspondiente.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Modal de fechas abierto
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en el botón "Añadir a la tarjeta"
+Seleccionar "Fechas" del menú
+Activar el checkbox "Fecha de inicio"
+Resultado esperado:
+El checkbox "Fecha de inicio" se marca correctamente
+El campo de fecha de inicio se habilita y es editable
+La interfaz responde adecuadamente al cambio
+Tipo de prueba: Positive, Regression
+
+ID: DL-UI-TC-04
+Título: Seleccionar fecha desde el calendario del modal
+Descripción: Verificar que se puede seleccionar una fecha haciendo clic en el calendario del modal.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Modal de fechas abierto
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en el botón "Añadir a la tarjeta"
+Seleccionar "Fechas" del menú
+Hacer clic en el campo de fecha para abrir el calendario
+Seleccionar una fecha del calendario (ejemplo: 16/9/2025)
+Resultado esperado:
+El calendario se despliega correctamente
+La fecha seleccionada se refleja en el campo correspondiente
+El formato de fecha es correcto
+Tipo de prueba: Positive, Regression
+
+ID: DL-UI-TC-05
+Título: Buscar fechas navegando en el calendario del modal
+Descripción: Verificar que se puede navegar entre meses/años en el calendario para buscar fechas específicas.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Modal de fechas abierto con calendario visible
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en el botón "Añadir a la tarjeta"
+Seleccionar "Fechas" del menú
+Hacer clic en el campo de fecha para abrir el calendario
+Usar los controles de navegación (flechas) para cambiar de mes
+Buscar y visualizar una fecha futura (ejemplo: Septiembre 2025)
+Resultado esperado:
+El calendario permite navegar entre meses correctamente
+Los controles de navegación funcionan adecuadamente
+Las fechas se actualizan según el mes/año seleccionado
+Tipo de prueba: Positive, Regression
+
+ID: DL-UI-TC-06
+Título: Crear fecha completa con hora en tarjeta
+Descripción: Verificar que se puede crear una fecha de inicio y vencimiento con hora específica.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en el botón "Añadir a la tarjeta"
+Seleccionar "Fechas" del menú
+Activar el checkbox "Fecha de inicio"
+Ingresar fecha de inicio: 16/9/2025
+Ingresar fecha de vencimiento: 30/9/2025
+Ingresar hora: 2:16
+Hacer clic en "Guardar"
+Resultado esperado:
+Las fechas se ingresan sin errores
+La hora se acepta en el formato correcto
+Los datos se guardan correctamente
+El modal se cierra después de guardar
+Tipo de prueba: Smoke, Positive, Regression
+
+ID: DL-UI-TC-07
+Título: Agregar recordatorio a fecha en tarjeta
+Descripción: Verificar que se puede agregar un recordatorio a una fecha existente en la tarjeta.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en el botón "Añadir a la tarjeta"
+Seleccionar "Fechas" del menú
+Activar el checkbox "Fecha de inicio"
+Ingresar fecha de inicio: 16/9/2025
+Ingresar fecha de vencimiento: 30/9/2025
+Ingresar hora: 2:16
+Seleccionar recordatorio: "15 minutos antes"
+Hacer clic en "Guardar"
+Resultado esperado:
+El dropdown de recordatorio se abre correctamente
+La opción "15 minutos antes" se selecciona sin errores
+El recordatorio se guarda junto con la fecha
+Se confirma visualmente la configuración del recordatorio
+Tipo de prueba: Positive, Regression
+
+ID: DL-UI-TC-08
+Título: Verificar creación de badge de fecha en tarjeta
+Descripción: Verificar que después de guardar una fecha, aparece el badge correspondiente en la tarjeta mostrando el rango de fechas.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Fecha creada previamente (16/9/2025 - 30/9/2025)
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en el botón "Añadir a la tarjeta"
+Seleccionar "Fechas" del menú
+Activar el checkbox "Fecha de inicio"
+Ingresar fecha de inicio: 16/9/2025
+Ingresar fecha de vencimiento: 30/9/2025
+Ingresar hora: 2:16
+Seleccionar recordatorio: "15 minutos antes"
+Hacer clic en "Guardar"
+Verificar la tarjeta
+Resultado esperado:
+El badge de fecha aparece visible en la tarjeta
+El badge muestra el rango correcto de fechas (16/9/2025 - 30/9/2025)
+El formato de visualización es correcto
+El badge es clickeable
+Tipo de prueba: Smoke, Positive, Regression
+
+ID: DL-UI-TC-09
+Título: Deshabilitar fecha de vencimiento mediante checkbox
+Descripción: Verificar que se puede desmarcar el checkbox de fecha de vencimiento para deshabilitarla.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Modal de fechas abierto
+Fecha de vencimiento configurada previamente
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en el badge de fecha para abrir el modal
+Desmarcar el checkbox de "Fecha de vencimiento"
+Resultado esperado:
+El checkbox se desmarca correctamente
+El campo de fecha de vencimiento se deshabilita o limpia
+Solo permanece activa la fecha de inicio
+Los cambios se pueden guardar correctamente
+Tipo de prueba: Positive, Regression
+
+ID: DL-UI-TC-10
+Título: Eliminar fecha completa de tarjeta
+Descripción: Verificar que se puede eliminar completamente una fecha configurada en la tarjeta usando el botón "Quitar".
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Fecha completa configurada (inicio: 16/9/2025, vencimiento: 30/9/2025, hora: 2:16, recordatorio: 15 min antes)
+Badge de fecha visible en la tarjeta
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en el badge de fecha para abrir el modal
+Hacer clic en el botón "Quitar"
+Resultado esperado:
+El botón "Quitar" está visible y accesible
+Al hacer clic en "Quitar", la fecha se elimina completamente
+El badge de fecha desaparece de la tarjeta
+No quedan rastros de la configuración de fecha anterior
+La tarjeta vuelve a su estado sin fechas
+Tipo de prueba: Smoke, Positive, Regression
+
+ID: DL-UI-TC-11
+Título: Agregar fecha larga (3 meses) con recordatorio de 1 día
+Descripción: Verificar que se puede configurar una fecha con un rango largo (3 meses) y un recordatorio con anticipación de 1 día.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en el botón "Añadir a la tarjeta"
+Seleccionar "Fechas" del menú
+Activar el checkbox "Fecha de inicio"
+Ingresar fecha de inicio: 01/10/2025
+Ingresar fecha de vencimiento: 31/12/2025
+Ingresar hora: 14:30
+Seleccionar recordatorio: "1 día antes"
+Hacer clic en "Guardar"
+Verificar que el badge muestra el rango de fechas
+Eliminar la fecha configurada
+Resultado esperado:
+El sistema permite configurar fechas con rangos largos (más de 2 meses)
+El recordatorio de "1 día antes" se configura correctamente
+El badge muestra correctamente el rango de fechas largo
+La fecha se elimina exitosamente
+Tipo de prueba: Positive, Regression
+-----------------------------------------------------------------------------------------------------
+ID: DL-UI-TC-12
+Título: Agregar fecha sin fecha de inicio (solo vencimiento)
+Descripción: Verificar que se puede agregar solo una fecha de vencimiento sin fecha de inicio.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta disponible para testing
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero de pruebas
+Abrir una tarjeta
+Hacer clic en "Añadir a la tarjeta" > "Fechas"
+NO activar el checkbox de "Fecha de inicio"
+Ingresar solo fecha de vencimiento
+Hacer clic en "Guardar"
+Resultado esperado:
+El sistema permite guardar solo la fecha de vencimiento
+El badge muestra únicamente la fecha de vencimiento
+No se muestra fecha de inicio en la tarjeta
+Tipo de prueba: Positive
+---------------------------------------------------------------------------------------------------------
+Módulo: Gestión de Checklists
+
+ID: DL-UI-TC-13
+Título: Flujo completo del checklist 
+Descripción: Verificar que se puede crear un checklist y agregar múltiples tareas editar y eliminar el checklist.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en "Añadir a la tarjeta"
+Seleccionar "Lista de comprobación"
+Ingresar nombre del checklist: "Tareas"
+Hacer clic en "Agregar"
+Agregar item: "Primera tarea"
+Agregar item: "Segunda tarea"
+Guardar tareas 
+Hacer clic en la primera tarea 
+Editar la tarea “Tarea editada”
+Marcar check de todas las tareas 
+Eliminar la checklist  
+Resultado esperado:
+El checklist se crea correctamente con el nombre especificado
+Las tareas se agregan y son visibles en el checklist
+Se edita la primera tarea 
+Tareas marcados
+Checklist eliminado
+Tipo de prueba: Smoke, Positive, Regression
+
+ID: DL-UI-TC-14
+Título: Abrir modal de añadir en tarjeta
+Descripción: Verificar que el modal para crear checklist se abre correctamente desde una tarjeta.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en "Añadir "
+Seleccionar "checklist"
+Resultado esperado:
+El modal de lista de comprobación se abre correctamente
+Se muestra el campo para ingresar el nombre del checklist
+El botón "Agregar" está visible y habilitado
+La interfaz es funcional e interactiva
+Tipo de prueba: Smoke, Positive, Regression
+
+ID: DL-UI-TC-15
+Título: Crear título de checklist
+Descripción: Verificar que se puede crear un checklist ingresando un título/nombre específico.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en "Añadir a la tarjeta"
+Seleccionar "Lista de comprobación"
+Ingresar nombre del checklist: "Tareas"
+Hacer clic en "Agregar"
+Resultado esperado:
+El campo acepta el texto ingresado sin errores
+El checklist se crea correctamente con el nombre "Tareas"
+El checklist aparece visible en la tarjeta
+El título del checklist se muestra correctamente
+El modal se cierra o permite agregar ítems
+Tipo de prueba: Smoke, Positive, Regression
+
+ID: DL-UI-TC-16
+Título: Añadir un elemento a la checklist
+Descripción: Verificar que se puede agregar un elemento/tarea individual a un checklist existente.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Checklist "Tareas" creado previamente
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en "Añadir a la tarjeta"
+Seleccionar "Lista de comprobación"
+Ingresar nombre del checklist: "Tareas"
+Hacer clic en "Agregar"
+Agregar item: "Primera tarea"
+Resultado esperado:
+El campo para agregar item está disponible
+El texto "Primera tarea" se ingresa correctamente
+El item se agrega y es visible en el checklist
+El contador muestra "0/1" tareas
+El checkbox del item está desmarcado por defecto
+Tipo de prueba: Smoke, Positive, Regression
+
+ID: DL-UI-TC-17
+Título: Crear múltiples elementos en checklist
+Descripción: Verificar que se pueden agregar múltiples elementos/tareas consecutivas a un checklist.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Checklist "Tareas" creado previamente
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en "Añadir a la tarjeta"
+Seleccionar "Lista de comprobación"
+Ingresar nombre del checklist: "Tareas"
+Hacer clic en "Agregar"
+Agregar item: "Primera tarea"
+Agregar item: "Segunda tarea"
+Agregar item: "Tercera tarea"
+Resultado esperado:
+Todos los items se agregan correctamente
+Los tres elementos son visibles en el checklist
+El orden de los items se mantiene
+El contador muestra "0/3" tareas completadas
+Cada item tiene su propio checkbox desmarcado
+Tipo de prueba: Smoke, Positive, Regression
+
+ID: DL-UI-TC-18
+Título: Marcar check del elemento añadido
+Descripción: Verificar que se puede marcar como completado un elemento del checklist mediante su checkbox.
+Tipo de testeo: Automatizado
+Prioridad: media 
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Checklist "Tareas" creado con al menos un elemento
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Localizar el checklist "Tareas" con el item "Primera tarea"
+Hacer clic en el checkbox del item "Primera tarea"
+Resultado esperado:
+El checkbox se marca correctamente
+El texto del item puede mostrar tachado o estilo de completado
+El contador se actualiza (ejemplo: de "0/2" a "1/2")
+El cambio se guarda automáticamente
+La barra de progreso se actualiza visualmente
+Tipo de prueba: Positive, Regression
+
+ID: DL-UI-TC-19
+Título: Editar un elemento del checklist
+Descripción: Verificar que se puede editar el texto de un elemento existente en el checklist.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Checklist "Tareas" creado con al menos un elemento: "Primera tarea"
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Localizar el checklist "Tareas"
+Hacer clic en el item "Primera tarea" para editarlo
+Modificar el texto a: "Tarea modificada"
+Guardar los cambios
+Resultado esperado:
+El item se vuelve editable al hacer clic
+El campo permite modificar el texto
+El nuevo texto "Tarea modificada" se guarda correctamente
+El item actualizado es visible en el checklist
+El estado de completado (si lo tenía) se mantiene
+Tipo de prueba: Positive, Regression
+
+ID: DL-UI-TC-20
+Título: Eliminar una checklist completa
+Descripción: Verificar que se puede eliminar completamente un checklist de una tarjeta.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Checklist "Tareas" creado con elementos
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Localizar el checklist "Tareas"
+Hacer clic en el botón de opciones del checklist
+Seleccionar "Eliminar" o "Quitar"
+Confirmar la eliminación si es necesario
+Resultado esperado:
+La opción de eliminar está disponible en el menú
+El checklist completo se elimina de la tarjeta
+Todos los items del checklist se eliminan
+El checklist desaparece de la vista de la tarjeta
+No quedan rastros del checklist "Tareas"
+Tipo de prueba: Positive, Regression
+
+ID: DL-UI-TC-21
+Título: Crear múltiples checklists en una tarjeta
+Descripción: Verificar que se pueden crear múltiples checklists independientes en la misma tarjeta.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en "Añadir a la tarjeta"
+Seleccionar "Lista de comprobación"
+Ingresar nombre del primer checklist: "Tareas"
+Hacer clic en "Agregar"
+Agregar item: "Primera tarea"
+Hacer clic en "Añadir a la tarjeta"
+Seleccionar "Lista de comprobación"
+Ingresar nombre del segundo checklist: "Pendientes"
+Hacer clic en "Agregar"
+Agregar item: "Primera pendiente"
+Repetir para crear un tercer checklist: "Notas"
+Resultado esperado:
+Se pueden crear múltiples checklists sin conflictos
+Cada checklist se crea con su nombre único
+Los checklists son independientes entre sí
+Todos los checklists son visibles en la tarjeta
+Cada checklist mantiene su propio contador de progreso
+Los items de cada checklist no se mezclan
+Tipo de prueba: Positive, Regression
+
+ID: DL-UI-TC-22
+Título: Verificar persistencia de checklist al cancelar modal
+Descripción: Verificar que el checklist y sus elementos permanecen en la tarjeta después de cancelar el modal de edición.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Checklist "Tareas" creado con elementos
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Hacer clic en "Añadir a la tarjeta"
+Seleccionar "Lista de comprobación"
+Ingresar nombre del checklist: "Tareas"
+Hacer clic en "Agregar"
+Agregar item: "Primera tarea"
+Agregar item: "Segunda tarea"
+Hacer clic en "Cancelar"
+Verificar la tarjeta
+Resultado esperado:
+El modal se cierra al hacer clic en "Cancelar"
+El checklist "Tareas" permanece visible en la tarjeta
+Ambos items se mantienen en el checklist
+El contador muestra "0/2" tareas completadas
+No se pierde información al cancelar
+Tipo de prueba: Positive, Regression
+---------------------------------------------------------------------------------------------------------
+Manual
+ID: DL-UI-TC-023
+Título: Eliminar un elemento del checklist
+Descripción: Verificar que se puede eliminar un elemento individual de un checklist existente.
+Tipo de testeo: Manual 
+Prioridad: Media
+Tipo de prueba: Positive, Regression
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Checklist "Tareas" creado con múltiples elementos
+Entorno:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Abrir la tarjeta "Agregar"
+Localizar el checklist "Tareas"
+Hacer hover sobre el item "Primera tarea"
+Hacer clic en el botón/icono de eliminar del item
+Confirmar la eliminación si es necesario
+Resultado esperado:
+El botón de eliminar aparece al hacer hover
+El item se elimina correctamente del checklist
+Los demás items permanecen intactos
+El contador se actualiza correctamente (ejemplo: de "0/2" a "0/1")
+La barra de progreso se recalcula
+
+ID: DL-UI-TC-24
+Título: Crear checklist con nombre vacío
+Descripción: Verificar el comportamiento al intentar crear un checklist sin nombre.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Tarjeta disponible
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Abrir una tarjeta
+Seleccionar "Lista de comprobación"
+Dejar el campo de nombre vacío
+Hacer clic en "Agregar"
+Resultado esperado:
+El sistema crea el checklist con un nombre por defecto "Checklist"
+O muestra un mensaje de error solicitando un nombre
+Tipo de prueba: Negative
+
+ID: DL-UI-TC-25
+Título: Crear checklist con caracteres especiales en el nombre
+Descripción: Verificar que se pueden usar caracteres especiales en nombres de checklists.
+Tipo de testeo: Manual
+Prioridad: Baja
+Precondiciones:
+Usuario autenticado en Trello
+Tarjeta disponible
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Abrir una tarjeta
+Crear checklist con nombre: "Tareas @#$%^&*()"
+Agregar un item
+Guardar
+Resultado esperado:
+El sistema acepta caracteres especiales en el nombre
+El checklist se guarda correctamente
+Los caracteres especiales se muestran correctamente
+Tipo de prueba: Positive
+
+ID: DL-UI-TC-26
+Título: Mostrar elementos marcados después de ocultarlos
+Descripción: Verificar que se pueden volver a mostrar las tareas ocultas.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Checklist con tareas completadas ocultas
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Abrir tarjeta con checklist
+Tener tareas completadas ocultas
+Hacer clic en "Mostrar los elementos marcados"
+Resultado esperado:
+Las tareas completadas vuelven a ser visibles
+El botón cambia a "Ocultar los elementos marcados"
+El progreso del checklist se mantiene
+Tipo de prueba: Positive
+
+ID: DL-UI-TC-27
+Título: Cancelar eliminación de checklist
+Descripción: Verificar que se puede cancelar la eliminación de un checklist.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Checklist existente
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Abrir tarjeta con checklist
+Hacer clic en "Eliminar"
+Hacer clic en "Cancelar" o cerrar el modal
+Resultado esperado:
+El checklist NO se elimina
+El checklist permanece en la tarjeta
+Todas las tareas se mantienen
+Tipo de prueba: Negative
+---------------------------------------------------------------------------------------------------------------------
+Módulo: Gestión de Adjuntos
+Tes cases automatizados 
+
+ID: DL-UI-TC-28
+Título: Flujo completo adjunto URL 
+Descripción: Verificar el flujo completo end-to-end de gestión de adjuntos URÑ
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Usuario autenticado en Trello con credenciales válidas
+Acceso completo al tablero "Proyecto Final" (ID: cyHNgtZC)
+Tarjeta "Agregar" disponible y accesible en el tablero
+Navegador Chrome versión 120 o superior
+Conexión estable a Internet (mínimo 10 Mbps)
+Sin adjuntos previos en la tarjeta o adjuntos limpiados
+Permisos de edición en el tablero
+Entorno de Prueba: El usuario debe tener una computadora de escritorio o laptop con:
+Sistema Operativo: Windows 11 Pro 23H2 64 bits
+RAM: 16 GB mínimo
+CPU: Intel i7-1165G7 o superior
+Almacenamiento: SSD 1 TB
+Navegador: Google Chrome versión 120+ actualizado
+Resolución de pantalla: 1920x1080 mínimo
+Conexión a Internet: Estable, 10 Mbps mínimo
+Pasos 
+Login y navegación al tablero
+Abrir tarjeta "Agregar"
+Verificar modal cargado
+Abrir modal de adjuntos
+Ingresar URL: filmora.wondershare.net/es/editor-de-video
+Ingresar texto: arañita
+Guardar y verificar creación
+Abrir menú de acciones del adjunto
+Seleccionar "Editar"
+Limpiar campos anteriores
+Nueva URL
+Nuevo texto: Editor.
+Guardar y verificar edición
+Localizar adjunto editado
+Abrir menú de acciones
+Seleccionar "Eliminar"
+Confirmar eliminación
+Verificar que desapareció
+Cerrar modal con ESC
+Verificar persistencia (opcional)
+Estado limpio para siguiente test
+Resultado esperado 
+El flujo end-to-end debe completarse exitosamente cumpliendo TODOS los siguientes criterios:
+Tipo de prueba: Smoke, Positive, Regression
+
+ID: DL-UI-TC-29
+Título: Agregar adjunto URL de documentación
+Descripción: Verificar que se pueden agregar URLs de documentación técnica.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Tarjeta disponible
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Abrir una tarjeta
+Añadir adjunto tipo URL
+URL: "https://playwright.dev/docs/intro"
+Texto: "Documentación Playwright"
+Guardar
+Resultado esperado:
+El adjunto se guarda correctamente
+El link es funcional y abre la documentación
+El texto descriptivo se muestra correctamente
+Tipo de prueba: Positive, Regression
+
+ID: DL-UI-TC-30
+Título: Agregar adjunto URL sin texto descriptivo
+Descripción: Verificar el comportamiento al agregar una URL sin texto descriptivo.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Tarjeta disponible
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Abrir una tarjeta
+Seleccionar "Adjunto"
+Ingresar solo URL, dejar texto vacío
+Intentar guardar
+Resultado esperado:
+El sistema usa la URL como texto descriptivo por defecto
+El adjunto se guarda correctamente
+Tipo de prueba: Positive, smoke 
+
+ID: DL-UI-TC-31
+Título: Cancelar adición de adjunto URL
+Descripción: Verificar que se puede cancelar la adición de un adjunto sin guardarlo.
+Tipo de testeo: Automatizado
+Prioridad: Baja
+Precondiciones:
+Usuario autenticado en Trello
+Tarjeta disponible
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Abrir una tarjeta
+Seleccionar "Adjunto"
+Ingresar URL y texto
+Hacer clic en "Cancelar" o cerrar modal
+Resultado esperado:
+El adjunto NO se crea
+El modal se cierra
+No se guardan cambios en la tarjeta
+Tipo de prueba: Positive
+
+ID: DL-UI-TC-32
+Título: Editar solo el texto del adjunto
+Descripción: Verificar que se puede editar solo el texto descriptivo manteniendo la URL.
+Tipo de testeo: Atomatizado
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Adjunto URL existente en una tarjeta
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Abrir tarjeta con adjunto
+Hacer clic en acciones del adjunto
+Seleccionar "Editar"
+Modificar solo el texto descriptivo
+Mantener la URL original
+Guardar cambios
+Resultado esperado:
+Solo el texto se actualiza
+La URL permanece sin cambios
+El adjunto funciona correctamente
+Tipo de prueba: Positive, Regression
+
+ID: DL-UI-TC-33
+Título: Eliminar adjunto URL 
+Descripción: Verificar que se puede eliminar un adjunto URL con proceso de confirmación y que la eliminación persiste correctamente en el servidor.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Usuario autenticado en Trello
+Acceso al tablero "Proyecto Final"
+Tarjeta "Agregar" disponible
+Adjunto URL previamente creado 
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador Chrome actualizado
+Pasos:
+Navegar al tablero "Proyecto Final"
+Esperar a que el tablero cargue completamente 
+Abrir la tarjeta "Agregar"
+Verificar que el botón "Añadir a la tarjeta" está visible 
+Localizar el adjunto con URL: 
+Verificar que el adjunto es visible 
+Hacer clic en el botón de acciones "..." del adjunto
+Seleccionar opción "Eliminar" del menú
+Hacer clic en botón "Eliminar" o "Confirmar" del modal
+Resultado esperado:
+Aparece un modal de confirmación antes de eliminar
+Al confirmar, el adjunto se elimina completamente del servidor
+El adjunto ya no es visible en la sección de adjuntos
+La sección de adjuntos queda vacía o se oculta si no hay más adjuntos
+No se muestran errores en la UI
+Tipo de prueba: Smoke, Positive, Regression
+----------------------------------------------------------------------------------------------
+Manual 
+
+ID: DL-UI-TC-34
+Título: Agregar adjunto con URL inválida
+Descripción: Verificar la validación de URLs inválidas al crear adjuntos.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Tarjeta disponible
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Abrir una tarjeta
+Seleccionar "Adjunto"
+Ingresar URL inválida: "esto-no-es-una-url"
+Intentar guardar
+Resultado esperado:
+El sistema muestra mensaje de error
+No permite guardar URL inválida
+Solicita formato correcto de URL
+Tipo de prueba: Negative
+
+ID: DL-UI-TC-35
+Título: Visualizar preview de adjunto URL (si aplica)
+Descripción: Verificar que URLs con preview se muestran correctamente en la tarjeta.
+Tipo de testeo: Manual
+Prioridad: Baja
+Precondiciones:
+Usuario autenticado en Trello
+Tarjeta disponible
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Abrir una tarjeta
+Agregar adjunto con URL que tiene preview (ej: YouTube, Figma)
+Observar la visualización en la tarjeta
+Resultado esperado:
+El sistema muestra un preview del contenido
+La miniatura o información relevante es visible
+El preview es clicable y funcional
+Tipo de prueba: Positive, UI/UX
+
+ID: DL-UI-TC-36
+Título: Eliminar adjunto de tarjeta archivada
+Descripción: Verificar el comportamiento al intentar eliminar adjuntos de una tarjeta archivada.
+Tipo de testeo: Manual
+Prioridad: Baja
+Precondiciones:
+Usuario autenticado en Trello
+Tarjeta archivada con adjuntos
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Archivar una tarjeta que tiene adjuntos
+Abrir la tarjeta archivada
+Intentar eliminar un adjunto
+Observar si la opción está disponible
+Resultado esperado:
+La opción de eliminar puede estar deshabilitada en tarjetas archivadas
+O requiere desarchivar primero
+Aparece mensaje explicativo si no se puede eliminar
+El sistema previene modificaciones accidentales
+Tipo de prueba: Negative
+
+ID: DL-UI-TC-37
+Título: Eliminar adjunto con conexión lenta
+Descripción: Verificar el comportamiento al eliminar un adjunto con conexión a Internet lenta.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Tarjeta con adjunto URL
+Capacidad de simular conexión lenta (DevTools)
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Chrome DevTools para throttling
+Pasos:
+Abrir Chrome DevTools
+Activar Network Throttling (3G lento)
+Abrir una tarjeta con adjunto
+Intentar eliminar el adjunto
+Observar indicadores de carga
+Esperar a que complete la operación
+Resultado esperado:
+Aparece un indicador de carga durante la eliminación
+El sistema no se bloquea
+La eliminación se completa exitosamente aunque tarde más tiempo
+Aparece mensaje de confirmación cuando se completa
+No hay errores de timeout
+Tipo de prueba: Performance
+
+ID: DL-UI-TC-38
+Título: Cancelar eliminación de adjunto
+Descripción: Verificar que se puede cancelar el proceso de eliminación de un adjunto.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+Usuario autenticado en Trello
+Tarjeta con al menos un adjunto URL
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Abrir una tarjeta con adjunto
+Hacer clic en "..." del adjunto
+Seleccionar "Eliminar"
+En el modal de confirmación, hacer clic en "Cancelar" o "X"
+Verificar que el adjunto permanece visible
+Resultado esperado:
+El modal de confirmación se cierra
+El adjunto NO se elimina
+El adjunto permanece visible en la tarjeta
+No hay cambios en la sección de adjuntos
+El adjunto sigue siendo funcional
+Tipo de prueba: Negative
+
+-----------------------------------------Api-------------------------------------------------
+Tests cases automatizados 
+ID: DL-API-TC01
+Título: Crear un checklist exitosamente con todos los campos requeridos
+Descripción: Verificar que se puede crear un checklist correctamente proporcionando todos los parámetros requeridos (idCard, name, key, token)
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Tener credenciales válidas de API de Trello (key y token)
+Tener un ID de tarjeta válido (idCard)
+La tarjeta debe existir en un tablero activo
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Crear una checklist con nombre tareas
+Enviar una petición post con ID valido a https://api.trello.com/1/checklists/{checklistId}
+Incluir parámetros key y token 
+Resultado esperado:
+Checklist creado: 200 OK
+Tipos de prueba: Positive, Smoke 
+
+ID: DL-API-TC02
+Título: Obtener el checklist creado
+Descripción: Verificar que se puede recuperar la información de un checklist usando su identificador único ID
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Existe un checklist creado previamente con un ID conocido
+Las credenciales de API son válidas
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Node.js v18 o superior
+Playwright instalado
+Pasos:
+Enviar una petición GET con ID valido a https://api.trello.com/1/checklists/{checklistId}
+Incluir parámetros: key, token
+Resultado esperado:
+Status code: 200
+Response contiene: id, name, idBoard, idCard, pos, checkItems
+El ID del checklist en la respuesta coincide con el solicitado
+Tipos de prueba: Smoke, Positive, Regression
+
+ID: DL-API-TC03
+Título: Actualizar checklist
+Descripción: Verificar que se puede modificar el nombre de un checklist usando el método PUT
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Existe un checklist creado con un ID conocido
+Las credenciales de API son válidas
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Node.js v18 o superior
+Playwright instalado
+Pasos:
+Enviar una petición PUT con ID valido a https://api.trello.com/1/checklists/{checklistId}
+Incluir parámetros: key, token, name="Tareas Actualizadas"
+Validar la respuesta
+Resultado esperado:
+Status code: 200
+El campo "name" en la respuesta contiene el nuevo nombre
+El ID del checklist permanece igual
+Tipos de prueba: Positive, Regression
+
+ID: DL-API-TC04
+Título: Eliminar checklist
+Descripción: Verificar que se puede eliminar un checklist usando el método DELETE
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Existe un checklist creado con un ID conocido
+Las credenciales de API son válidas
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Node.js v18 o superior
+Playwright instalado
+Pasos:
+Enviar una petición DELETE con ID valido a https://api.trello.com/1/checklists/{checklistId}
+Incluir parámetros: key, token
+Validar la respuesta
+Resultado esperado:
+Status code del DELETE: 200
+Checklist eliminado 
+Tipos de prueba: Smoke, Positive
+
+ID: DL-API-TC05
+Título: Verificar eliminación
+Descripción: Verificar que el checklist este eliminado usando el método GET
+Tipo de testeo: Automatizado
+Prioridad: media 
+Precondiciones:
+Existe un checklist creado con un ID conocido
+Las credenciales de API son válidas
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Node.js v18 o superior
+Playwright instalado
+Pasos:
+Enviar una petición GET con ID eliminado a https://api.trello.com/1/checklists/{checklistId}
+Incluir parámetros: key, token
+Resultado esperado:
+Status code: 400, 404 o similar (NOT 200)
+La API retorna un mensaje de error apropiado
+No se retorna información de checklist
+Tipos de prueba: Regression, negative 
+
+ID: DL-API-TC06
+Título: Crear múltiples checklists 
+Descripción: Verificar que se pueden crear varios checklists con nombres distintos 
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Archivo JSON con datos de prueba 
+Credenciales válidas de API
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Node.js v18 o superior
+Playwright instalado
+Pasos:
+Leer datos de prueba del archivo JSON
+Para cada conjunto de datos: 
+Crear un checklist con el nombre especificado
+Validar la respuesta
+Verificar el schema
+Eliminar el checklist
+Repetir para todos los casos de prueba
+Resultado esperado:
+Todos los checklists se crean exitosamente
+Cada nombre coincide con los datos de prueba
+Todas las respuestas cumplen con el schema
+Cleanup exitoso de todos los recursos creados
+Tipos de prueba: Positive, Regression
+
+ID: DL-API-TC07
+Título: Actualizar multiples checklists
+Descripción: Verificar que se puede modificar el nombre de un de multiples checklists 
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Las credenciales de API son válidas
+Archivo JSON con datos de prueba 
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Node.js v18 o superior
+Playwright instalado
+Pasos:
+Leer datos de prueba del archivo JSON
+Para cada conjunto de datos: 
+Crear un checklist con el nombre especificado
+Validar la respuesta
+Verificar el schema
+Actualizar el nombre de las checklists
+Repetir para todos los casos de prueba
+Resultado esperado:
+Todos los checklists se crean exitosamente
+Cada nombre se actualiza correctamente 
+Todas las respuestas cumplen con el schema
+Cleanup exitoso de todos los recursos creados
+Tipos de prueba: Positive, Regression
+
+ID: DL-API-TC08
+Título: Crear escenarios de borde 
+Descripción: Verificar que se puedan crear múltiples escenarios negativos 
+Tipo de testeo: Automatizado
+Prioridad: baja
+Precondiciones:
+Las credenciales de API son válidas
+Archivo JSON con datos de prueba 
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Node.js v18 o superior
+Playwright instalado
+Pasos:
+Leer datos de prueba del archivo JSON
+Para cada conjunto de datos: 
+Crear un checklist 
+Validar la respuesta
+Verificar el schema
+Eliminar checklist
+Repetir para todos los casos de prueba
+Resultado esperado:
+Todos los checklists se crean exitosamente
+Cleanup exitoso de todos los recursos creados
+Tipos de prueba: Negative
+
+ID: DL-API-TC09
+Título: obtener Checklist con ID inválido
+Descripción: Verificar que la API maneja correctamente las peticiones con IDs de checklist que no existen
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Credenciales válidas de API
+ID de checklist inexistente o inválido
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Node.js v18 o superior
+Playwright instalado
+Pasos:
+Enviar petición GET con ID inválido "invalid-id-99999"
+Incluir credenciales válidas
+Validar la respuesta de error
+Resultado esperado:
+Status code: 400, 404 o similar (NOT 200)
+La API retorna un mensaje de error apropiado
+No se retorna información de checklist
+Tipos de prueba: Negative, Regression
+
+ID: DL-API-TC10
+Título: Eliminar Checklist inexistente
+Descripción: Verificar que la API responde apropiadamente al intentar eliminar un checklist que no existe
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Credenciales válidas de API
+ID de checklist que no existe
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Node.js v18 o superior
+Playwright instalado
+Pasos:
+Enviar petición DELETE con ID inexistente
+Incluir credenciales válidas
+Validar respuesta de error
+Resultado esperado:
+Status code: 400, 404 o similar (NOT 200)
+La API retorna mensaje de error
+No se elimina ningún recurso
+Tipos de prueba: Negative, Regression
+
+ID: DL-API-TC11
+Título: Actualizar checklist inexistente 
+Descripción: Verificar que la API maneja correctamente intentos de actualización de checklists que no existen
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Credenciales válidas de API
+ID de checklist inexistente
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Node.js v18 o superior
+Playwright instalado
+Pasos:
+Enviar petición PUT a checklist inexistente
+Incluir nuevo nombre y credenciales válidas
+Validar respuesta de error
+Resultado esperado:
+Status code: 400, 404 o similar (NOT 200)
+Mensaje de error apropiado
+No se modifica ningún recurso
+Tipos de prueba: Negative, Regression
+
+ID: DL-API-TC12
+Título: Crear checklist con caracteres especiales en el nombre
+Descripción: Verificar que la API acepta y maneja correctamente nombres con caracteres especiales
+Tipo de testeo: Automatizado
+Prioridad: Baja
+Precondiciones:
+Datos de prueba con caracteres especiales en checklistTestData.json
+Credenciales válidas
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Node.js v18 o superior
+Playwright instalado
+Pasos:
+Crear checklist con nombre "Test@#$%^&*()"
+Validar la respuesta
+Verificar que el nombre se guardó correctamente
+Eliminar el checklist
+Resultado esperado:
+Status code: 200
+El nombre con caracteres especiales se acepta
+La respuesta contiene el nombre tal como se envió
+Schema válido
+Tipos de prueba: Boundary, Regression
+
+ID: DL-API-TC13
+Título: Verificar el flujo completo de una checklist
+Descripción: Verificar el ciclo de vida completo de un checklist 
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Credenciales válidas de API
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Node.js v18 o superior
+Playwright y AJV instalados
+Pasos:
+CREATE: Crear checklist y validar schema de creación
+Get: Obtener checklist y validar schema de obtención
+UPDATE: Actualizar checklist y validar schema de actualización
+DELETE: Eliminar checklist y validar schema de eliminación
+Get: Confirmar que el checklist ya no existe
+Resultado esperado:
+Todas las operaciones retornan status code 200
+El flujo completo se ejecuta sin errores
+El recurso se limpia correctamente al final
+
+ID: DL-API-TC14
+Título: Validar schema de respuesta al crear checklist
+Descripción: Verificar que la estructura de la respuesta cumple con el JSON Schema definido al crear un checklist
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Schema validator configurado 
+Credenciales válidas de API
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Node.js v18 o superior
+Playwright y AJV instalados
+Pasos:
+Crear un checklist
+Obtener la respuesta JSON
+Resultado esperado:
+Todos los campos requeridos están presentes
+Los tipos de datos coinciden con el schema
+Tipos de prueba: Positive, Regression
+ID: DL-API-TC15
+Título: Crear un checklist sin nombre 
+Descripción: Verificar que no se pueda crear una checklist sin nombre
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Tener credenciales válidas de API de Trello (key y token)
+Tener un ID de tarjeta válido (idCard)
+La tarjeta debe existir en un tablero activo
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Postman o cURL instalado
+Pasos:
+Crear una checklist sin nombre .
+Enviar una petición post con ID valido a https://api.trello.com/1/checklists/{checklistId}
+Incluir parámetros key y token 
+Resultado esperado:
+Status code: 200 o 404
+Se crea una check list con nombre checklist de manera automática 
+Tipos de prueba: Positive, Smoke 
+ID: DL-API-TC16
+Título: Crear un checklist con ID de tarjeta invalida
+Descripción: Verificar que no se pueda crear una checklist con ID de tarjeta invalido 
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+Tener credenciales válidas de API de Trello (key y token)
+Tener un ID de tarjeta inválido (idCard)
+La tarjeta debe existir en un tablero activo
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Crear una checklist.
+Enviar una petición post con ID invalido a https://api.trello.com/1/checklists/{checklistId}
+Incluir parámetros key y token 
+Resultado esperado:
+Status code 404
+No se crea la checklist
+Tipos de prueba: Negative 
+---------------------------------------------------------------------------------------
+Pruebas manuales 
+ID: DL-API-TC17
+Título: Verificar comportamiento con conexión intermitente
+Descripción: Verificar resiliencia de la API ante problemas de red
+Tipo de testeo: Manual
+Prioridad: Baja
+Precondiciones:
+Herramienta para simular red inestable (Network Link Conditioner, Throttling)
+Credenciales válidas
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+DevTools o herramienta de throttling instalada
+Pasos:
+Activar throttling de red (3G lento)
+Intentar crear un checklist
+Observar el comportamiento
+Verificar timeouts y reintentos
+Resultado esperado:
+La petición completa o retorna timeout apropiado
+No hay errores inesperados
+El sistema es resiliente a problemas de red
+Se retorna mensaje de error claro si falla
+Tipos de prueba: Performance
+
+ID: DL-API-TC18
+Título: Eliminar una checklist más de una ves  
+Descripción: Verificar que al eliminar una checklist mas de 2 veces devuelva un fallo ya que trata eliminar una checklist inexistente 
+Tipo de testeo: Manual
+Prioridad: Baja
+Precondiciones:
+Credenciales válidas
+Postman
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Postman instalado
+Pasos:
+Crear un checklist
+Eliminar el checklist (primera vez)
+Intentar eliminar el mismo checklist (segunda vez)
+Observar la respuesta
+Resultado esperado:
+Primera eliminación: 200 OK
+Segunda eliminación: 404 Not Found o 200 (idempotente)
+No hay errores del servidor
+Comportamiento consistente
+Tipos de prueba: Functional,
+
+ID: DL-API-TC19
+Título: Verificar versionado de la API
+Descripción: Verificar que la API usa versionado apropiado en la URL
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+Conocimiento de la estructura de URLs de Trello
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Navegador web
+Pasos:
+Observar la URL: https://api.trello.com/1/checklists
+Identificar el número de versión (/1/)
+Intentar acceder a /2/ o /0/ si existen
+Verificar documentación de versionado
+Tipos de prueba: Regression 
+
+ID: DL-API-TC20
+Título: Verificar formato de mensajes de error
+Descripción: Verificar que los mensajes de error son consistentes y útiles
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+Múltiples escenarios de error
+Postman
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Postman instalado
+Pasos:
+Provocar diferentes tipos de errores (401, 400, 404, etc.)
+Analizar la estructura de los mensajes de error
+Verificar consistencia entre diferentes endpoints
+Validar que los mensajes son descriptivos
+Resultado esperado:
+Los errores tienen formato JSON consistente
+Incluyen: código de error, mensaje descriptivo
+No exponen información sensible del servidor
+Los mensajes son útiles para debugging
+Tipos de prueba: Usability, negative 
+
+ID: DL-API-TC21
+Título: Actualizar una checklist varias veces 
+Descripción: Verificar que actualizar con el mismo valor múltiples veces sea permitido
+Tipo de testeo: Manual
+Prioridad: Baja
+Precondiciones:
+Checklist existente
+Credenciales válidas
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Postman instalado
+Pasos:
+Crear un checklist
+Actualizar nombre a "Test" (primera vez)
+Actualizar nombre a "Test" (segunda vez, mismo valor)
+Actualizar nombre a "Test" (tercera vez)
+Comparar respuestas
+Resultado esperado:
+Todas las actualizaciones retornan 200
+El resultado final es el mismo independientemente del número de llamadas
+No hay efectos secundarios no deseados
+Comportamiento idempotente
+Tipos de prueba: Functional
+
+ID: DL-API-TC22
+Título: Crear checklist con caracteres especiales 
+Descripción: Verificar que la API cree la check list 
+Tipo de testeo: Manual
+Prioridad: Baja
+Precondiciones:
+Credenciales válidas
+Postman
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Postman instalado
+Pasos:
+Enviar POST con parámetros válidos
+Agregar parámetro no documentado: “t@rea$”
+Validar respuesta
+Resultado esperado:
+Status code: 200 (o el esperado normalmente)
+El checklist se crea correctamente
+Tipos de prueba: Functional
+
+ID: DL-API-TC23
+Título: Verificar tiempos de la API
+Descripción: Verificar que la API tenga timeouts apropiados configurados
+Tipo de testeo: Manual
+Prioridad: Baja
+Precondiciones:
+Herramienta para simular respuestas lentas
+Credenciales válidas
+Herramienta postman
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Pasos:
+Hacer petición normal y medir tiempo
+Simular delay de red extremo
+Observar si hay timeout
+Verificar mensaje de timeout
+Resultado esperado:
+La API responde en tiempo razonable (<5 segundos)
+No hay conexiones colgadas
+Tipos de prueba: Performance
+Tipos de prueba: Positive, Regression
+
+ID: DL-API-TC24
+Título: Crear checklist sin autenticación (sin token)
+Descripción: Verificar que la API rechaza peticiones sin credenciales de autenticación
+Tipo de testeo: Manual
+Prioridad: Alta
+Precondiciones:
+No incluir token en la petición
+Tener acceso a herramienta como Postman o cURL
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Postman o herramienta similar instalada
+Pasos:
+Abrir Postman
+Crear petición POST a https://api.trello.com/1/checklists
+Incluir solo idCard y name (sin key y token)
+Enviar la petición
+Observar la respuesta
+Resultado esperado:
+Status code: 401 Unauthorized
+Mensaje de error indicando falta de autenticación
+No se crea el checklist
+Tipos de prueba: Negative
+
+ID: DL-API-TC25
+Título: Crear checklist con token inválido o expirado
+Descripción: Verificar que la API valida la autenticidad del token
+Tipo de testeo: Manual
+Prioridad: Alta
+Precondiciones:
+Token inválido o expirado
+Herramienta de testing API
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Postman instalado
+Pasos:
+Enviar petición POST con token="invalid-token-12345"
+Incluir todos los demás parámetros correctos
+Validar respuesta
+Resultado esperado:
+Status code: 401 o 403
+Mensaje de error de autenticación
+No se crea el recurso
+Tipos de prueba: Negative, Security
+ID: DL-API-TC25
+Título: Crear checklist sin el parámetro obligatorio idCard
+Descripción: Verificar validación de campos obligatorios
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+Credenciales válidas
+Postman o herramienta similar
+Entorno: El usuario debe tener una computadora de escritorio o laptop con:
+Windows 11 pro 23H2 64 bits
+RAM 16 GB
+CPU Intel i7-1165G7
+SSD 1 tera
+Postman instalado
+Pasos:
+Enviar POST sin el parámetro idCard
+Incluir solo name, key, token
+Validar respuesta
+Resultado esperado:
+Status code: 400 Bad Request
+Mensaje indicando campo obligatorio faltante
+No se crea el checklist
+Tipos de prueba: Negative
+
+
+
+
+ 
+

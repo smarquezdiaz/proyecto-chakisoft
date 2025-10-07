@@ -1,0 +1,341 @@
+
+TEST UI-LISTS
+
+ID:  AE-UI-TC-01
+Título: Verificar la creación de una nueva lista
+Descripción: Validar que el usuario pueda crear correctamente una nueva lista en el tablero.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones: Usuario logueado y tablero abierto.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Hacer clic en “Añadir lista”.
+2.	Ingresar un nombre válido para la lista.
+3.	Hacer clic nuevamente en “Añadir lista”.
+Resultado esperado:
+La nueva lista se muestra en el tablero con el nombre ingresado.
+-----------------------------------------------------------------------------------------------------------------
+
+ID: AE-UI-TC-02
+Título: Verificar la funcionalidad de renombrar una lista
+Descripción: Validar que el usuario pueda cambiar correctamente el nombre de una lista existente.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones: usuario logueado tener una lista previamente creada.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Seleccionar la lista existente.
+2.	Hacer clic en “Renombrar”.
+3.	Ingresar un nuevo nombre.
+4.	Confirmar la modificación.
+Resultado esperado:
+El nuevo nombre se actualiza y se visualiza correctamente en el tablero.
+-----------------------------------------------------------------------------------------------------------------
+ID: AE-UI-TC-03
+Título: Verificar la funcionalidad de mover lista por posición
+Descripción: Comprobar que el usuario pueda cambiar la posición de una lista dentro del mismo tablero mediante selección en posición del menú de mover.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones: Tener al menos dos listas creadas.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Ingresar al menú de mover lista.
+2.	Elegir la  posición del tablero a la cual mover .
+Resultado esperado:
+La lista se reordena correctamente sin errores.
+
+-----------------------------------------------------------------------------------------------------------------
+ID: AE-UI-TC-04
+Título: Verificar la funcionalidad de copiar una lista
+Descripción: Validar que el usuario pueda duplicar correctamente una lista existente.
+Tipo de testeo: Automatizado 
+Prioridad: Media
+Precondiciones: Tener al menos una lista creada.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Abrir el menú de opciones de la lista.
+2.	Seleccionar “Copiar lista”.
+3.	Confirmar la acción.
+Resultado esperado:
+Se crea una nueva lista con el mismo contenido y un nombre similar al original.
+-----------------------------------------------------------------------------------------------------------------
+ID:  AE-UI-TC-05
+Título: Verificar la funcionalidad de archivar una lista
+Descripción: Validar que el usuario pueda archivar correctamente una lista del tablero.
+Tipo de testeo: Automatizado 
+Prioridad: Alta
+Precondiciones: Tener una lista visible en el tablero.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Abrir el menú de opciones de la lista.
+2.	Seleccionar “Archivar lista”.
+Resultado esperado:
+La lista desaparece del tablero activo y se mueve al estado Archivada.
+-----------------------------------------------------------------------------------------------------------------
+ID:  AE-UI-TC-06
+Título: Verificar la funcionalidad de eliminar una lista archivada
+Descripción: Validar que el usuario pueda eliminar definitivamente una lista archivada.
+Tipo de testeo: Automatizado 
+Prioridad: Alta
+Precondiciones: Tener una lista archivada existente.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Acceder a la sección de Listas archivadas.
+2.	Seleccionar la lista.
+3.	Hacer clic en “Eliminar”.
+Resultado esperado:
+La lista se elimina de forma permanente y no puede recuperarse.
+-----------------------------------------------------------------------------------------------------------------
+
+
+ID: AE-UI-TC-07
+Título: Verificar límite de 512 caracteres en nombre de lista
+Descripción: Verificar  que el campo de nombre de lista no acepte más de 512 caracteres. 
+Tipo de testeo: Automatizado   
+Prioridad: Media
+Precondiciones: El usuario debe estar logueado y contar con un  tablero creado 
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Hacer clic en el botón “Añadir lista”.
+2.	Escribir un texto de 512 caracteres.
+3.	Hacer clic en “Añadir lista”.
+4.	Intentar escribir 513 caracteres.
+Resultado esperado:
+El campo no permite ingresar más de 512 caracteres. La lista solo se crea si el nombre tiene 512 o menos.
+-----------------------------------------------------------------------------------------------------------------
+
+ID: AE-UI-TC-08
+Título: Verificar restricción al crear lista con campo vacío
+Descripción: Validar que el botón “Añadir lista” permanezca deshabilitado si el campo de texto está vacío.
+Tipo de testeo: Automatizado 
+Prioridad: Alta
+Precondiciones: Usuario logueado y tablero visible.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Hacer clic en “Añadir lista”.
+2.	Dejar el campo de texto vacío.
+3.	Observar el estado del botón “Añadir lista”.
+Resultado esperado:
+El botón permanece deshabilitado y no se crea ninguna lista vacía.
+-----------------------------------------------------------------------------------------------------------------
+
+ID:  AE-UI-TC-09
+Título: Verificar la funcionalidad de mover una lista a otro tablero
+Descripción: Validar que el usuario pueda mover una lista existente a otro tablero del que tenga acceso.
+Tipo de testeo: Automatizado 
+Prioridad: Media
+Precondiciones: El usuario debe tener al menos dos tableros disponibles.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Crear o identificar una lista existente.
+2.	Abrir el menú de opciones.
+3.	Seleccionar “Mover a otro tablero”.
+4.	Elegir el tablero destino.
+Resultado esperado:
+La lista desaparece del tablero actual y aparece correctamente en el tablero destino.
+-----------------------------------------------------------------------------------------------------------------
+
+ID:  AE-UI-TC-10
+Título: Verificar la funcionalidad de desarchivar una lista
+Descripción: Validar que el usuario pueda restaurar una lista archivada al tablero principal.
+Tipo de testeo: Automatizado 
+Prioridad: Media
+Precondiciones: Tener una lista archivada.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Acceder a Listas archivadas.
+2.	Seleccionar la lista.
+3.	Hacer clic en “Desarchivar”.
+Resultado esperado:
+La lista vuelve a mostrarse en el tablero principal.
+-----------------------------------------------------------------------------------------------------------------
+ID:  AE-UI-TC-11
+Título: Verificar la funcionalidad de seguir una lista
+Descripción: Validar que el usuario pueda seguir una lista para recibir notificaciones de actividad.
+Tipo de testeo: Automatizado 
+Prioridad: Baja
+Precondiciones: Tener una lista activa y visible.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Seleccionar la lista.
+2.	Abrir el menú de opciones.
+3.	Hacer clic en “Seguir lista”.
+Resultado esperado:
+Se muestra un indicador de seguimiento activo y el usuario queda suscrito a las notificaciones.
+-----------------------------------------------------------------------------------------------------------------
+
+ID: AE-UI-TC-12
+Título: Verificar la función de arrastrar una lista con el mouse
+Descripción: Validar que el usuario pueda arrastrar una lista con el mouse para iniciar el proceso de reordenamiento.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones: Tener al menos dos listas creadas.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Posicionar el cursor sobre el encabezado de una lista.
+2.	Mantener presionado el botón izquierdo del mouse.
+3.	Arrastrar la lista hacia una nueva posición sin soltar el botón.
+Resultado esperado:
+La lista se mueve visualmente junto con el cursor, indicando el inicio del arrastre correctamente.
+-----------------------------------------------------------------------------------------------------------------
+ID:  AE-UI-TC-13
+Título: Verificar la función de soltar una lista con el mouse
+Descripción: Validar que, al soltar el botón del mouse, la lista se ubique correctamente en la nueva posición.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones: Haber iniciado el arrastre de una lista.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Arrastrar una lista a una nueva posición dentro del tablero.
+2.	Soltar el botón del mouse.
+Resultado esperado:
+La lista queda ubicada en la nueva posición y el orden del tablero se actualiza sin errores.
+TEST API LIST
+ID: AE-API-TC-01
+Título: Crear una nueva lista en el tablero (POST /lists)
+Descripción: Validar que el usuario pueda crear correctamente una nueva lista en el tablero.
+Tipo de testeo: Automatizado (API)
+Prioridad: Alta
+Precondiciones:
+•	Usuario autenticado mediante API_KEY y API_TOKEN válidos.
+•	Board ID válido disponible en el entorno.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Enviar solicitud POST /1/lists para crear una nueva lista con un nombre válido.
+2.	Validar que el esquema JSON de la respuesta cumpla con listSchema.
+3.	Confirmar que el campo name coincida con el nombre enviado.
+Resultado esperado:
+•	La API responde con código 200 OK.
+•	La nueva lista se crea exitosamente y su nombre coincide con el solicitado.
+•	El esquema de la respuesta es válido.
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+ ID: AE-API-TC-02
+Título: Consultar todas las listas activas de un tablero (GET)
+Descripción: Validar que la API devuelva correctamente todas las listas asociadas a un tablero existente.
+Tipo de testeo: Automatizado (API)
+Prioridad: Alta
+Precondiciones:
+•	Usuario autenticado.
+•	Tablero con al menos una lista existente.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+
+Pasos:
+1.	Enviar solicitud GET /1/boards/{id}/lists.
+2.	Validar que el esquema JSON de la respuesta cumpla con listArraySchema.
+3.	Confirmar que el arreglo contenga al menos una lista.
+Resultado esperado:
+•	La API responde con código 200 OK.
+•	El arreglo contiene una o más listas.
+•	El esquema es válido.
+---------------------------------------------------------------------------------------------------------------------------------------
+
+ ID: AE-API-TC-03
+Título: Actualizar el nombre de una lista existente (PUT )
+Descripción: Validar que se pueda cambiar el nombre de una lista existente correctamente.
+Tipo de testeo: Automatizado (API)
+Prioridad: Alta
+Precondiciones:
+•	Usuario autenticado.
+•	ID de lista válido disponible.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Enviar solicitud PUT /1/lists/{id} con un nuevo nombre.
+2.	Validar el esquema JSON de la respuesta con listSchema.
+3.	Confirmar que el campo name cambió correctamente.
+Resultado esperado:
+•	La API responde con código 200 OK.
+•	El nombre de la lista se actualiza exitosamente.
+•	El esquema es válido.
+•	El campo closed debe permanecer en false.
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+ ID: AE-API-TC-04
+Título: Mover todas las tarjetas desde una lista origen hacia una lista destino (POST)
+Descripción: Verificar que todas las tarjetas puedan moverse correctamente de una lista origen a otra destino.
+Tipo de testeo: Automatizado (API)
+Prioridad: Media
+Precondiciones:
+•	Usuario autenticado.
+•	Ambas listas (origen y destino) existen en el tablero.
+•	La lista origen contiene tarjetas.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Enviar solicitud POST /1/lists/{id}/moveAllCards indicando la lista destino.
+2.	Validar el esquema JSON de la respuesta con cardOperationSchema.
+3.	Confirmar que las tarjetas fueron movidas exitosamente.
+Resultado esperado:
+•	La API responde con código 200 OK.
+•	Las tarjetas ya no están en la lista origen.
+•	El esquema es válido.
+--------------------------------------------------------------------------------------------------------------------------------
+ID: AE-API-TC-05
+Título: Archivar todas las tarjetas contenidas en una lista (POST)
+Descripción: Verificar que todas las tarjetas dentro de una lista puedan ser archivadas correctamente.
+Tipo de testeo: Automatizado (API)
+Prioridad: Media
+Precondiciones:
+•	Usuario autenticado.
+•	La lista contiene tarjetas activas.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB.
+Pasos:
+1.	Enviar solicitud POST /1/lists/{id}/archiveAllCards.
+2.	Validar la respuesta con cardOperationSchema.
+3.	Confirmar que las tarjetas aparecen como archivadas.
+Resultado esperado:
+•	La API responde con código 200 OK.
+•	Todas las tarjetas de la lista se archivan.
+•	El esquema es válido.
+-----------------------------------------------------------------------------------------------------------------------------
+ 
+
+ID: AE-API-TC-06
+Título: Cambiar el estado de una lista a archivada (PUT)
+Descripción: Validar que el usuario pueda archivar correctamente una lista.
+Tipo de testeo: Automatizado (API)
+Prioridad: Alta
+Precondiciones:
+•	Usuario autenticado.
+•	ID de lista válida disponible.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB
+Pasos:
+1.	Enviar solicitud PUT /1/lists/{id}/closed con value=true.
+2.	Validar la respuesta con listSchema.
+3.	Confirmar que el campo closed sea true.
+Resultado esperado:
+•	La API responde con código 200 OK.
+•	La lista queda archivada (closed = true).
+•	El esquema es válido.
+----------------------------------------------------------------------------------------------------------------------------
+
+ ID: AE-API-TC-07
+Título: Cambiar el estado de una lista archivada a activa (PUT)
+Descripción: Validar que una lista archivada pueda volver a activarse correctamente.
+Tipo de testeo: Automatizado (API)
+Prioridad: Alta
+Precondiciones:
+•	Usuario autenticado.
+•	ID de lista archivada disponible.
+Entorno: Windows 11 Pro, 16 GB RAM, Intel i7-1165G7, SSD 1 TB
+Pasos:
+1.	Enviar solicitud PUT /1/lists/{id}/closed con value=false.
+2.	Validar el esquema de la respuesta con listSchema.
+3.	Confirmar que closed cambie a false.
+Resultado esperado:
+•	La API responde con código 200 OK.
+•	La lista se desarchiva correctamente.
+•	El esquema es válido.

@@ -1,0 +1,968 @@
+ID: DR-UI-TC-01  
+Titulo: Verificar que se pueda asignar un miembro por su nombre al board
+Descripción: Verificar que al ingresar el nombre de un miembro existente, este se asigne correctamente al board de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado.
+Tiene que haber miembros disponibles en el workspace.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Hacer clic en el botón para añadir miembro.
+3	Escribir el nombre del miembro en el campo correspondiente.
+4	Seleccionar el miembro sugerido y confirmar la asignación.
+Resultado esperado
+El miembro se asigna al board y aparece en la lista de miembros.
+
+ID: DR-UI-TC-02   
+Titulo: Verificar que se pueda asignar un miembro por su email al board
+Descripción: Verificar que al ingresar el email de un miembro existente, este se asigne correctamente al board de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado.
+Tiene que haber miembros disponibles en el workspace.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Hacer clic en el botón para añadir miembro.
+3	Escribir el email del miembro en el campo correspondiente.
+4	Seleccionar el miembro sugerido y confirmar la asignación.
+Resultado esperado
+El miembro se asigna al board y aparece en la lista de miembros.
+
+ID: DR-UI-TC-03  
+Titulo: Verificar que no se puede asignar un miembro que no exista en Trello al board
+Descripción: Verificar que al intentar asignar un miembro con un nombre o email que no existe en Trello, no se complete la asignación y no se muestre sugerencias en la lista.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Hacer clic en el botón para añadir miembro.
+3	Escribir un nombre o email inexistente en el campo correspondiente.
+4	Intentar confirmar la asignación.
+Resultado esperado
+No se asigna el miembro y se muestra un mensaje indicando que el usuario no existe en trello.
+
+ID: DR-UI-TC-04
+Titulo: Verificar que se pueda copiar el enlace para compartir el board
+Descripción: Verificar que se pueda generar y copiar el enlace de compartir del board de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Hacer clic en la opción de compartir.
+3	Generar el enlace de compartir.
+4	Copiar el enlace generado.
+Resultado esperado
+El enlace se crea y se puede copiar.
+
+ID: DR-UI-TC-05
+Titulo: Verificar que se pueda eliminar el enlace para compartir el board
+Descripción: Verificar que se pueda revocar o eliminar el enlace de compartir del board de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con un enlace de compartir activo.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Hacer clic en la opción de compartir.
+3	Seleccionar la opción para eliminar o revocar el enlace.
+4	Confirmar la eliminación.
+Resultado esperado
+El enlace se elimina y ya no permite acceso al board.
+
+ID: DR-UI-TC-06
+Titulo: Verificar que solo usuarios con acceso al board aparecen en la lista
+Descripción: Verificar que en la lista de miembros del board solo aparezcan usuarios que tienen acceso asignado.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con miembros asignados.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Hacer clic en la sección de miembros.
+3	Verificar la lista de miembros mostrados.
+Resultado esperado
+Solo los usuarios con acceso aparecen en la lista de miembros del board.
+
+ID: DR-UI-TC-07
+Titulo: Verificar crear etiqueta con un nombre valido
+Descripción: Verificar que se pueda crear una etiqueta en el board con un nombre válido.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Hacer clic en la opción para crear etiqueta.
+3	Ingresar un nombre válido para la etiqueta.
+4	Confirmar la creación.
+Resultado esperado
+La etiqueta se crea con el nombre proporcionado y aparece en el board.
+
+ID: DR-UI-TC-08
+Titulo: Verificar crear etiqueta con un nombre vacío
+Descripción: Verificar que se pueda crear una etiqueta en el board con un nombre vacío.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Hacer clic en la opción para crear etiqueta.
+3	Dejar el campo de nombre vacío.
+4	Intentar confirmar la creación.
+Resultado esperado
+Crea la etiqueta.
+
+ID: DR-UI-TC-09
+Titulo: Verificar crear etiqueta con un nombre con solo caracteres especiales
+Descripción: Verificar que se pueda crear una etiqueta en el board con un nombre compuesto solo por caracteres especiales.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Hacer clic en la opción para crear etiqueta.
+3	Ingresar un nombre con solo caracteres especiales.
+4	Confirmar la creación.
+Resultado esperado
+La etiqueta se crea con el nombre de caracteres especiales y aparece en el board.
+
+ID: DR-UI-TC-10
+Titulo: Verificar editar el nombre de una etiqueta
+Descripción: Verificar que se pueda editar el nombre de una etiqueta existente en el board.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una etiqueta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Seleccionar la etiqueta a editar.
+3	Modificar el nombre de la etiqueta.
+4	Confirmar los cambios.
+Resultado esperado
+El nombre de la etiqueta se actualiza.
+
+ID: DR-UI-TC-11
+Titulo: Verificar editar el color de una etiqueta
+Descripción: Verificar que se pueda editar el color de una etiqueta existente en el board.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una etiqueta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Seleccionar la etiqueta a editar.
+3	Cambiar el color de la etiqueta.
+4	Confirmar los cambios.
+Resultado esperado
+El color de la etiqueta se actualiza.
+
+ID: DR-UI-TC-12
+Titulo: Verificar eliminar una etiqueta del board
+Descripción: Verificar que se pueda eliminar una etiqueta existente del board en Trello.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una etiqueta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Seleccionar la etiqueta a eliminar.
+3	Hacer clic en la opción para eliminar.
+4	Confirmar la eliminación.
+Resultado esperado
+La etiqueta se elimina del board y ya no aparece disponible.
+
+ID: DR-UI-TC-13
+Titulo: Verificar que se pueda habilitar/deshabilitar el modo daltónico
+Descripción: Verificar que se pueda habilitar y deshabilitar el modo daltónico en las configuraciones del board.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Ir a las configuraciones del board.
+3	Habilitar el modo daltónico.
+4	Deshabilitar el modo daltónico.
+Resultado esperado
+El modo daltónico se habilita y deshabilita, cambiando la visualización de colores.
+
+ID: DR-UI-TC-14
+Titulo: Verificar que se pueda publicar un comentario valido en una tarjeta
+Descripción: Verificar que se pueda publicar un comentario válido en una tarjeta existente del board.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Ingresar un comentario válido en el campo correspondiente.
+3	Hacer clic en publicar.
+Resultado esperado
+El comentario se publica correctamente en la tarjeta.
+
+ID: DR-UI-TC-15
+Titulo: Verificar editar comentario recien creado
+Descripción: Verificar que se pueda editar un comentario recién creado en una tarjeta.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta y un comentario existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Seleccionar el comentario recién creado.
+3	Editar el texto del comentario.
+4	Guardar los cambios.
+Resultado esperado
+El comentario se actualiza.
+
+ID: DR-UI-TC-16
+Titulo: Verificar eliminar el ultimo comentario creado
+Descripción: Verificar que se pueda eliminar el último comentario creado en una tarjeta.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta y comentarios existentes.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Seleccionar el último comentario creado.
+3	Hacer clic en la opción para eliminar.
+4	Confirmar la eliminación.
+Resultado esperado
+El comentario se elimina de la tarjeta.
+
+ID: DR-UI-TC-17
+Titulo: Verificar subir imagen por el botón adjuntar del comentario
+Descripción: Verificar que se pueda subir una imagen adjunta a través del botón adjuntar en un comentario de la tarjeta.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Iniciar un nuevo comentario.
+3	Hacer clic en el botón adjuntar.
+4	Seleccionar y subir una imagen.
+5	Publicar el comentario.
+Resultado esperado
+La imagen se adjunta al comentario.
+
+ID: DR-UI-TC-18
+Titulo: Verificar que no se puede mencionar en comentarios a miembros que no estan en el board
+Descripción: Verificar que no se pueda mencionar en un comentario a miembros que no están asignados al board.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Iniciar un nuevo comentario.
+3	Intentar mencionar un miembro no asignado al board.
+4	Publicar el comentario.
+Resultado esperado
+La mención no se resuelve.
+
+ID: DR-UI-TC-19
+Titulo: Verificar reaccionar a un comentario con un emoji
+Descripción: Verificar que se pueda reaccionar a un comentario existente con un emoji en la tarjeta.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta y un comentario existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Seleccionar un comentario existente.
+3	Hacer clic en la opción para reaccionar.
+4	Seleccionar un emoji y confirmar.
+Resultado esperado
+El emoji se agrega como reacción al comentario.
+
+ID: DR-UI-TC-20
+Titulo: Verificar que se pueda publicar un comentario en negrilla en una tarjeta
+Descripción: Verificar que se pueda publicar un comentario con formato de negrilla en una tarjeta.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Iniciar un nuevo comentario.
+3	Aplicar formato de negrilla al texto.
+4	Publicar el comentario.
+Resultado esperado
+El comentario se publica con el texto en negrilla.
+
+ID: DR-UI-TC-21
+Titulo: Verificar que se pueda publicar un comentario con formato lista en una tarjeta
+Descripción: Verificar que se pueda publicar un comentario con formato de lista en una tarjeta.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Iniciar un nuevo comentario.
+3	Aplicar formato de lista al texto.
+4	Publicar el comentario.
+Resultado esperado
+El comentario se publica con el formato de lista aplicado.
+
+ID: DR-UI-TC-22
+Titulo: Verificar que al llegar al limite de caracteres en comentario se pueda publicar como truncado
+Descripción: Verificar que al alcanzar el límite de caracteres en un comentario, se pueda publicar como truncado.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Iniciar un nuevo comentario.
+3	Ingresar texto que alcance el límite de caracteres.
+4	Publicar el comentario como truncado.
+Resultado esperado
+El comentario se publica truncado al límite de caracteres.
+
+ID: DR-UI-TC-23
+Titulo: Verificar que al llegar al limite de caracteres en comentario se pueda publicar como txt
+Descripción: Verificar que al alcanzar el límite de caracteres en un comentario, se pueda publicar como archivo TXT.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Iniciar un nuevo comentario.
+3	Ingresar texto que alcance el límite de caracteres.
+4	Publicar el comentario como archivo TXT.
+Resultado esperado
+El comentario se publica como archivo TXT adjunto.
+
+ID: DR-UI-TC-24
+Titulo: Verificar que el icono de ayuda (?) abre documentación
+Descripción: Verificar que al hacer clic en el icono de ayuda (?) se abra la documentación correspondiente.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Localizar el icono de ayuda (?).
+3	Hacer clic en el icono.
+Resultado esperado
+Se abre la documentación o ayuda correspondiente.
+
+ID: DR-UI-TC-25
+Titulo: Verificar guardar borrador de comentario si se cierra el panel de una tarjeta
+Descripción: Verificar que se guarde un borrador de comentario si se cierra el panel de la tarjeta.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Iniciar un nuevo comentario sin publicarlo.
+3	Cerrar el panel de la tarjeta.
+4	Reabrir la tarjeta y verificar el borrador.
+Resultado esperado
+El borrador del comentario se guarda y aparece al reabrir la tarjeta.
+
+ID: DR-UI-TC-26
+Titulo: Verificar publicar comentario con solo un emoji
+Descripción: Verificar que se pueda publicar un comentario que consista solo en un emoji en una tarjeta.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Iniciar un nuevo comentario.
+3	Ingresar solo un emoji.
+4	Publicar el comentario.
+Resultado esperado
+El comentario con el emoji se publica.
+
+ID: DR-UI-TC-27
+Titulo: Verificar tipo tamaño de letra
+Descripción: Verificar que el tipo y tamaño de letra en los comentarios y descripciones de las tarjetas sean consistentes y legibles según las especificaciones de Trello.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Inspeccionar el texto en comentarios y descripciones.
+3	Verificar el tipo de fuente y tamaño utilizado.
+4	Comparar con las especificaciones estándar de Trello.
+Resultado esperado
+El tipo y tamaño de letra son consistentes y legibles en todos los elementos.
+
+ID: DR-UI-TC-28
+Titulo: Verificar mencionar a todos en un comentario
+Descripción: Verificar que se pueda mencionar a todos los miembros del board en un comentario utilizando la funcionalidad "@all" o similar.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta y múltiples miembros asignados.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Iniciar un nuevo comentario.
+3	Escribir "@all" para mencionar a todos.
+4	Publicar el comentario.
+Resultado esperado
+Todos los miembros reciben una notificación del comentario.
+
+ID: DR-UI-TC-29
+Titulo: Verificar que esten disponibles todos los tipos de codigo
+Descripción: Verificar que todos los tipos de código (como bloques de código, sintaxis destacada) estén disponibles y funcionen en los comentarios y descripciones.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Iniciar un comentario o editar descripción.
+3	Insertar diferentes tipos de código (e.g., Markdown para bloques).
+4	Publicar y verificar la renderización.
+Resultado esperado
+Todos los tipos de código se renderizan correctamente y están disponibles.
+
+ID: DR-UI-TC-30
+Titulo: Verificar que funcione el quote
+Descripción: Verificar que la funcionalidad de quote (citar texto) en comentarios funcione correctamente al responder o citar partes de comentarios anteriores.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta y comentarios existentes.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Seleccionar un comentario existente.
+3	Usar la opción de quote para citar texto.
+4	Publicar el nuevo comentario con el quote.
+Resultado esperado
+El quote se muestra correctamente en el nuevo comentario.
+
+ID: DR-UI-TC-31
+Titulo: Verificar asignar múltiples miembros desde el board a una tarjeta
+Descripción: Verificar que se puedan asignar múltiples miembros a una tarjeta directamente desde el board.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta y miembros disponibles.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Seleccionar la tarjeta.
+3	Hacer clic en asignar miembros.
+4	Seleccionar múltiples miembros y confirmar.
+Resultado esperado
+Los múltiples miembros se asignan a la tarjeta.
+
+ID: DR-UI-TC-32
+Titulo: Verificar quitar miembro del board
+Descripción: Verificar que se pueda quitar un miembro asignado del board en Trello.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con miembros asignados.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir el board en Trello.
+2	Ir a la lista de miembros.
+3	Seleccionar un miembro y quitarlo.
+4	Confirmar la acción.
+Resultado esperado
+El miembro se quita del board y ya no tiene acceso.
+
+ID: DR-UI-TC-33
+Titulo: Verificar subir archivo no permitido (negativo) desde UI
+Descripción: Verificar que no se pueda subir un archivo con formato no permitido a través de la UI de Trello (negativo).
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Hacer clic en adjuntar archivo.
+3	Seleccionar un archivo con formato no permitido.
+4	Intentar subir el archivo.
+Resultado esperado
+El archivo no se sube y se muestra un mensaje de error por formato no permitido.
+
+ID: DR-UI-TC-34
+Titulo: Verificar que 'Ocultar detalles' colapsa el panel de actividad y comentarios
+Descripción: Verificar que al hacer clic en 'Ocultar detalles' se colapse el panel de actividad y comentarios en la tarjeta.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Hacer clic en 'Ocultar detalles'.
+3	Verificar que el panel se colapsa.
+Resultado esperado
+El panel de actividad y comentarios se oculta correctamente.
+
+ID: DR-UI-TC-35
+Titulo: Verificar estado visual de botones (hover, focus, disabled) en panel de comentarios
+Descripción: Verificar los estados visuales de los botones (hover, focus, disabled) en el panel de comentarios de la tarjeta.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+El usuario debe estar logueado en la aplicación.
+Tiene que haber un board creado con una tarjeta existente.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Abrir la tarjeta en el board.
+2	Ir al panel de comentarios.
+3	Interactuar con los botones (pasar mouse para hover, tabular para focus, verificar disabled).
+4	Observar los cambios visuales.
+Resultado esperado
+Los botones cambian visualmente en estados hover, focus y disabled según las especificaciones
+
+ID: DR-API-TC-01
+Titulo: Verificar que se cree un comentario válido en una tarjeta existente
+Descripción: Verificar que se cree un comentario válido en una tarjeta existente mediante la API de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Precondiciones:
+El usuario debe tener acceso a la API de Trello con key y token válidos.
+Tiene que haber una tarjeta creada.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Preparar la solicitud API para crear comentario.
+2	Incluir el parámetro text con un valor válido.
+3	Enviar la solicitud POST a la endpoint de comentarios.
+Resultado esperado
+El comentario se crea en la tarjeta con estado 200.
+
+ID: DR-API-TC-02
+Titulo: Verificar que se cree un comentario con caracteres especiales en una tarjeta existente
+Descripción: Verificar que se cree un comentario con caracteres especiales en una tarjeta existente mediante la API de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe tener acceso a la API de Trello con key y token válidos.
+Tiene que haber una tarjeta creada.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Preparar la solicitud API para crear comentario.
+2	Incluir el parámetro text con caracteres especiales.
+3	Enviar la solicitud POST a la endpoint de comentarios.
+Resultado esperado
+El comentario con caracteres especiales se crea en la tarjeta con estado 200.
+
+ID: DR-API-TC-03
+Titulo: Verificar que se cree un comentario con emojis en una tarjeta existente
+Descripción: Verificar que se cree un comentario con emojis en una tarjeta existente mediante la API de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe tener acceso a la API de Trello con key y token válidos.
+Tiene que haber una tarjeta creada.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Preparar la solicitud API para crear comentario.
+2	Incluir el parámetro text con emojis.
+3	Enviar la solicitud POST a la endpoint de comentarios.
+Resultado esperado
+El comentario con emojis se crea en la tarjeta con estado 200.
+
+ID: DR-API-TC-04
+Titulo: Verificar que no se pueda crear un comentario si falta el parámetro text
+Descripción: Verificar que no se pueda crear un comentario si falta el parámetro text en la solicitud API de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe tener acceso a la API de Trello con key y token válidos.
+Tiene que haber una tarjeta creada.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Preparar la solicitud API para crear comentario sin parámetro text.
+2	Enviar la solicitud POST a la endpoint de comentarios.
+Resultado esperado
+La solicitud falla con estado 400.
+
+ID: DR-API-TC-05
+Titulo: Verificar que no se cree un comentario si el id es inválido
+Descripción: Verificar que no se cree un comentario si el ID de la tarjeta es inválido en la solicitud API de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe tener acceso a la API de Trello con key y token válidos.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Preparar la solicitud API para crear comentario con ID inválido.
+2	Enviar la solicitud POST a la endpoint de comentarios.
+Resultado esperado
+La solicitud falla con estado 400.
+
+ID: DR-API-TC-06
+Titulo: Verificar que no se cree un comentario si el Key es inválido
+Descripción: Verificar que no se cree un comentario si la key de API es inválida en la solicitud de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Tiene que haber una tarjeta creada.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Preparar la solicitud API para crear comentario con key inválida.
+2	Enviar la solicitud POST a la endpoint de comentarios.
+Resultado esperado
+La solicitud falla con estado 401.
+
+ID: DR-API-TC-07
+Titulo: Verificar que no se cree un comentario si el Token es inválido
+Descripción: Verificar que no se cree un comentario si el token de API es inválido en la solicitud de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+Tiene que haber una tarjeta creada.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Preparar la solicitud API para crear comentario con token inválido.
+2	Enviar la solicitud POST a la endpoint de comentarios.
+Resultado esperado
+La solicitud falla con un estado 401.
+
+ID: DR-API-TC-08
+Titulo: Verificar que no se pueda crear un comentario con solo espacios
+Descripción: Verificar que no se pueda crear un comentario que consista solo en espacios en la API de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe tener acceso a la API de Trello con key y token válidos.
+Tiene que haber una tarjeta creada.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Preparar la solicitud API para crear comentario con solo espacios en text.
+2	Enviar la solicitud POST a la endpoint de comentarios.
+Resultado esperado
+La solicitud falla con un estado 400.
+
+ID: DR-API-TC-09
+Titulo: Verificar que no se pueda crear un comentario vacio
+Descripción: Verificar que no se pueda crear un comentario vacío en la API de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe tener acceso a la API de Trello con key y token válidos.
+Tiene que haber una tarjeta creada.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Preparar la solicitud API para crear comentario con text vacío.
+2	Enviar la solicitud POST a la endpoint de comentarios.
+Resultado esperado
+La solicitud falla con un estado 400.
+
+ID: DR-API-TC-10
+Titulo: Verificar que no se pueda crear un comentario que supere el limite de caracteres
+Descripción: Verificar que no se pueda crear un comentario que supere el límite de caracteres en la API de Trello.
+Tipo de testeo: Automatizado
+Prioridad: Media
+Precondiciones:
+El usuario debe tener acceso a la API de Trello con key y token válidos.
+Tiene que haber una tarjeta creada.
+Entorno:
+El usuario debe tener una computadora de escritorio o laptop con
+•    Windows 11 pro 23H2 64 bits
+•    RAM 16 GB
+•    CPU Intel i7-1165G7
+•    SSD 1 tera
+Pasos
+1	Preparar la solicitud API para crear comentario con text que supere el límite.
+2	Enviar la solicitud POST a la endpoint de comentarios.
+Resultado esperado
+La solicitud falla con un estado 413.

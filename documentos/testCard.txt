@@ -1,0 +1,318 @@
+
+CASOS DE PRUEBA MANUALES (Gestión de Tarjetas Trello)
+
+CASOS DE PRUEBA API - FUNCIONALIDAD PRINCIPAL (POST, GET, PUT, DELETE)
+--------------------------------------------------------------------------------
+
+Titulo: TC-API-01: Verificar Creación Exitosa de Tarjeta
+Descripción: Validar que una tarjeta se pueda crear correctamente a través de la API.
+Tipo de testeo: Manual
+Prioridad: Alta
+Precondiciones:
+- Tener una API Key y Token válidos.
+- Tener el ID de una lista existente (listId).
+Entorno: Terminal con acceso a la API (p. ej., Postman, cURL) y credenciales de Trello configuradas.
+Pasos
+1	Enviar una solicitud POST a /1/cards con name, idList, key, y token válidos. (Ej: name=Tarjeta_Nueva)
+Resultado esperado:
+La respuesta debe tener un código de estado 200 OK. La respuesta JSON debe contener el idList y el name proporcionados. Se debe generar un id único para la tarjeta.
+
+--------------------------------------------------------------------------------
+
+Titulo: TC-API-02: Verificar Obtención de Tarjeta Creada (GET)
+Descripción: Validar que se pueda obtener la información de una tarjeta existente a través de la API.
+Tipo de testeo: Manual
+Prioridad: Alta
+Precondiciones:
+- Una tarjeta debe haber sido creada previamente (ej: con TC-API-01).
+- Tener su cardId, API Key y Token válidos.
+Entorno: Terminal con acceso a la API y credenciales.
+Pasos
+1	Enviar una solicitud GET a /1/cards/{cardId} con key y token válidos.
+Resultado esperado:
+La respuesta debe tener un código de estado 200 OK. La respuesta JSON debe contener el id y name de la tarjeta esperada.
+
+--------------------------------------------------------------------------------
+
+Titulo: TC-API-03: Verificar Actualización de Tarjeta (PUT)
+Descripción: Validar que el nombre de una tarjeta existente se pueda actualizar correctamente a través de la API.
+Tipo de testeo: Manual
+Prioridad: Alta
+Precondiciones:
+- Una tarjeta debe haber sido creada previamente.
+- Tener su cardId, API Key y Token válidos.
+Entorno: Terminal con acceso a la API y credenciales.
+Pasos
+1	Enviar una solicitud PUT a /1/cards/{cardId} incluyendo el parámetro name con un nuevo valor. (Ej: name=Nombre_Editado)
+Resultado esperado:
+La respuesta debe tener un código de estado 200 OK. La respuesta JSON debe reflejar el nuevo name actualizado.
+
+--------------------------------------------------------------------------------
+
+Titulo: TC-API-04: Verificar Eliminación de Tarjeta (DELETE)
+Descripción: Validar que una tarjeta existente se pueda eliminar correctamente a través de la API y ya no sea accesible.
+Tipo de testeo: Manual
+Prioridad: Alta
+Precondiciones:
+- Una tarjeta debe haber sido creada previamente.
+- Tener su cardId, API Key y Token válidos.
+Entorno: Terminal con acceso a la API y credenciales.
+Pasos
+1	Enviar una solicitud DELETE a /1/cards/{cardId} con key y token válidos.
+2	Intentar obtener la tarjeta eliminada (GET a /1/cards/{cardId}).
+Resultado esperado:
+Paso 1: La respuesta debe tener un código de estado 200 OK (con un objeto vacío {}).
+Paso 2: La segunda solicitud (GET) debe devolver un código de estado 404 Not Found o similar error de recurso no encontrado.
+
+--------------------------------------------------------------------------------
+CASOS DE PRUEBA API - LÍMITES Y BORDES (POST)
+--------------------------------------------------------------------------------
+
+Titulo: TC-API-05: Creación de Tarjeta con 1 Carácter
+Descripción: Verificar la creación de una tarjeta cuyo nombre tiene la longitud mínima permitida (1 carácter).
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+- Tener API Key, Token y ID de lista válidos.
+Entorno: Terminal con acceso a la API y credenciales.
+Pasos
+1	Enviar una solicitud POST a /1/cards con name de 1 carácter (Ej: name=A).
+Resultado esperado:
+La respuesta debe ser 200 OK. La tarjeta debe crearse y su nombre tener longitud 1.
+
+--------------------------------------------------------------------------------
+
+Titulo: TC-API-06: Creación de Tarjeta con 256 Caracteres
+Descripción: Verificar la creación de una tarjeta cuyo nombre tiene la máxima longitud permitida (256 caracteres).
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+- Tener API Key, Token y ID de lista válidos.
+Entorno: Terminal con acceso a la API y credenciales.
+Pasos
+1	Enviar una solicitud POST a /1/cards con un name de 256 caracteres. (Ej: una cadena de 256 letras 'X')
+Resultado esperado:
+La respuesta debe ser 200 OK. La tarjeta debe crearse y su nombre tener longitud 256.
+
+--------------------------------------------------------------------------------
+
+Titulo: TC-API-07: Creación de Tarjeta con Nombre Vacío
+Descripción: Verificar el comportamiento de la API al intentar crear una tarjeta con el nombre vacío.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+- Tener API Key, Token y ID de lista válidos.
+Entorno: Terminal con acceso a la API y credenciales.
+Pasos
+1	Enviar una solicitud POST a /1/cards con el parámetro name como una cadena vacía (name="").
+Resultado esperado:
+La respuesta debe ser 400 Bad Request o un error indicando que el nombre es obligatorio (Basado en el código, Trello podría crearla con 200 OK y nombre vacío, lo cual sería un BUG).
+
+--------------------------------------------------------------------------------
+CASOS DE PRUEBA API - CASOS NEGATIVOS DE SEGURIDAD Y EXISTENCIA
+--------------------------------------------------------------------------------
+
+Titulo: TC-API-N01: Crear Tarjeta con APIKey Inválido (POST)
+Descripción: Verificar que no se pueda crear una tarjeta con una clave de API no válida.
+Tipo de testeo: Manual
+Prioridad: Alta
+Precondiciones:
+- Tener Token y ID de lista válidos.
+- Tener una API Key Inválida.
+Entorno: Terminal con acceso a la API.
+Pasos
+1	Enviar una solicitud POST a /1/cards con un name, idList, y Token válidos, pero una key inválida.
+Resultado esperado:
+La respuesta debe tener un código de estado 401 Unauthorized (No Autorizado). El cuerpo de la respuesta debe contener un mensaje como "invalid key".
+
+--------------------------------------------------------------------------------
+
+Titulo: TC-API-N02: Obtener Tarjeta con ID Inexistente (GET)
+Descripción: Verificar que la API responda correctamente al solicitar una tarjeta con un ID que no existe.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+- Tener API Key y Token válidos.
+- Utilizar un cardId con formato válido pero inexistente (Ej: 1234567890abcdef12345678).
+Entorno: Terminal con acceso a la API y credenciales.
+Pasos
+1	Enviar una solicitud GET a /1/cards/{fakeId} con key y token válidos.
+Resultado esperado:
+La respuesta debe tener un código de estado 404 Not Found. El cuerpo de la respuesta debe contener un mensaje como "The requested resource was not found".
+
+--------------------------------------------------------------------------------
+
+Titulo: TC-API-N03: Actualizar Tarjeta con Token Inválido (PUT)
+Descripción: Verificar que no se pueda actualizar una tarjeta con un Token de usuario no válido.
+Tipo de testeo: Manual
+Prioridad: Alta
+Precondiciones:
+- Una tarjeta existente.
+- Tener cardId y API Key válidos.
+- Tener un Token Inválido.
+Entorno: Terminal con acceso a la API y credenciales.
+Pasos
+1	Enviar una solicitud PUT a /1/cards/{cardId} con un nuevo name, una key válida y un token inválido.
+Resultado esperado:
+La respuesta debe tener un código de estado 401 Unauthorized. El cuerpo de la respuesta debe contener un mensaje como "invalid app token".
+
+--------------------------------------------------------------------------------
+
+Titulo: TC-API-N04: Eliminar Tarjeta con ID Inexistente (DELETE)
+Descripción: Verificar el comportamiento de la API al intentar eliminar una tarjeta con un ID que no existe.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+- Tener API Key y Token válidos.
+- Utilizar un cardId con formato válido pero inexistente.
+Entorno: Terminal con acceso a la API y credenciales.
+Pasos
+1	Enviar una solicitud DELETE a /1/cards/{fakeId} con key y token válidos.
+Resultado esperado:
+La respuesta debe tener un código de estado 404 Not Found o 400 Bad Request. El cuerpo debe contener un mensaje de "not found" o "invalid id".
+
+--------------------------------------------------------------------------------
+CASOS DE PRUEBA UI - CREACIÓN Y LÍMITES
+--------------------------------------------------------------------------------
+
+Titulo: TC-UI-01: Creación de Tarjeta con 6 Caracteres
+Descripción: Verificar la creación exitosa de una tarjeta con un nombre estándar de 6 caracteres en la interfaz de usuario.
+Tipo de testeo: Manual
+Prioridad: Alta
+Precondiciones:
+- El usuario debe estar logueado.
+- El tablero debe estar visible.
+Entorno: Navegador web (Chrome, Edge, Firefox) en Desktop/Laptop con Windows 11 pro 23H2 64 bits, RAM 16 GB, CPU Intel i7-1165G7, SSD 1 tera.
+Pasos
+1	Localizar una lista existente o crear una.
+2	Hacer clic en el botón "Añadir una tarjeta".
+3	Escribir un nombre de tarjeta de 6 caracteres (Ej: TEST 06).
+4	Hacer clic en el botón "Añadir tarjeta".
+Resultado esperado:
+La tarjeta debe aparecer inmediatamente en la lista con el nombre exacto de 6 caracteres.
+
+--------------------------------------------------------------------------------
+
+Titulo: TC-UI-02: Creación de Tarjeta con 256 Caracteres (Límite)
+Descripción: Verificar el comportamiento al crear una tarjeta con el máximo de 256 caracteres en el nombre.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+- El usuario debe estar logueado.
+- El tablero debe estar visible.
+Entorno: Navegador web (Chrome, Edge, Firefox) en Desktop/Laptop con Windows 11 pro 23H2 64 bits, RAM 16 GB, CPU Intel i7-1165G7, SSD 1 tera.
+Pasos
+1	Hacer clic en el botón "Añadir una tarjeta".
+2	Escribir un nombre de tarjeta de 256 caracteres (Ej: 256 letras 'Z').
+3	Hacer clic en el botón "Añadir tarjeta".
+Resultado esperado:
+La tarjeta debe crearse correctamente y el nombre visible en la lista debe tener exactamente 256 caracteres.
+
+--------------------------------------------------------------------------------
+
+Titulo: TC-UI-03: No Permitir Crear Tarjeta con Nombre Vacío
+Descripción: Verificar que el sistema no permita crear una tarjeta si el campo de nombre se deja vacío.
+Tipo de testeo: Manual
+Prioridad: Alta
+Precondiciones:
+- El usuario debe estar logueado.
+- El tablero debe estar visible.
+Entorno: Navegador web (Chrome, Edge, Firefox) en Desktop/Laptop con Windows 11 pro 23H2 64 bits, RAM 16 GB, CPU Intel i7-1165G7, SSD 1 tera.
+Pasos
+1	Hacer clic en el botón "Añadir una tarjeta".
+2	Dejar el campo de nombre completamente vacío.
+3	Intentar hacer clic en el botón "Añadir tarjeta".
+Resultado esperado:
+El botón "Añadir tarjeta" debe estar deshabilitado o no debe crear la tarjeta. La tarjeta NO debe aparecer en la lista.
+
+--------------------------------------------------------------------------------
+CASOS DE PRUEBA UI - EDICIÓN Y VISUALIZACIÓN
+--------------------------------------------------------------------------------
+
+Titulo: TC-UI-04: Edición Exitosa de Nombre de Tarjeta
+Descripción: Verificar que se pueda renombrar una tarjeta existente.
+Tipo de testeo: Manual
+Prioridad: Alta
+Precondiciones:
+- El usuario debe estar logueado.
+- Una tarjeta debe existir.
+Entorno: Navegador web (Chrome, Edge, Firefox) en Desktop/Laptop con Windows 11 pro 23H2 64 bits, RAM 16 GB, CPU Intel i7-1165G7, SSD 1 tera.
+Pasos
+1	Hacer clic en la tarjeta existente para abrir el modal de detalles.
+2	Hacer clic en el nombre actual de la tarjeta para entrar en modo edición.
+3	Escribir un nuevo nombre (Ej: Nombre Editado).
+4	Guardar el cambio (p. ej., clic en "Guardar" o fuera del campo).
+Resultado esperado:
+El nombre original de la tarjeta debe desaparecer y ser reemplazado por el nuevo nombre. La tarjeta con el nombre original ya no debe ser visible en el tablero.
+
+--------------------------------------------------------------------------------
+
+Titulo: TC-UI-05: No Permitir Renombrar a Nombre Vacío
+Descripción: Verificar que no se pueda renombrar una tarjeta a una cadena vacía.
+Tipo de testeo: Manual
+Prioridad: Media
+Precondiciones:
+- El usuario debe estar logueado.
+- Una tarjeta debe existir.
+Entorno: Navegador web (Chrome, Edge, Firefox) en Desktop/Laptop con Windows 11 pro 23H2 64 bits, RAM 16 GB, CPU Intel i7-1165G7, SSD 1 tera.
+Pasos
+1	Hacer clic en la tarjeta existente para abrir el modal de detalles.
+2	Hacer clic en el nombre actual de la tarjeta para entrar en modo edición.
+3	Borrar todo el texto, dejando el campo vacío.
+4	Intentar guardar el cambio (p. ej., clic en "Guardar" o fuera del campo).
+Resultado esperado:
+El sistema debe evitar que el nombre se guarde como vacío, manteniendo el nombre original de la tarjeta.
+
+--------------------------------------------------------------------------------
+
+Titulo: TC-UI-06: Visualización de Detalles de Tarjeta
+Descripción: Verificar que al hacer clic en una tarjeta, se muestre correctamente el modal/vista de detalles.
+Tipo de testeo: Manual
+Prioridad: Baja
+Precondiciones:
+- El usuario debe estar logueado.
+- Una tarjeta debe existir.
+Entorno: Navegador web (Chrome, Edge, Firefox) en Desktop/Laptop con Windows 11 pro 23H2 64 bits, RAM 16 GB, CPU Intel i7-1165G7, SSD 1 tera.
+Pasos
+1	Hacer clic en una tarjeta existente.
+2	Verificar el título mostrado en el modal.
+3	Cerrar el modal de detalles.
+Resultado esperado:
+Paso 1: Debe aparecer la vista de detalles de la tarjeta (modal o panel lateral) mostrando el título y contenido.
+Paso 3: El modal debe desaparecer y el tablero principal debe ser visible.
+
+--------------------------------------------------------------------------------
+CASOS DE PRUEBA UI - ARCHIVADO Y CASOS NEGATIVOS
+--------------------------------------------------------------------------------
+
+Titulo: TC-UI-07: Archivado Exitoso de Tarjeta
+Descripción: Verificar que una tarjeta desaparezca de la vista del tablero al ser archivada.
+Tipo de testeo: Manual
+Prioridad: Alta
+Precondiciones:
+- El usuario debe estar logueado.
+- Una tarjeta debe existir.
+Entorno: Navegador web (Chrome, Edge, Firefox) en Desktop/Laptop con Windows 11 pro 23H2 64 bits, RAM 16 GB, CPU Intel i7-1165G7, SSD 1 tera.
+Pasos
+1	Abrir la vista de detalles de la tarjeta.
+2	Hacer clic en la opción "Archivar" (o similar, en el menú de acciones).
+3	Verificar la lista donde estaba la tarjeta.
+Resultado esperado:
+La tarjeta debe desaparecer inmediatamente de la lista y del tablero.
+
+--------------------------------------------------------------------------------
+
+Titulo: TC-UI-08: No Abrir Tarjeta Inexistente/Archivada
+Descripción: Verificar que no se pueda acceder a los detalles de una tarjeta que no existe o fue archivada.
+Tipo de testeo: Manual
+Prioridad: Alta
+Precondiciones:
+- El usuario debe estar logueado.
+- Una tarjeta debe estar archivada (ej: con TC-UI-07) o se usa un nombre de tarjeta que nunca existió.
+Entorno: Navegador web (Chrome, Edge, Firefox) en Desktop/Laptop con Windows 11 pro 23H2 64 bits, RAM 16 GB, CPU Intel i7-1165G7, SSD 1 tera.
+Pasos
+1	Intentar hacer clic en el tablero sobre una tarjeta con un nombre inexistente (ej: TARJETA_INEXISTENTE).
+2	Intentar buscar en el tablero el nombre de la tarjeta que fue archivada.
+Resultado esperado:
+Paso 1: El sistema no debe abrir el modal de detalles, o mostrar un error de "No Encontrado".
+Paso 2: La tarjeta archivada no debe ser visible en el tablero principal.

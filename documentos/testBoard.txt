@@ -1,0 +1,236 @@
+================================================================================
+CASOS DE PRUEBA - FUNCIONALIDAD DE TABLEROS Y LISTAS
+================================================================================
+
+--------------------------------------------------------------------------------
+SECCIÓN: TABLEROS (CREACIÓN, EDICIÓN Y FAVORITOS)
+--------------------------------------------------------------------------------
+
+ID: SM-UI-TC-01
+Título: Verificar creación exitosa de tablero
+Tipo de testeo: Automatizado / manual
+Prioridad: Critical
+Entorno: Chrome (última versión)
+Pasos: 1. Hacer clic en el botón para crear nuevo tablero. 2. Escribir un título corto (Ej: "Prueba 01"). 3. Hacer clic en "Crear".
+Resultado Esperado: El tablero se crea y se muestra con el título especificado.
+
+---
+
+ID: SM-UI-TC-02
+Título: Verificar que no permita crear un tablero con título vacío
+Tipo de testeo: Automatizado / manual
+Prioridad: Normal
+Entorno: Chrome (última versión)
+Pasos: 1. Hacer clic en el botón para crear nuevo tablero. 2. Dejar el campo de título vacío. 3. Intentar hacer clic en "Crear".
+Resultado Esperado: El botón "Crear" está deshabilitado o se muestra un mensaje de error que indica que el campo de título es obligatorio.
+
+---
+
+ID: SM-UI-TC-03
+Título: Verificar que no permita crear un tablero con título largo
+Tipo de testeo: Automatizado / manual
+Prioridad: Normal
+Entorno: Chrome (última versión)
+Pasos: 1. Hacer clic en el botón para crear nuevo tablero. 2. Escribir un título que exceda el límite máximo de caracteres (e.g., 16385 caracteres). 3. Intentar hacer clic en "Crear".
+Resultado Esperado: El campo de texto trunca la entrada a la longitud máxima permitida o se muestra un mensaje de error que impide la creación del tablero.
+
+---
+
+ID: SM-UI-TC-04
+Título: Verificar edición exitosa de tablero
+Tipo de testeo: Automatizado / manual
+Prioridad: Critical
+Entorno: Chrome (última versión)
+Pasos: Precondición: Existe un tablero creado. 1. Navegar al tablero a editar. 2. Editar el título del tablero con un nuevo nombre válido (Ej: "Editado"). 3. Guardar o salir del campo de texto.
+Resultado Esperado: El título del tablero se actualiza correctamente y permanece visible el nuevo nombre.
+
+---
+
+ID: SM-UI-TC-05
+Título: Verificar que no permita editar un tablero con título vacío
+Tipo de testeo: Automatizado / manual
+Prioridad: Normal
+Entorno: Chrome (última versión)
+Pasos: Precondición: Existe un tablero creado. 1. Navegar al tablero a editar. 2. Borrar completamente el título del tablero. 3. Intentar guardar o salir del campo de texto.
+Resultado Esperado: Se revierte al título anterior o se muestra un mensaje de error indicando que el título no puede estar vacío.
+
+---
+
+ID: SM-UI-TC-06
+Título: Verificar que permita poner un tablero en favoritos
+Tipo de testeo: Automatizado / manual
+Prioridad: Minor
+Entorno: Chrome (última versión)
+Pasos: Precondición: Existe un tablero creado. 1. Navegar al tablero. 2. Hacer clic en el icono de estrella (favorito). 3. Navegar a la sección de favoritos.
+Resultado Esperado: El icono de estrella cambia de estado (se rellena) y el tablero aparece listado en la sección de favoritos.
+
+---
+
+ID: SM-UI-TC-07
+Título: Verificar flujo de crear, editar y eliminar un tablero
+Tipo de testeo: Automatizado / manual
+Prioridad: Blocker
+Entorno: Chrome (última versión)
+Pasos: 1. Crear un nuevo tablero ("Tablero E2E"). 2. Editar el título del tablero a ("E2E Editado"). 3. Eliminar el tablero ("E2E Editado").
+Resultado Esperado: El tablero se crea, se actualiza el nombre correctamente y finalmente es eliminado del sistema.
+
+================================================================================
+SECCIÓN: LÍMITE DE CARACTERES EN NOMBRE DE LISTA (512)
+================================================================================
+
+ID: SM-UI-TC-08
+Título: Verificar creación de lista con título de 512 caracteres
+Tipo de testeo: Automatizado / manual
+Prioridad: Critical
+Entorno: Chrome (última versión)
+Pasos: Precondición: Tablero visible. 1. Hacer clic en el botón "Añadir lista". 2. Escribir un texto de 512 caracteres en el campo de nombre. 3. Hacer clic en "Añadir lista" (o presionar Enter).
+Resultado Esperado: La lista se crea exitosamente y el nombre visible es exactamente la cadena de 512 caracteres ingresada.
+
+---
+
+ID: SM-UI-TC-09
+Título: Verificar que no permita crear lista con título de 513 caracteres
+Tipo de testeo: Automatizado / manual
+Prioridad: Normal
+Entorno: Chrome (última versión)
+Pasos: Precondición: Tablero visible. 1. Hacer clic en el botón "Añadir lista". 2. Intentar escribir un texto de 513 caracteres en el campo de nombre. 3. Hacer clic en "Añadir lista".
+Resultado Esperado: El campo de texto trunca la entrada al carácter 512. La lista se crea con el nombre de 512 caracteres, o se muestra un mensaje de error que impide la creación.
+
+---
+
+ID: SM-UI-TC-10
+Título: Verificar creación de lista con título de 1 caracter
+Tipo de testeo: Automatizado / manual
+Prioridad: Minor
+Entorno: Chrome (última versión)
+Pasos: Precondición: Tablero visible. 1. Hacer clic en el botón "Añadir lista". 2. Escribir un texto de 1 carácter en el campo de nombre. 3. Hacer clic en "Añadir lista" (o presionar Enter).
+Resultado Esperado: La lista se crea con el nombre de 1 carácter.
+
+================================================================================
+SECCIÓN: API (OPERACIONES Y LÍMITE)
+================================================================================
+*Nota: Los casos de API se ejecutan en un entorno de servidor, por lo que el "Entorno" de navegador no es aplicable, pero se asume un entorno de desarrollo/testing con acceso a la API.*
+
+ID: SM-API-TC-08
+Título: Obtención de tablero con código 200
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Pasos: Precondición: Un tablero existe. 1. Enviar solicitud GET con el ID válido del tablero.
+Resultado Esperado: Respuesta HTTP con código 200 OK y el cuerpo contiene los datos del tablero.
+
+---
+
+ID: SM-API-TC-09
+Título: Obtención de tablero con ID vacío con código 404
+Tipo de testeo: Automatizado
+Prioridad: Media
+Pasos: 1. Enviar solicitud GET a la URL base del tablero sin especificar ID.
+Resultado Esperado: Respuesta HTTP con código 404 Not Found.
+
+---
+
+ID: SM-API-TC-10
+Título: Obtención de tablero con ID inexistente con código 400
+Tipo de testeo: Automatizado
+Prioridad: Media
+Pasos: 1. Enviar solicitud GET con un ID sintácticamente inválido (e.g., 'a').
+Resultado Esperado: Respuesta HTTP con código 400 Bad Request.
+
+---
+
+ID: SM-API-TC-11
+Título: Obtención de tablero sin autenticación (código 401)
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Pasos: 1. Enviar solicitud GET con ID válido, pero sin credenciales de autenticación.
+Resultado Esperado: Respuesta HTTP con código 401 Unauthorized.
+
+---
+
+ID: SM-API-TC-12
+Título: Creación de tablero con código 200
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Pasos: 1. Enviar solicitud POST con un nombre de tablero válido.
+Resultado Esperado: Respuesta HTTP con código 200 OK y el cuerpo contiene el ID y nombre del nuevo tablero.
+
+---
+
+ID: SM-API-TC-13
+Título: Creación de tablero sin autenticación (código 401)
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Pasos: 1. Enviar solicitud POST con un nombre válido, pero sin credenciales.
+Resultado Esperado: Respuesta HTTP con código 401 Unauthorized.
+
+---
+
+ID: SM-API-TC-14
+Título: Creación de tablero con nombre vacío (código 400)
+Tipo de testeo: Automatizado
+Prioridad: Media
+Pasos: 1. Enviar solicitud POST con el parámetro 'name' vacío.
+Resultado Esperado: Respuesta HTTP con código 400 Bad Request indicando fallo de validación.
+
+---
+
+ID: SM-API-TC-15
+Título: Creación de tablero con nombre numérico (código 200)
+Tipo de testeo: Automatizado
+Prioridad: Media
+Pasos: 1. Enviar solicitud POST con el parámetro 'name' siendo solo un número (e.g., 'name: 1').
+Resultado Esperado: Respuesta HTTP con código 200 OK. (Verificar si la API lo permite y lo convierte a cadena).
+
+---
+
+ID: SM-API-TC-16
+Título: Creación de tablero con descripción (código 200)
+Tipo de testeo: Automatizado
+Prioridad: Media
+Pasos: 1. Enviar solicitud POST incluyendo los parámetros 'name' y 'desc'.
+Resultado Esperado: Respuesta HTTP con código 200 OK y el cuerpo de la respuesta incluye el nombre y la descripción.
+
+---
+
+ID: SM-API-TC-17
+Título: Actualización de tablero (nombre) con código 200
+Tipo de testeo: Automatizado
+Prioridad: Alta
+Pasos: Precondición: Un tablero existe. 1. Enviar solicitud PUT con el ID del tablero y un nuevo 'name'.
+Resultado Esperado: Respuesta HTTP con código 200 OK y el tablero actualizado tiene el nuevo nombre.
+
+---
+
+ID: SM-API-TC-18
+Título: Actualización de la descripción del tablero con código 200
+Tipo de testeo: Automatizado
+Prioridad: Media
+Pasos: Precondición: Un tablero existe. 1. Enviar solicitud PUT con el ID del tablero y un nuevo 'desc'.
+Resultado Esperado: Respuesta HTTP con código 200 OK y el tablero actualizado tiene la nueva descripción.
+
+---
+
+ID: SM-API-TC-19
+Título: Cerrar tablero con código 200
+Tipo de testeo: Automatizado
+Prioridad: Media
+Pasos: Precondición: Un tablero existe y está abierto. 1. Enviar solicitud PUT con el ID del tablero y el parámetro 'closed: true'.
+Resultado Esperado: Respuesta HTTP con código 200 OK y el tablero aparece marcado como cerrado.
+
+---
+
+ID: SM-API-TC-20
+Título: Abrir tablero con código 200
+Tipo de testeo: Automatizado
+Prioridad: Media
+Pasos: Precondición: Un tablero existe y está cerrado. 1. Enviar solicitud PUT con el ID del tablero y el parámetro 'closed: false'.
+Resultado Esperado: Respuesta HTTP con código 200 OK y el tablero aparece marcado como abierto.
+
+---
+
+ID: SM-API-TC-21
+Título: Creación de estrella para un tablero con código 200
+Tipo de testeo: Automatizado
+Prioridad: Baja
+Pasos: Precondición: Un tablero existe. 1. Enviar solicitud POST al endpoint de 'boardStars' con el 'idBoard'.
+Resultado Esperado: Respuesta HTTP con código 200 OK y el tablero aparece en la lista de favoritos del usuario.
