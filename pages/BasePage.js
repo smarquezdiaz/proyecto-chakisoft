@@ -4,7 +4,7 @@ class BasePage {
   }
 
   async goto(url) {
-    await this.page.goto(url);
+    await this.page.goto(url, { waitUntil: 'networkidle' }); 
   }
 
   async click(locator) {
