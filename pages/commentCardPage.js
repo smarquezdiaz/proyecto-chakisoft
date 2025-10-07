@@ -52,13 +52,13 @@ class commentCard extends BasePage {
     async writeComment(comment) {
         await this.page.waitForTimeout(3000);
         await this.fillComment(comment);
-        await this.saveComment.click();
+        await this.click(this.saveComment);
     }
 
     async editComment(edit) {
         await this.lastCommentActions.getByRole('link', { name: 'Editar' }).first().click();
-        await this.inputComment.fill(edit);
-        await this.saveComment.click();
+        await this.fill(this.inputComment, edit);
+        await this.click(this.saveComment);
     }
 
     async deleteComment() {
@@ -69,45 +69,45 @@ class commentCard extends BasePage {
     async attachFile(fileName) {
         const filePath = path.join(__dirname, '../data', fileName);
         await this.commentBox.dblclick();
-        await this.attachButton.click();
+        await this.click(this.attachButton);
         await this.fileInput.setInputFiles(filePath);
     }
 
     async fillComment(input) {
-        await this.commentBox.click();
-        await this.inputComment.fill(input);
+        await this.click(this.commentBox);
+        await this.fill(this.inputComment, input);
     }
 
     async addReaction() {
-        await this.reactionButton.last().click();
-        await this.reactionLike.click();
+        await this.click(this.reactionButton.last());
+        await this.click(this.reactionLike);
     }
 
     async listComment(comment) {
-        await this.commentBox.click();
-        await this.menuList.click();
-        await this.numberListOption.click();
+        await this.click(this.commentBox);
+        await this.click(this.menuList);
+        await this.click(this.numberListOption);
         await this.inputComment.type(comment);
-        await this.saveComment.click();
+        await this.click(this.saveComment);
     }
 
     async ctrlBComment(comment) {
-        await this.commentBox.click();
-        await this.ctrlB.click();
-        await this.inputComment.fill(comment);
-        await this.saveComment.click();
+        await this.click( this.commentBox);
+        await this.click(this.ctrlB);
+        await this.fill(this.inputComment, comment);
+        await this.click(this.saveComment);
     }
 
     async addAttachment() {
-        await this.addAttachmentButton.click();
+        await this.click(this.addAttachmentButton);
     }
 
     async writeEmoji() {
-        await this.commentBox.click();
-        await this.InsertElements.click();
-        await this.emojiPickerpage.click();
-        await this.emojiPicker.click();
-        await this.saveComment.click();
+        await this.click(this.commentBox);
+        await this.click(this.InsertElements);
+        await this.click(this.emojiPickerpage);
+        await this.click(this.emojiPicker);
+        await this.click(this.saveComment);
     }
 
     async typeComment(comment, type) {
@@ -116,11 +116,11 @@ class commentCard extends BasePage {
                 await this.writeComment(comment);
                 await expect(this.comments.first()).toHaveText(comment);
                 break;
-            case 'negrilla':
+            case 'en negrilla':
                 await this.ctrlBComment(comment);
                 await expect(this.boldText.first()).toBeVisible();
                 break;
-            case 'numerado':
+            case 'con formato lista':
                 await this.listComment(comment);
                 await expect(this.lastCommentActions.locator('ol')).toBeVisible();
                 break;
@@ -131,9 +131,9 @@ class commentCard extends BasePage {
 
     async truncatedOrTxt(type) {
         if (type === 'truncado') {
-            await this.addTruncateButton.click();
+            await this.click(this.addTruncateButton);
             await expect(this.saveComment).toBeVisible();
-            await this.saveComment.click();
+            await this.click(this.saveComment);
         } else {
             await this.addAttachment();
             await expect(this.attachmentName).toHaveText('comment.txt');
@@ -141,14 +141,14 @@ class commentCard extends BasePage {
     }
 
     async openHelp() {
-        await this.commentBox.click();
+        await this.click(this.commentBox);
         await expect(this.helpButton).toBeVisible();
-        await this.helpButton.click();
+        await this.click(this.helpButton);
         await expect(this.modal).toBeVisible();
     }
 
     async closeHelp() {
-        await this.closeButtonHelp.click();
+        await this.click(this.closeButtonHelp);
         await expect(this.modal).toBeHidden();
     }
 }

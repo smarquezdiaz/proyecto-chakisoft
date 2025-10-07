@@ -2,7 +2,7 @@
   "cookies": [
     {
       "name": "auth.csrf",
-      "value": "s%3Afa16%2B9qfzmRqXwIatfRD9kjce%2BQMJTDshQfh2B2rafg%3D.P055eMNida8dhgbEvJIHi4dDb7N2VV4TJF4x5sMBKpI",
+      "value": "s%3AQ0uWfnyD%2BwDMVvnZ1nXASeD8d12yn9tROk%2F0Za%2Byj0s%3D.DMqvJkhwcUU4gPujaIsldTSwLJ2bNDNedwOWh4BfWUk",
       "domain": "trello.com",
       "path": "/auth/callback",
       "expires": -1,
@@ -12,17 +12,17 @@
     },
     {
       "name": "dsc",
-      "value": "8d5710ce90803b8699a451ee46e00e5c7658494e6a35a50f293d7efd052bea41",
+      "value": "79a79559c5bb43fd8ea80e7b2ed1d542a29ad6ff620e5a27e50b407ac1c2a6b4",
       "domain": "trello.com",
       "path": "/",
-      "expires": 1760949904.172736,
+      "expires": 1760992781.343698,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "ajs_anonymous_id",
-      "value": "%223651990b-8d3f-4f69-abca-2d55cebe9c08%22",
+      "value": "%225795dc9d-d53c-4f01-a0e8-65b26fc693ef%22",
       "domain": "trello.com",
       "path": "/",
       "expires": -1,
@@ -32,70 +32,40 @@
     },
     {
       "name": "atlCohort",
-      "value": "{\"bucketAll\":{\"bucketedAtUTC\":\"2025-10-06T08:45:05.668Z\",\"version\":\"2\",\"index\":58,\"bucketId\":0}}",
+      "value": "{\"bucketAll\":{\"bucketedAtUTC\":\"2025-10-06T20:39:42.121Z\",\"version\":\"2\",\"index\":57,\"bucketId\":0}}",
       "domain": ".trello.com",
       "path": "/",
-      "expires": 1794300305.668735,
+      "expires": 1794343182.121525,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "atl_xid.xc",
-      "value": "%7B%22value%22%3A%221a305e75-94a0-47c5-b387-13ee8f39a5c7%22%2C%22type%22%3A%22xc%22%2C%22createdAt%22%3A%222025-10-06T08%3A45%3A05.969Z%22%7D",
+      "value": "%7B%22value%22%3A%22d45428f9-b128-49a0-9e48-3b4c251c60d3%22%2C%22type%22%3A%22xc%22%2C%22createdAt%22%3A%222025-10-06T20%3A39%3A42.364Z%22%7D",
       "domain": ".atlassian.com",
       "path": "/",
-      "expires": 1791276305,
+      "expires": 1791319182,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
     },
     {
       "name": "atl_xid.ts",
-      "value": "1759740305976",
+      "value": "1759783182367",
       "domain": "trello.com",
       "path": "/",
-      "expires": 1791276305,
+      "expires": 1791319182,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "atl_xid.current",
-      "value": "%5B%7B%22type%22%3A%22xc%22%2C%22value%22%3A%221a305e75-94a0-47c5-b387-13ee8f39a5c7%22%2C%22createdAt%22%3A%222025-10-06T08%3A45%3A05.969Z%22%7D%5D",
+      "value": "%5B%7B%22type%22%3A%22xc%22%2C%22value%22%3A%22d45428f9-b128-49a0-9e48-3b4c251c60d3%22%2C%22createdAt%22%3A%222025-10-06T20%3A39%3A42.364Z%22%7D%5D",
       "domain": "trello.com",
       "path": "/",
-      "expires": 1791276305,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "atl_session",
-      "value": "56a90dd8-9f90-4483-9e36-9bcc45d07f3b",
-      "domain": "trello.com",
-      "path": "/",
-      "expires": 1759742106,
-      "httpOnly": false,
-      "secure": false,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "ajs_anonymous_id",
-      "value": "%223651990b-8d3f-4f69-abca-2d55cebe9c08%22",
-      "domain": ".trello.com",
-      "path": "/",
-      "expires": 1791276306,
-      "httpOnly": false,
-      "secure": true,
-      "sameSite": "Lax"
-    },
-    {
-      "name": "atlUserHash",
-      "value": "1393648612",
-      "domain": ".trello.com",
-      "path": "/",
-      "expires": 1794300306.454635,
+      "expires": 1791319182,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -105,34 +75,362 @@
       "value": "",
       "domain": "trello.com",
       "path": "/",
-      "expires": 1791276306,
+      "expires": 1791319183,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "OptanonConsent",
-      "value": "isGpcEnabled=0&datestamp=Mon+Oct+06+2025+04%3A45%3A06+GMT-0400+(Bolivia+Time)&version=202503.2.0&browserGpcFlag=0&isIABGlobal=false&identifierType=null&hosts=&landingPath=https%3A%2F%2Ftrello.com%2F&groups=1%3A1%2C2%3A1%2C3%3A1%2C4%3A1",
+      "value": "isGpcEnabled=0&datestamp=Mon+Oct+06+2025+16%3A39%3A43+GMT-0400+(Bolivia+Time)&version=202503.2.0&browserGpcFlag=0&isIABGlobal=false&identifierType=null&hosts=&landingPath=https%3A%2F%2Ftrello.com%2F&groups=1%3A1%2C2%3A1%2C3%3A1%2C4%3A1",
       "domain": ".trello.com",
       "path": "/",
-      "expires": 1791276306,
+      "expires": 1791319183,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
+      "name": "_gcl_au",
+      "value": "1.1.552686115.1759783183",
+      "domain": ".trello.com",
+      "path": "/",
+      "expires": 1767559183,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "BP_GTM_FPC",
+      "value": "a055d706-87a5-4629-b8cf-4cacb256cfdd",
+      "domain": "trello.com",
+      "path": "/",
+      "expires": 1760387983,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "_rdt_uuid",
+      "value": "1759783183633.424e55d6-6484-4a88-8d97-8f34b0a8059a",
+      "domain": ".trello.com",
+      "path": "/",
+      "expires": 1767559183,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Strict"
+    },
+    {
+      "name": "_mkto_trk",
+      "value": "id:594-ATC-127&token:_mch-trello.com-cbfccc64b1738cede1d3bd0e129d833",
+      "domain": ".trello.com",
+      "path": "/",
+      "expires": 1794343183.830567,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "personalization_id",
+      "value": "\"v1_7pLvwGvsRSAyaHeQCnIPlQ==\"",
+      "domain": ".twitter.com",
+      "path": "/",
+      "expires": 1794343183.944201,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "rlas3",
+      "value": "cUV8W8fTPZ/0vMZIHupPXoB6XkWakzStWZlKjlxU0xg=",
+      "domain": ".rlcdn.com",
+      "path": "/",
+      "expires": 1791319184.249892,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "li_sugr",
+      "value": "63f2e8d2-caaf-40c2-8307-c8a49109f7c1",
+      "domain": ".linkedin.com",
+      "path": "/",
+      "expires": 1767559184.769339,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "bcookie",
+      "value": "\"v=2&b2b1ad00-7c77-40b8-8d0c-32ec33a99ca4\"",
+      "domain": ".linkedin.com",
+      "path": "/",
+      "expires": 1791319185.769435,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "lidc",
+      "value": "\"b=VGST03:s=V:r=V:a=V:p=V:g=3611:u=1:x=1:i=1759783181:t=1759869581:v=2:sig=AQEM13BdTwa8nTtklrx_i6sx75u9FStc\"",
+      "domain": ".linkedin.com",
+      "path": "/",
+      "expires": 1759869584.103616,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "muc_ads",
+      "value": "a68dc38c-c31d-4bea-8eca-9946e86fa427",
+      "domain": ".t.co",
+      "path": "/",
+      "expires": 1794343184.106924,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "receive-cookie-deprecation",
+      "value": "1",
+      "domain": ".doubleclick.net",
+      "path": "/",
+      "expires": 1775335184.166554,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None",
+      "partitionKey": "https://trello.com",
+      "_crHasCrossSiteAncestor": true
+    },
+    {
+      "name": "atl_session",
+      "value": "0229727e-d4c0-49b7-9fa4-bfe00da50445",
+      "domain": "trello.com",
+      "path": "/",
+      "expires": 1759784986,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "ajs_anonymous_id",
+      "value": "%225795dc9d-d53c-4f01-a0e8-65b26fc693ef%22",
+      "domain": ".trello.com",
+      "path": "/",
+      "expires": 1791319184,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "atlUserHash",
+      "value": "1393648612",
+      "domain": ".trello.com",
+      "path": "/",
+      "expires": 1794343184.185603,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "pxrc",
+      "value": "CI3SkMcGEgUI6AcQABIGCMrdKhAA",
+      "domain": ".rlcdn.com",
+      "path": "/",
+      "expires": 1764967184.249969,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "UserMatchHistory",
+      "value": "AQKHL6s7F-jyBAAAAZm7QF4Xsl_RNQKjSVSJYG2MQNt34Fa3N0iPfAYBZ1cdGZt1DV_nwu3H75-XRA",
+      "domain": ".linkedin.com",
+      "path": "/",
+      "expires": 1762375184.299417,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "AnalyticsSyncHistory",
+      "value": "AQJ8IPLPGHqHjQAAAZm7QF4XSIBSoOe65waiYFLlKS5y-GP1svLHw8NRdiuiLqoClEFiK5TR4G0SURd-Gtt0pA",
+      "domain": ".linkedin.com",
+      "path": "/",
+      "expires": 1762375184.299434,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "IDE",
+      "value": "AHWqTUl9V4P-TLfjhFBODnFfubTLm40-AbVLWLerlt8YsDn8rbeQ1ilWWOYh2tfB",
+      "domain": ".doubleclick.net",
+      "path": "/",
+      "expires": 1794343184.392388,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "bscookie",
+      "value": "\"v=1&20251006203942f5a70885-0b96-4715-8fa4-18f7c26573bfAQH3PMnqoES-SYZbJZpn_NVLQBA8guhZ\"",
+      "domain": ".www.linkedin.com",
+      "path": "/",
+      "expires": 1791319184.572131,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "__cf_bm",
+      "value": "jVP8Ja8fcYeEdfSBbO6khR8E_58WD1lgL9bspf1SA8w-1759783182-1.0.1.1-_OR633WhKNaGCeYbJz6Tsvlmb0Pbt6rytYhR7G778Y2dfxL69fZMeqVJqot.6PId1sPcvBrHvbX9.jlxEZ3RkOPe5stgStfycC02YFkEF6U",
+      "domain": ".linkedin.com",
+      "path": "/",
+      "expires": 1759784984.572206,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "CMID",
+      "value": "aOQpDtHM7TsAIx4sAHSzkAAA",
+      "domain": ".casalemedia.com",
+      "path": "/",
+      "expires": 1791319184.750921,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "CMPS",
+      "value": "154",
+      "domain": ".casalemedia.com",
+      "path": "/",
+      "expires": 1767559184.581254,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "CMPRO",
+      "value": "154",
+      "domain": ".casalemedia.com",
+      "path": "/",
+      "expires": 1767559184.750995,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "tuuid",
+      "value": "fcb97975-f6bc-4e35-acfa-931b7da05ef7",
+      "domain": ".company-target.com",
+      "path": "/",
+      "expires": 1793997584.607786,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "tuuid_lu",
+      "value": "1759783182",
+      "domain": ".company-target.com",
+      "path": "/",
+      "expires": 1793997584.607862,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "tvid",
+      "value": "7c3d1679d7f6474c87b8f7eb0282de7f",
+      "domain": ".tremorhub.com",
+      "path": "/",
+      "expires": 1791340084.710067,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "tv_UIDM",
+      "value": "923b7852-8e2e-4ec9-b9f1-a2ce598bf317",
+      "domain": ".tremorhub.com",
+      "path": "/",
+      "expires": 1794343184.710278,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "audit_p",
+      "value": "1|p2/mR+8exAzPQcARmqiJtJU438e1vbG7mR/k38RArnESwybUYJAgy/hO6syOM0WrrWRfeNEHp7WM1KxoLazIt5mwZQnb46mpbt2RP0x4gZborL0vf1sfjq3u7lKnyd7JrWtQTzuG3cG12hlh0xd5DWfSKZGZmm8RcmESKmf2cwrTmoFL5pKQsaZr5ZVxLWDe",
+      "domain": ".rubiconproject.com",
+      "path": "/",
+      "expires": 1791319184.723809,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None",
+      "partitionKey": "https://trello.com",
+      "_crHasCrossSiteAncestor": true
+    },
+    {
+      "name": "khaos",
+      "value": "MGFLGXR3-I-IWHG",
+      "domain": ".rubiconproject.com",
+      "path": "/",
+      "expires": 1791319184.723905,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "khaos_p",
+      "value": "MGFLGXR3-I-IWHG",
+      "domain": ".rubiconproject.com",
+      "path": "/",
+      "expires": 1791319184.723935,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None",
+      "partitionKey": "https://trello.com",
+      "_crHasCrossSiteAncestor": true
+    },
+    {
+      "name": "audit",
+      "value": "1|p2/mR+8exAzPQcARmqiJtJU438e1vbG7mR/k38RArnESwybUYJAgy/hO6syOM0WrrWRfeNEHp7WM1KxoLazIt5mwZQnb46mpbt2RP0x4gZborL0vf1sfjq3u7lKnyd7JrWtQTzuG3cG12hlh0xd5DWfSKZGZmm8RcmESKmf2cwrTmoFL5pKQsaZr5ZVxLWDe",
+      "domain": ".rubiconproject.com",
+      "path": "/",
+      "expires": 1791319184.723953,
+      "httpOnly": false,
+      "secure": true,
+      "sameSite": "None"
+    },
+    {
+      "name": "receive-cookie-deprecation",
+      "value": "1",
+      "domain": ".rubiconproject.com",
+      "path": "/",
+      "expires": 1767559184.723967,
+      "httpOnly": true,
+      "secure": true,
+      "sameSite": "None",
+      "partitionKey": "https://trello.com",
+      "_crHasCrossSiteAncestor": true
+    },
+    {
       "name": "atlassian.account.ffs.id",
-      "value": "74589874-bc31-4600-995e-f25a90f921ee",
+      "value": "255d35a2-3236-4ead-9255-f0055a0abee2",
       "domain": "id.atlassian.com",
       "path": "/",
-      "expires": 1791276308.754997,
+      "expires": 1791319187.6535,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "atlassian.account.xsrf.token",
-      "value": "51b455e8-c24e-4605-a46e-aae09300a526",
+      "value": "9b751cbc-68ff-40b2-82e0-4876cb566fcc",
       "domain": "id.atlassian.com",
       "path": "/",
       "expires": -1,
@@ -142,37 +440,37 @@
     },
     {
       "name": "ajs_anonymous_id",
-      "value": "%22a4d4118c-49a0-4d70-b5dd-eeedd52c0893%22",
+      "value": "%22feb9241d-4f05-4fa3-b66c-34f52aa015d8%22",
       "domain": ".atlassian.com",
       "path": "/",
-      "expires": 1791276308,
+      "expires": 1791319187,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
     },
     {
       "name": "__cuid",
-      "value": "98c7cf9e8bfa4eaaa68c73142099ff43",
+      "value": "9bf8ed1d231b4459a3f3094c3e09e734",
       "domain": ".atlassian.com",
       "path": "/",
-      "expires": 1794300310,
+      "expires": 1794343188,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "__cuid",
-      "value": "98c7cf9e8bfa4eaaa68c73142099ff43",
+      "value": "9bf8ed1d231b4459a3f3094c3e09e734",
       "domain": ".id.atlassian.com",
       "path": "/",
-      "expires": 1794300310,
+      "expires": 1794343188,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "atlassian.account.xsrf.token",
-      "value": "cece3b40-0232-4ad0-af35-1c8639e7dae6",
+      "value": "dc02c1fa-83bb-438c-beed-53c6ca83138a",
       "domain": "trello.com",
       "path": "/",
       "expires": -1,
@@ -182,10 +480,10 @@
     },
     {
       "name": "cloud.session.token",
-      "value": "eyJraWQiOiJzZXNzaW9uLXNlcnZpY2UvcHJvZC0xNzM4Nzk0ODc0IiwiYWxnIjoiUlMyNTYifQ.eyJhc3NvY2lhdGlvbnMiOltdLCJzdWIiOiI3MTIwMjA6OTdlYzY3ZjgtMGU5OC00MzNhLWI0YzYtYTZkNGQxOTVjNGExIiwiZW1haWxEb21haW4iOiJnbWFpbC5jb20iLCJpbXBlcnNvbmF0aW9uIjpbXSwiY3JlYXRlZCI6MTc1OTc0MDMxNiwicmVmcmVzaFRpbWVvdXQiOjE3NTk3NDA5MTYsInZlcmlmaWVkIjp0cnVlLCJpc3MiOiJzZXNzaW9uLXNlcnZpY2UiLCJzZXNzaW9uSWQiOiJmYTQ1MmJlOC1jMWRkLTQ0ZDAtYjQwNC0zZmExMTQwMDk4YmQiLCJzdGVwVXBzIjpbXSwiYXVkIjoiYXRsYXNzaWFuIiwibmJmIjoxNzU5NzQwMzE2LCJleHAiOjE3NjIzMzIzMTYsImlhdCI6MTc1OTc0MDMxNiwiZW1haWwiOiJsb21hcmRpZWdvMTdAZ21haWwuY29tIiwianRpIjoiZmE0NTJiZTgtYzFkZC00NGQwLWI0MDQtM2ZhMTE0MDA5OGJkIn0.iQVcy_Nr4IgKNAKiI1GOJNnv88U9FX8NuxTs4UIRAgFlU3v-VfGHl4WGm2aML5iCl2fjh7acsEF-LcD6hd8g972naqAswEpafyhvmM1ZecZvALaMbBWExE_Do7v9LkpS0eXbD6E3CD-3aTc1dXLTecHdzLsvUDt6BifnWIZTc7ilQKNWwa_lJ6TnI6WOL945Eu5khx2N5VXlIzNgOnvAkoYncTzCUQRPF8taY78O14jp8WAryqTyiHOleLxtpYrNNxnpFI7O7ciiKRHsvpj3VoB1UZJbqNu71CnSfHPerFvrnzgWKEdXt4phFb9wSTCXIFUYL8SCMmc_cEG_GrrMxg",
+      "value": "eyJraWQiOiJzZXNzaW9uLXNlcnZpY2UvcHJvZC0xNzM4Nzk0ODc0IiwiYWxnIjoiUlMyNTYifQ.eyJhc3NvY2lhdGlvbnMiOltdLCJzdWIiOiI3MTIwMjA6OTdlYzY3ZjgtMGU5OC00MzNhLWI0YzYtYTZkNGQxOTVjNGExIiwiZW1haWxEb21haW4iOiJnbWFpbC5jb20iLCJpbXBlcnNvbmF0aW9uIjpbXSwiY3JlYXRlZCI6MTc1OTc4MzE4OCwicmVmcmVzaFRpbWVvdXQiOjE3NTk3ODM3ODgsInZlcmlmaWVkIjp0cnVlLCJpc3MiOiJzZXNzaW9uLXNlcnZpY2UiLCJzZXNzaW9uSWQiOiI1OWVmN2U1Ny1mZDEzLTRkY2QtOTU5Yi0yYWQ4NTYxZWM2YTIiLCJzdGVwVXBzIjpbXSwiYXVkIjoiYXRsYXNzaWFuIiwibmJmIjoxNzU5NzgzMTg4LCJleHAiOjE3NjIzNzUxODgsImlhdCI6MTc1OTc4MzE4OCwiZW1haWwiOiJsb21hcmRpZWdvMTdAZ21haWwuY29tIiwianRpIjoiNTllZjdlNTctZmQxMy00ZGNkLTk1OWItMmFkODU2MWVjNmEyIn0.EL5AJewgd-N-V3evHwb-eX5GHKa7B1SWg7rdQdDbHudPmgSeeJPWx7uFMGkqDLNQr-DFCMMMeBwG8UspnvfZm9l_l6-Q02xzbAYGOuOSoJwSaxlnATBqfdoz7eUHHgBulV357u2nEYqBONGQomZvPzWGgWboFmxlekfihmaXFk-LOE1oKJJgliT64iQ9bv0ga_j8BSwdrHnZJP5JuA2tC5-0FfriD3vyxpEuIfWAJzkRO6tLzGR5wtQoXB1DkZ24aPYzUNCw5hdnOnAtC23ULtgMjD3zGP8AS0IFTg0RuVmZulB-ok4BqpcbqZBnk76ybkJIgVpEYpozGq5Kg9Vnlg",
       "domain": "id.atlassian.com",
       "path": "/",
-      "expires": 1762332316.058006,
+      "expires": 1762375191.281641,
       "httpOnly": true,
       "secure": true,
       "sameSite": "Lax"
@@ -195,17 +493,17 @@
       "value": "712020%3A97ec67f8-0e98-433a-b4c6-a6d4d195c4a1",
       "domain": ".atlassian.com",
       "path": "/",
-      "expires": 1762332316.058183,
+      "expires": 1762375191.281699,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "cloud.session.token",
-      "value": "eyJraWQiOiJzZXNzaW9uLXNlcnZpY2UvcHJvZC0xNzM4Nzk0ODc0IiwiYWxnIjoiUlMyNTYifQ.eyJhc3NvY2lhdGlvbnMiOltdLCJzdWIiOiI3MTIwMjA6OTdlYzY3ZjgtMGU5OC00MzNhLWI0YzYtYTZkNGQxOTVjNGExIiwiZW1haWxEb21haW4iOiJnbWFpbC5jb20iLCJpbXBlcnNvbmF0aW9uIjpbXSwiY3JlYXRlZCI6MTc1OTc0MDMxNiwicmVmcmVzaFRpbWVvdXQiOjE3NTk3NDA5MTYsInZlcmlmaWVkIjp0cnVlLCJpc3MiOiJzZXNzaW9uLXNlcnZpY2UiLCJzZXNzaW9uSWQiOiJmYTQ1MmJlOC1jMWRkLTQ0ZDAtYjQwNC0zZmExMTQwMDk4YmQiLCJzdGVwVXBzIjpbXSwiYXVkIjoiYXRsYXNzaWFuIiwibmJmIjoxNzU5NzQwMzE2LCJleHAiOjE3NjIzMzIzMTYsImlhdCI6MTc1OTc0MDMxNiwiZW1haWwiOiJsb21hcmRpZWdvMTdAZ21haWwuY29tIiwianRpIjoiZmE0NTJiZTgtYzFkZC00NGQwLWI0MDQtM2ZhMTE0MDA5OGJkIn0.iQVcy_Nr4IgKNAKiI1GOJNnv88U9FX8NuxTs4UIRAgFlU3v-VfGHl4WGm2aML5iCl2fjh7acsEF-LcD6hd8g972naqAswEpafyhvmM1ZecZvALaMbBWExE_Do7v9LkpS0eXbD6E3CD-3aTc1dXLTecHdzLsvUDt6BifnWIZTc7ilQKNWwa_lJ6TnI6WOL945Eu5khx2N5VXlIzNgOnvAkoYncTzCUQRPF8taY78O14jp8WAryqTyiHOleLxtpYrNNxnpFI7O7ciiKRHsvpj3VoB1UZJbqNu71CnSfHPerFvrnzgWKEdXt4phFb9wSTCXIFUYL8SCMmc_cEG_GrrMxg",
+      "value": "eyJraWQiOiJzZXNzaW9uLXNlcnZpY2UvcHJvZC0xNzM4Nzk0ODc0IiwiYWxnIjoiUlMyNTYifQ.eyJhc3NvY2lhdGlvbnMiOltdLCJzdWIiOiI3MTIwMjA6OTdlYzY3ZjgtMGU5OC00MzNhLWI0YzYtYTZkNGQxOTVjNGExIiwiZW1haWxEb21haW4iOiJnbWFpbC5jb20iLCJpbXBlcnNvbmF0aW9uIjpbXSwiY3JlYXRlZCI6MTc1OTc4MzE4OCwicmVmcmVzaFRpbWVvdXQiOjE3NTk3ODM3ODgsInZlcmlmaWVkIjp0cnVlLCJpc3MiOiJzZXNzaW9uLXNlcnZpY2UiLCJzZXNzaW9uSWQiOiI1OWVmN2U1Ny1mZDEzLTRkY2QtOTU5Yi0yYWQ4NTYxZWM2YTIiLCJzdGVwVXBzIjpbXSwiYXVkIjoiYXRsYXNzaWFuIiwibmJmIjoxNzU5NzgzMTg4LCJleHAiOjE3NjIzNzUxODgsImlhdCI6MTc1OTc4MzE4OCwiZW1haWwiOiJsb21hcmRpZWdvMTdAZ21haWwuY29tIiwianRpIjoiNTllZjdlNTctZmQxMy00ZGNkLTk1OWItMmFkODU2MWVjNmEyIn0.EL5AJewgd-N-V3evHwb-eX5GHKa7B1SWg7rdQdDbHudPmgSeeJPWx7uFMGkqDLNQr-DFCMMMeBwG8UspnvfZm9l_l6-Q02xzbAYGOuOSoJwSaxlnATBqfdoz7eUHHgBulV357u2nEYqBONGQomZvPzWGgWboFmxlekfihmaXFk-LOE1oKJJgliT64iQ9bv0ga_j8BSwdrHnZJP5JuA2tC5-0FfriD3vyxpEuIfWAJzkRO6tLzGR5wtQoXB1DkZ24aPYzUNCw5hdnOnAtC23ULtgMjD3zGP8AS0IFTg0RuVmZulB-ok4BqpcbqZBnk76ybkJIgVpEYpozGq5Kg9Vnlg",
       "domain": "trello.com",
       "path": "/",
-      "expires": 1762332316.331064,
+      "expires": 1762375191.488126,
       "httpOnly": true,
       "secure": true,
       "sameSite": "None"
@@ -215,7 +513,7 @@
       "value": "1",
       "domain": ".trello.com",
       "path": "/",
-      "expires": 1762332316.631822,
+      "expires": 1762375191.787122,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
@@ -225,7 +523,7 @@
       "value": "712020%3A97ec67f8-0e98-433a-b4c6-a6d4d195c4a1",
       "domain": "trello.com",
       "path": "/",
-      "expires": 1762332316.632384,
+      "expires": 1762375191.787359,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
@@ -235,7 +533,7 @@
       "value": "68d5f9adf0df082f13453087",
       "domain": "trello.com",
       "path": "/",
-      "expires": 1791276316.632303,
+      "expires": 1791319191.787334,
       "httpOnly": false,
       "secure": true,
       "sameSite": "None"
@@ -245,7 +543,7 @@
       "value": "en-US",
       "domain": "trello.com",
       "path": "/",
-      "expires": 1762332316.63217,
+      "expires": 1762375191.787305,
       "httpOnly": false,
       "secure": true,
       "sameSite": "Lax"
@@ -255,17 +553,17 @@
       "value": "atlassian",
       "domain": "trello.com",
       "path": "/",
-      "expires": 1762332316.632502,
+      "expires": 1762375191.787383,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
     },
     {
       "name": "__cid",
-      "value": "i4_LBXQ7_-X0w9UUWYKvM5a28qHZwWO82ivsocoq-fH-r-cjCQf_lN0U7ebJKqijpHUuBo4vlTLbIrit2dWDzpRFnci1RoaO7ATXgfF9js-9RZDS-WSzgegayZHiCrDItxzTmvlS0ZXwCqbRqUaC9rxIrMitBdKS7gTUl_kCrOmNZ6uN-UaOyrwKoMS6QYiI-WmP07ZHgo7oHteP6QTXj-kKtMC_S5XI9h_UlvcZ0c3RGIGXvBrSmepd5KZSKnOpvUnVleobg8JFf6bvnmaigfFjidW8RsuBkESTxLUCtYj5YqOBnliG0bFDhNL5H9KR6QrPkaEa15HpG9GQ7wPH5bBYgsKtGaOQ6AqR0oYfuJH5WpT-7HXXjflu1OXoG84FzxvVjuobyJDgHN6N-RLdkekQ15H5eqoO0SpSgByae2rZ-eZ8WhIAiTIpEP4BB7aTJirvYdkq56HZKueh2Srnodkq56HZKueh2Srnodkq56HZKueh2Wqn4Zlqp6HZKueh2Srnodkq5-HZKueh2Srnodkq514",
+      "value": "_vq-MAVq0ooPu_VkPK-_VInBd56up6eDrcVynr3EZ86JQXkcfulhq6L6c9m-xDac05uwOfnBCw2szCaSrjsd8eOrA_fCqBixm-pJvoaTEPDKqw7tjootvp_0V66V5C73wPJNpY68T6qH5Dju3qgcycumMvfa60ytmepKqI7sMtb6iTWyjqgQ9cvkPvvNrxa3jocR7MGpHLGf8EmwnupJsJ7kKv_IpQv3gfFKqYD3T_Km9husy_Yaq5ezepklxO2WnPFI-833SakylTjQ6Yg8voaNF-rLqFW-56oN-8LsK7eOkTHajoML_96sEP3d5FGu1vRJrp7wT9-d7Vnax7Yc_dr3Pa-f5A_t8fEmro60CsGbm0myjoBK2p_1UDq49UuxnfVWr5fyQLKO_EOunv5Jro6UNDGmxMy_a3TdVa4XeEMt_J6eRceOwXbpKKxRxHFersR5nq7EeZ6uxHmersR5nq7EeZ6uxHmersR5nq7EeZ6uhDne7oQ5nq7EeZ6uxHmersR53q7EeZ6uxHmersR5YQ",
       "domain": ".trello.com",
       "path": "/",
-      "expires": 1794300317.812874,
+      "expires": 1794343192.979357,
       "httpOnly": false,
       "secure": false,
       "sameSite": "Lax"
@@ -285,23 +583,27 @@
         },
         {
           "name": "awc.session.id",
-          "value": "1759740306446"
+          "value": "1759783184182"
         },
         {
           "name": "statsig.stable_id.351342472",
-          "value": "\"1d0e2474-c067-4069-bc15-738e7159fd80\""
+          "value": "\"5ac80d4b-0b5b-4862-afe6-a6187f0dc1b4\""
         },
         {
-          "name": "NotificationsSeenState-68d5f9adf0df082f13453087",
-          "value": "{\"lastSeenNotificationGroup\":{}}"
+          "name": "developerConsoleState",
+          "value": "{\"lastActiveTab\":0,\"developerConsoleOpen\":false,\"developerConsoleEnabled\":false,\"plainTextEditor\":false,\"disableEditorViewRendering\":false,\"showModelIds\":false,\"useTrelloTimingHeader\":false,\"logConnectionInformation\":false,\"operationNameInUrl\":false}"
+        },
+        {
+          "name": "_gcl_ls",
+          "value": "{\"schema\":\"gcl\",\"version\":1,\"gcl_ctr\":{\"value\":{\"value\":1,\"timeouts\":0,\"creationTimeMs\":1759783184058},\"expires\":1767559184058}}"
         },
         {
           "name": "locale-68d5f9adf0df082f13453087",
           "value": "\"es\""
         },
         {
-          "name": "developerConsoleState",
-          "value": "{\"lastActiveTab\":0,\"developerConsoleOpen\":false,\"developerConsoleEnabled\":false,\"plainTextEditor\":false,\"disableEditorViewRendering\":false,\"showModelIds\":false,\"useTrelloTimingHeader\":false,\"logConnectionInformation\":false,\"operationNameInUrl\":false}"
+          "name": "NotificationsSeenState-68d5f9adf0df082f13453087",
+          "value": "{\"lastSeenNotificationGroup\":{}}"
         },
         {
           "name": "marketingContext",
@@ -309,15 +611,15 @@
         },
         {
           "name": "awc.session.expiry",
-          "value": "1759742106446"
+          "value": "1759784984182"
         },
         {
           "name": "dynamicConfigClient",
-          "value": "{\"timeStamp\":1759740320713,\"config\":\"{\\\"trello_web_forcefully_reload_to_exact_version\\\":{\\\"value\\\":0},\\\"trello_web_enable_ufo\\\":{\\\"value\\\":true},\\\"trello_web_enable_web_vitals\\\":{\\\"value\\\":true},\\\"trello_web_max_first_active_delay\\\":{\\\"value\\\":2000},\\\"trello_web_billing_down_for_maintenance\\\":{\\\"value\\\":false},\\\"trello_web_pp_ga_rollout_enterprises\\\":{\\\"value\\\":\\\"\\\"},\\\"trello_web_sentry_perf_monitoring\\\":{\\\"value\\\":true},\\\"mirror_cards_ent_blocklist\\\":{\\\"value\\\":[\\\"55c389e4e94b6c5acb767b23\\\",\\\"61e9ee0e55c98e00dcbbd7ee\\\"]},\\\"butler_ent_admin_only_allowlist\\\":{\\\"value\\\":[\\\"55c389e4e94b6c5acb767b23\\\"]},\\\"trello_web_native_current_board_info\\\":{\\\"value\\\":true},\\\"trello_web_max_first_idle_delay\\\":{\\\"value\\\":60000},\\\"trello_web_atlassian_team\\\":{\\\"value\\\":false},\\\"trello_web_inbox_native_graphql_provisioning\\\":{\\\"value\\\":true},\\\"trello_enterprise_planner_blocklist\\\":{\\\"value\\\":[\\\"55c389e4e94b6c5acb767b23\\\",\\\"5fd8cfc9785a2025b182dd74\\\",\\\"5d6554cdf5c66c171ba2c969\\\",\\\"6470cba78a1d7134083eb509\\\",\\\"5d164d8ed0d7f641a591e34a\\\",\\\"626826476aa73d0fb5802504\\\",\\\"642b0d54c8e597ba45f55475\\\"]},\\\"trello_web_take_trello_offline\\\":{\\\"value\\\":false},\\\"trello_web_pp_ga_rollout_nudge_show_delay\\\":{\\\"value\\\":0},\\\"trello_web_update_nudge_time_interval\\\":{\\\"value\\\":604800000},\\\"trello_web_native_member_boards\\\":{\\\"value\\\":true},\\\"trello_web_error_handling_rrs\\\":{\\\"value\\\":false},\\\"trello_web_apollo_cache_hydrator_metrics\\\":{\\\"value\\\":false},\\\"trello_web_passively_reload_to_minimum_version\\\":{\\\"value\\\":0},\\\"trello_web_ufo_sampling_rate\\\":{\\\"value\\\":25},\\\"trello_web_google_tag_manager\\\":{\\\"value\\\":true},\\\"trello_web_disconnect_active_clients\\\":{\\\"value\\\":false},\\\"trello_web_log_connection_information\\\":{\\\"value\\\":false},\\\"trello_web_mirror_cards_quickload\\\":{\\\"value\\\":true},\\\"trello_web_somethings_wrong\\\":{\\\"value\\\":false},\\\"trello_web_apollo_read_write_metrics\\\":{\\\"value\\\":false}}\",\"isFetching\":false}"
+          "value": "{\"timeStamp\":1759783195057,\"config\":\"{\\\"trello_web_forcefully_reload_to_exact_version\\\":{\\\"value\\\":0},\\\"trello_web_enable_ufo\\\":{\\\"value\\\":true},\\\"trello_web_enable_web_vitals\\\":{\\\"value\\\":true},\\\"trello_web_max_first_active_delay\\\":{\\\"value\\\":2000},\\\"trello_web_billing_down_for_maintenance\\\":{\\\"value\\\":false},\\\"trello_web_pp_ga_rollout_enterprises\\\":{\\\"value\\\":\\\"\\\"},\\\"trello_web_sentry_perf_monitoring\\\":{\\\"value\\\":true},\\\"mirror_cards_ent_blocklist\\\":{\\\"value\\\":[\\\"55c389e4e94b6c5acb767b23\\\",\\\"61e9ee0e55c98e00dcbbd7ee\\\"]},\\\"butler_ent_admin_only_allowlist\\\":{\\\"value\\\":[\\\"55c389e4e94b6c5acb767b23\\\"]},\\\"trello_web_native_current_board_info\\\":{\\\"value\\\":true},\\\"trello_web_max_first_idle_delay\\\":{\\\"value\\\":60000},\\\"trello_web_atlassian_team\\\":{\\\"value\\\":false},\\\"trello_web_inbox_native_graphql_provisioning\\\":{\\\"value\\\":true},\\\"trello_enterprise_planner_blocklist\\\":{\\\"value\\\":[\\\"55c389e4e94b6c5acb767b23\\\",\\\"5fd8cfc9785a2025b182dd74\\\",\\\"5d6554cdf5c66c171ba2c969\\\",\\\"6470cba78a1d7134083eb509\\\",\\\"5d164d8ed0d7f641a591e34a\\\",\\\"626826476aa73d0fb5802504\\\",\\\"642b0d54c8e597ba45f55475\\\"]},\\\"trello_web_take_trello_offline\\\":{\\\"value\\\":false},\\\"trello_web_pp_ga_rollout_nudge_show_delay\\\":{\\\"value\\\":0},\\\"trello_web_update_nudge_time_interval\\\":{\\\"value\\\":604800000},\\\"trello_web_native_member_boards\\\":{\\\"value\\\":true},\\\"trello_web_error_handling_rrs\\\":{\\\"value\\\":false},\\\"trello_web_apollo_cache_hydrator_metrics\\\":{\\\"value\\\":false},\\\"trello_web_passively_reload_to_minimum_version\\\":{\\\"value\\\":0},\\\"trello_web_ufo_sampling_rate\\\":{\\\"value\\\":25},\\\"trello_web_google_tag_manager\\\":{\\\"value\\\":true},\\\"trello_web_disconnect_active_clients\\\":{\\\"value\\\":false},\\\"trello_web_log_connection_information\\\":{\\\"value\\\":false},\\\"trello_web_mirror_cards_quickload\\\":{\\\"value\\\":true},\\\"trello_web_somethings_wrong\\\":{\\\"value\\\":false},\\\"trello_web_apollo_read_write_metrics\\\":{\\\"value\\\":false}}\",\"isFetching\":false}"
         },
         {
           "name": "featureGates-68d5f9adf0df082f13453087",
-          "value": "{\"workspace-agnostic\":{\"configs\":{\"ghost_add_to_inbox\":{},\"ghost_eotf_with_pp\":{},\"ghost_evergreen_quick_capture_tip\":{\"cohort\":\"experiment\"},\"ghost_monetization_messaging\":{},\"ghost_nuo_inbox_and_nav_optimization\":{\"cohort\":\"experiment\"},\"ghost_test_pausing_experiment\":{},\"new_user_onboarding_flow_and_in-product_discovery\":{\"campaign\":\"newUserSplitScreenOnboarding\"},\"trello_cancel_free_trial\":{},\"xf_boards_home_sidebar_placement\":{\"cohort\":\"experiment\"},\"xf_de_facto_bandits_grs_trello_feature_integration\":{}},\"gates\":{\"billplat_ccp_create_workspace\":false,\"billplat_deprecate_popover_file_link_handler\":true,\"billplat_deprecate_popover_powerupsettingsbutton\":false,\"billplat_deprecate_popover_use_render_avatar\":false,\"billplat_enterprise_dashboard_context\":false,\"billplat_m2_workspace_pages\":true,\"billplat_recurring_tasks\":false,\"billplat_soft_deprovisioning\":true,\"billplat_workspace_settings_navigation\":true,\"ecosystem_apps_admin_route\":true,\"ecosystem_listing_updates_dev\":true,\"ecosystem_listing_updates_directory\":true,\"ecosystem_power_up_views\":false,\"electric_multi_account_management_redesign\":false,\"electric_planner_create_event_migration\":false,\"electric_planner_multi_account_m2\":false,\"enterprise_card_back_add_to_inbox\":false,\"enterprise_email_verification_refresher\":true,\"enterprise_link_to_atlassian_org_v2_web\":true,\"ghost_3p_chrome_ext\":true,\"ghost_add_to_inbox_gate\":false,\"ghost_chrome_supported_qc_discovery\":true,\"ghost_cross_flow_all_users_experience\":true,\"ghost_experimentation_dev_discovery\":false,\"ghost_fix_board_screen_ad_new_user\":false,\"ghost_inbox_indicator_save_for_later_spike\":true,\"ghost_inbox_mobile_qr_code\":true,\"ghost_is_in_place_message_event_preview_enabled\":true,\"ghost_mirror_card_back_subscription\":true,\"ghost_mirror_card_popover_tabs\":true,\"ghost_mirror_popover_experiment_gate\":true,\"ghost_onboarding_a11y_move_card\":true,\"ghost_one_subscription_per_mirror\":true,\"ghost_personal_productivity_survey\":false,\"ghost_planner_feature_discovery_ui\":true,\"ghost_poll_user_traits\":true,\"ghost_refresh_feature_gates_on_visibility_change\":true,\"ghost_simulate_new_user_dev\":false,\"ghost_simulate_quick_capture_in_internal_tools\":false,\"ghost_ungate_template_placement\":true,\"ghost_use_mirror_card_subscriptions\":true,\"ghost_use_mirror_quickload_errors\":true,\"ghost_use_react_focus_lock_pups\":false,\"ghost_use_server_add_starter_guide\":true,\"goo_ai_eligibility_quickcapture_ga_check\":true,\"goo_ai_retries_enabled\":false,\"goo_allow_disabling_keyboard_shortcuts\":true,\"goo_card_back_cache_syncing\":true,\"goo_dev_portal_native_gql_migration\":true,\"goo_gql_ws_connection_ack_timeout\":false,\"goo_graphql_connectivity_flags\":true,\"goo_horsefly_dev_portal\":false,\"goo_native_graphql_migration_milestone_3\":true,\"goo_quick_capture_card_front_external_link\":true,\"goo_quick_capture_webpages_popover\":true,\"goo_send_memory_attributes\":true,\"goo_send_ws_ping\":false,\"goo_sequence_number_replays\":false,\"goo_slower_client_reconnects\":false,\"goo_subscribe_split_card_update\":false,\"goo_sync_reactions_to_cache\":false,\"goo_use_graphql_ws_rate_limiting\":true,\"gql_client_subscriptions\":true,\"gqldata_email_attachment_preview\":true,\"gqldata_inbox_email_ai\":true,\"legacy_url_error_page\":false,\"phx_ai_settings\":false,\"phx_archive_all_cards_in_list\":false,\"phx_auto_archive_workspace_setting\":false,\"phx_bulk_actions\":false,\"phx_card_back_onboarding\":false,\"phx_card_back_redesign\":true,\"phx_cardback_resize_panel\":false,\"phx_editor_view_bypass\":false,\"phx_island_overlap\":true,\"phx_merge_cards\":false,\"phx_modernize_board_collections_ux\":false,\"phx_modernize_board_switcher_collections_ux\":false,\"phx_multi_card_drag_and_drop\":false,\"phx_planner_custom_order\":false,\"phx_rovo_card_back\":false,\"phx_rovo_island\":false,\"phx_smart_schedule_m1\":false,\"phx_trello_card_improvements\":false,\"phx_zen_mode\":false,\"platform-component-visual-refresh\":true,\"tplat_migrate_route_account_settings\":false,\"tplat_migrate_route_inbox\":false,\"tplat_native_graphql_migration_milestone_2\":true,\"tplat_react_router\":false,\"tplat_report_cls_web_vitals\":true,\"tplat_report_inp_web_vitals\":true,\"trello-member-cards-query\":false,\"trello-server-e2b-ai\":true,\"trello-web-seat-automation-member-blocklist\":false,\"trello_ads_icons\":false,\"trello_beta_ga\":true,\"trello_beta_ga_announcement\":false,\"trello_cancel_trial_gate\":false,\"trello_electric_use_login_hint\":true,\"trello_enterprise_all_organization_closed_boards\":true,\"trello_enterprise_allow_same_active_and_inactive\":false,\"trello_enterprise_fix_member_boards_button\":true,\"trello_enterprise_inbox_always_fetch_inbox\":true,\"trello_enterprise_member_planner_update_on_data\":true,\"trello_enterprise_planner_calendar_toggle_fix\":true,\"trello_enterprise_planner_clear_cache_on_reconnect\":false,\"trello_enterprise_pp_disable_planner_panel\":true,\"trello_enterprise_refetch_inbox\":false,\"trello_enterprise_shadowit_member_in_workspace\":true,\"trello_enterprise_workspace_member_infinite_list\":false,\"trello_feature_gate_client_init_with_provider\":false,\"trello_goo_custom_ai_prompts\":true,\"trello_graphql_retry_link\":false,\"trello_hover_inbetween_cards\":true,\"trello_native_graphql_migration_milestone_1\":true,\"trello_non-ppm_single_player\":false,\"trello_optimistically_clear_card_url_on_move\":true,\"trello_outlook_announcement\":false,\"trello_paid_workspaces\":false,\"trello_personal_productivity_release\":true,\"trello_pp_beta_box\":false,\"trello_reverse_trials\":true,\"trello_web_pinned_cards\":false,\"trello_xf_discovery_ads_control\":true,\"trello_xf_experiment_analytics_toggle\":false,\"trello_xf_exposure_event_rate_limiting\":true,\"trello_xf_invite_experience_2\":false,\"trello_xf_invite_skip_create_confirmation\":false,\"trello_xf_one_liner_header_experience\":true,\"trello_xf_post_office_board_screen_placement\":false,\"trello_xf_use_card_drag_external\":false,\"trello_xf_use_view_for_calendar_powerup\":false,\"xf_planner_auto_updating_date\":false,\"xf_planner_card_back_subscriptions\":true,\"xf_planner_card_quick_actions_scheduler\":true,\"xf_planner_event_preview_temporary\":false,\"xf_planner_single_card_event\":false,\"xf_plugin_modernization_board_bar\":false,\"xf_plugin_modernization_modal\":false,\"xf_plugin_modernization_popover_views\":false,\"xf_statsig_feature_gates_refresher\":true},\"layers\":{}}}"
+          "value": "{\"workspace-agnostic\":{\"configs\":{\"ghost_add_to_inbox\":{},\"ghost_eotf_with_pp\":{},\"ghost_evergreen_quick_capture_tip\":{},\"ghost_monetization_messaging\":{},\"ghost_nuo_inbox_and_nav_optimization\":{\"cohort\":\"experiment\"},\"ghost_test_pausing_experiment\":{},\"new_user_onboarding_flow_and_in-product_discovery\":{\"campaign\":\"newUserSplitScreenOnboarding\"},\"trello_cancel_free_trial\":{},\"xf_boards_home_sidebar_placement\":{\"cohort\":\"experiment\"},\"xf_de_facto_bandits_grs_trello_feature_integration\":{}},\"gates\":{\"billplat_ccp_create_workspace\":false,\"billplat_deprecate_popover_file_link_handler\":true,\"billplat_deprecate_popover_powerupsettingsbutton\":false,\"billplat_deprecate_popover_use_render_avatar\":false,\"billplat_enterprise_dashboard_context\":false,\"billplat_m2_workspace_pages\":false,\"billplat_recurring_tasks\":false,\"billplat_soft_deprovisioning\":true,\"billplat_workspace_settings_navigation\":false,\"ecosystem_apps_admin_route\":true,\"ecosystem_listing_updates_dev\":true,\"ecosystem_listing_updates_directory\":true,\"ecosystem_power_up_views\":false,\"electric_multi_account_management_redesign\":false,\"electric_planner_create_event_migration\":false,\"electric_planner_multi_account_m2\":false,\"enterprise_card_back_add_to_inbox\":false,\"enterprise_email_verification_refresher\":true,\"enterprise_link_to_atlassian_org_v2_web\":true,\"ghost_3p_chrome_ext\":true,\"ghost_add_to_inbox_gate\":false,\"ghost_chrome_supported_qc_discovery\":true,\"ghost_cross_flow_all_users_experience\":true,\"ghost_experimentation_dev_discovery\":false,\"ghost_fix_board_screen_ad_new_user\":false,\"ghost_inbox_indicator_save_for_later_spike\":true,\"ghost_inbox_mobile_qr_code\":true,\"ghost_is_in_place_message_event_preview_enabled\":true,\"ghost_mirror_card_back_subscription\":true,\"ghost_mirror_card_popover_tabs\":false,\"ghost_mirror_popover_experiment_gate\":true,\"ghost_onboarding_a11y_move_card\":true,\"ghost_one_subscription_per_mirror\":true,\"ghost_personal_productivity_survey\":false,\"ghost_planner_feature_discovery_ui\":true,\"ghost_poll_user_traits\":true,\"ghost_refresh_feature_gates_on_visibility_change\":true,\"ghost_simulate_new_user_dev\":false,\"ghost_simulate_quick_capture_in_internal_tools\":false,\"ghost_ungate_template_placement\":true,\"ghost_use_mirror_card_subscriptions\":true,\"ghost_use_mirror_quickload_errors\":true,\"ghost_use_react_focus_lock_pups\":false,\"ghost_use_server_add_starter_guide\":true,\"goo_ai_eligibility_quickcapture_ga_check\":true,\"goo_ai_retries_enabled\":false,\"goo_allow_disabling_keyboard_shortcuts\":true,\"goo_card_back_cache_syncing\":true,\"goo_dev_portal_native_gql_migration\":true,\"goo_gql_ws_connection_ack_timeout\":false,\"goo_graphql_connectivity_flags\":true,\"goo_horsefly_dev_portal\":false,\"goo_native_graphql_migration_milestone_3\":true,\"goo_quick_capture_card_front_external_link\":true,\"goo_quick_capture_webpages_popover\":true,\"goo_send_memory_attributes\":true,\"goo_send_ws_ping\":false,\"goo_sequence_number_replays\":false,\"goo_slower_client_reconnects\":false,\"goo_subscribe_split_card_update\":false,\"goo_sync_reactions_to_cache\":false,\"goo_use_graphql_ws_rate_limiting\":true,\"gql_client_subscriptions\":true,\"gqldata_email_attachment_preview\":true,\"gqldata_inbox_email_ai\":false,\"legacy_url_error_page\":false,\"phx_ai_settings\":false,\"phx_archive_all_cards_in_list\":false,\"phx_auto_archive_workspace_setting\":false,\"phx_bulk_actions\":false,\"phx_card_back_onboarding\":false,\"phx_card_back_redesign\":true,\"phx_cardback_resize_panel\":false,\"phx_editor_view_bypass\":false,\"phx_island_overlap\":true,\"phx_merge_cards\":false,\"phx_modernize_board_collections_ux\":false,\"phx_modernize_board_switcher_collections_ux\":false,\"phx_multi_card_drag_and_drop\":false,\"phx_planner_custom_order\":false,\"phx_rovo_card_back\":false,\"phx_rovo_island\":false,\"phx_smart_schedule_m1\":false,\"phx_trello_card_improvements\":false,\"phx_zen_mode\":false,\"platform-component-visual-refresh\":true,\"tplat_migrate_route_account_settings\":false,\"tplat_migrate_route_inbox\":false,\"tplat_native_graphql_migration_milestone_2\":true,\"tplat_react_router\":false,\"tplat_report_cls_web_vitals\":true,\"tplat_report_inp_web_vitals\":true,\"trello-member-cards-query\":false,\"trello-server-e2b-ai\":true,\"trello-web-seat-automation-member-blocklist\":false,\"trello_ads_icons\":false,\"trello_beta_ga\":false,\"trello_beta_ga_announcement\":false,\"trello_cancel_trial_gate\":false,\"trello_electric_use_login_hint\":true,\"trello_enterprise_all_organization_closed_boards\":true,\"trello_enterprise_allow_same_active_and_inactive\":false,\"trello_enterprise_fix_member_boards_button\":true,\"trello_enterprise_inbox_always_fetch_inbox\":true,\"trello_enterprise_member_planner_update_on_data\":true,\"trello_enterprise_planner_calendar_toggle_fix\":true,\"trello_enterprise_planner_clear_cache_on_reconnect\":false,\"trello_enterprise_pp_disable_planner_panel\":true,\"trello_enterprise_refetch_inbox\":false,\"trello_enterprise_shadowit_member_in_workspace\":true,\"trello_enterprise_workspace_member_infinite_list\":false,\"trello_feature_gate_client_init_with_provider\":false,\"trello_goo_custom_ai_prompts\":true,\"trello_graphql_retry_link\":false,\"trello_hover_inbetween_cards\":true,\"trello_native_graphql_migration_milestone_1\":true,\"trello_non-ppm_single_player\":false,\"trello_optimistically_clear_card_url_on_move\":true,\"trello_outlook_announcement\":false,\"trello_paid_workspaces\":false,\"trello_personal_productivity_release\":false,\"trello_pp_beta_box\":false,\"trello_reverse_trials\":true,\"trello_web_pinned_cards\":false,\"trello_xf_discovery_ads_control\":true,\"trello_xf_experiment_analytics_toggle\":false,\"trello_xf_exposure_event_rate_limiting\":true,\"trello_xf_invite_experience_2\":false,\"trello_xf_invite_skip_create_confirmation\":false,\"trello_xf_one_liner_header_experience\":true,\"trello_xf_post_office_board_screen_placement\":false,\"trello_xf_use_card_drag_external\":false,\"trello_xf_use_view_for_calendar_powerup\":false,\"xf_planner_auto_updating_date\":false,\"xf_planner_card_back_subscriptions\":true,\"xf_planner_card_quick_actions_scheduler\":true,\"xf_planner_event_preview_temporary\":false,\"xf_planner_single_card_event\":false,\"xf_plugin_modernization_board_bar\":false,\"xf_plugin_modernization_modal\":false,\"xf_plugin_modernization_popover_views\":false,\"xf_statsig_feature_gates_refresher\":true},\"layers\":{}}}"
         },
         {
           "name": "home_68d5f9adf0df082f13453087_last_tab_2",
@@ -325,15 +627,15 @@
         },
         {
           "name": "dynamicConfigUserData",
-          "value": "{\"lastUpdated\":1759740319765,\"key\":\"68d5f9adf0df082f13453087\",\"data\":{\"clientVersion\":\"build-229092\",\"emailDomain\":\"gmail.com\",\"hasBC\":true,\"hasMultipleEmails\":false,\"head\":\"build\",\"idEnterprises\":[],\"idOrgs\":[\"68d5f9c8f49e7ac750427e7c\",\"68d5fa2821a760b0c7475683\"],\"isClaimable\":false,\"inEnterprise\":false,\"orgs\":[\"[Redacted]\"],\"signupDate\":1758853549000,\"premiumFeatures\":[\"activity\",\"additionalBoardBackgrounds\",\"additionalStickers\",\"advancedChecklists\",\"aiQuickCapture\",\"atlassianIntelligence\",\"boardExport\",\"butlerBC\",\"butlerPremium\",\"collapsibleLists\",\"csvExport\",\"customBoardBackgrounds\",\"customEmoji\",\"customStickers\",\"deactivated\",\"export\",\"goldMembers\",\"inviteBoard\",\"inviteOrg\",\"isBc\",\"isPremium\",\"largeAttachments\",\"listColors\",\"multiBoardGuests\",\"observers\",\"paidCorePlugins\",\"plugins\",\"premiumMirrorCards\",\"privateTemplates\",\"readSecrets\",\"removal\",\"restrictVis\",\"savedSearches\",\"shortExportHistory\",\"starCounts\",\"superAdmins\",\"tags\",\"views\",\"workspaceViews\"],\"products\":[110],\"version\":229092}}"
+          "value": "{\"lastUpdated\":1759783194832,\"key\":\"68d5f9adf0df082f13453087\",\"data\":{\"clientVersion\":\"build-229098\",\"emailDomain\":\"gmail.com\",\"hasBC\":true,\"hasMultipleEmails\":false,\"head\":\"build\",\"idEnterprises\":[],\"idOrgs\":[\"68d5f9c8f49e7ac750427e7c\",\"68d5fa2821a760b0c7475683\"],\"isClaimable\":false,\"inEnterprise\":false,\"orgs\":[\"[Redacted]\"],\"signupDate\":1758853549000,\"premiumFeatures\":[\"activity\",\"additionalBoardBackgrounds\",\"additionalStickers\",\"advancedChecklists\",\"aiQuickCapture\",\"atlassianIntelligence\",\"boardExport\",\"butlerBC\",\"butlerPremium\",\"collapsibleLists\",\"csvExport\",\"customBoardBackgrounds\",\"customEmoji\",\"customStickers\",\"deactivated\",\"export\",\"goldMembers\",\"inviteBoard\",\"inviteOrg\",\"isBc\",\"isPremium\",\"largeAttachments\",\"listColors\",\"multiBoardGuests\",\"observers\",\"paidCorePlugins\",\"plugins\",\"premiumMirrorCards\",\"privateTemplates\",\"readSecrets\",\"removal\",\"restrictVis\",\"savedSearches\",\"shortExportHistory\",\"starCounts\",\"superAdmins\",\"tags\",\"views\",\"workspaceViews\"],\"products\":[110],\"version\":229098}}"
         },
         {
           "name": "atl_xid.current",
-          "value": "[{\"type\":\"xc\",\"value\":\"1a305e75-94a0-47c5-b387-13ee8f39a5c7\",\"createdAt\":\"2025-10-06T08:45:05.969Z\"}]"
+          "value": "[{\"type\":\"xc\",\"value\":\"d45428f9-b128-49a0-9e48-3b4c251c60d3\",\"createdAt\":\"2025-10-06T20:39:42.364Z\"}]"
         },
         {
           "name": "statsig.session_id.1854893034",
-          "value": "{\"sessionID\":\"b5c0de6c-ec26-400c-9ad0-fcc9c3ebdc0f\",\"startTime\":1759740320445,\"lastUpdate\":1759740321179}"
+          "value": "{\"sessionID\":\"0ab225e9-ce25-4e2d-be55-79c3fd201fda\",\"startTime\":1759783195072,\"lastUpdate\":1759783195077}"
         },
         {
           "name": "workspaceNavigation-68d5f9adf0df082f13453087",
@@ -341,27 +643,31 @@
         },
         {
           "name": "atl_xid.ts",
-          "value": "1759740305977"
+          "value": "1759783182367"
         },
         {
           "name": "serverTimeDelta",
-          "value": "-685"
+          "value": "-2524"
         },
         {
           "name": "statsig.session_id.351342472",
-          "value": "{\"sessionID\":\"ef2f9e77-7da8-448d-9fc0-46353be672ef\",\"startTime\":1759740306260,\"lastUpdate\":1759740307209}"
+          "value": "{\"sessionID\":\"4f3081da-456a-4be0-8ef5-8495e98c026a\",\"startTime\":1759783182718,\"lastUpdate\":1759783182719}"
+        },
+        {
+          "name": "atl_xid.xc",
+          "value": "{\"type\":\"xc\",\"value\":\"d45428f9-b128-49a0-9e48-3b4c251c60d3\",\"createdAt\":\"2025-10-06T20:39:42.364Z\"}"
+        },
+        {
+          "name": "li_adsId",
+          "value": "d04df2e5-7fda-49e5-ab71-ebfa363d83ea"
+        },
+        {
+          "name": "ajs_anonymous_id",
+          "value": "\"5795dc9d-d53c-4f01-a0e8-65b26fc693ef\""
         },
         {
           "name": "global-theme",
           "value": "{\"colorMode\":\"auto\",\"effectiveColorMode\":\"light\",\"typography\":\"typography-refreshed\"}"
-        },
-        {
-          "name": "atl_xid.xc",
-          "value": "{\"type\":\"xc\",\"value\":\"1a305e75-94a0-47c5-b387-13ee8f39a5c7\",\"createdAt\":\"2025-10-06T08:45:05.969Z\"}"
-        },
-        {
-          "name": "ajs_anonymous_id",
-          "value": "\"3651990b-8d3f-4f69-abca-2d55cebe9c08\""
         }
       ]
     },
@@ -370,7 +676,7 @@
       "localStorage": [
         {
           "name": "rc::a",
-          "value": "enAwaGUxZnZrczAw"
+          "value": "MzNtYnkyMXQ0dTE1"
         }
       ]
     },
@@ -379,23 +685,23 @@
       "localStorage": [
         {
           "name": "statsig.session_id.3569395337",
-          "value": "{\"sessionID\":\"858deb2a-3314-4900-960a-4f9d3e89cf19\",\"startTime\":1759740311460,\"lastUpdate\":1759740316069}"
+          "value": "{\"sessionID\":\"ae5ea01b-cf86-47dc-927d-a06657cb909a\",\"startTime\":1759783188916,\"lastUpdate\":1759783191284}"
         },
         {
           "name": "__cuid",
-          "value": "98c7cf9e8bfa4eaaa68c73142099ff43"
+          "value": "9bf8ed1d231b4459a3f3094c3e09e734"
         },
         {
           "name": "awc.session.expiry",
-          "value": "1759742108803"
+          "value": "1759784987662"
         },
         {
           "name": "ajs_anonymous_id",
-          "value": "\"a4d4118c-49a0-4d70-b5dd-eeedd52c0893\""
+          "value": "\"feb9241d-4f05-4fa3-b66c-34f52aa015d8\""
         },
         {
           "name": "awc.session.id",
-          "value": "1759740308803"
+          "value": "1759783187662"
         }
       ]
     }
