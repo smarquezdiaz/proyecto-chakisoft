@@ -1,6 +1,6 @@
 
 import { test, expect } from '../../fixtures/ListUIFixture.js';
-import { testData } from '../../data/dataList.js';
+import { testData } from '../../data/ListDataUI.js';
 const logger = require("../../utils/logger.js");
 const { allure } = require('allure-playwright');
 
@@ -216,6 +216,7 @@ test.describe('Casos de Prueba Avanzados - Listas Trello', () => {
   });
 
   test.afterAll(async ({ cleanup }) => {
+    test.setTimeout(40000); // aumenta el límite a 40 segundos
     console.log('\n═══════════════════════════════════════════════════════════');
     console.log(' EJECUTANDO LIMPIEZA COMPLETA DEL TABLERO');
     console.log('═══════════════════════════════════════════════════════════\n');
