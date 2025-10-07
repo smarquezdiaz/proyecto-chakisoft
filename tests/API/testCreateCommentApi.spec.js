@@ -1,13 +1,13 @@
 const { expect } = require('@playwright/test');
 const { test } = require('../../fixtures/commetApiFixture');
-const { requestPost, validateResponse } = require('../../utils/request_comment');
+const { requestPost, validateResponse } = require('../../utils/requestComment');
 const { commentNormal, commentVoid, commentLarge } = require('../../data/commentDataApi');
 
 const { allure } = require('allure-playwright');
 const logger = require('../../utils/logger');
 
-const errors = require('../../data/schemaComment/errorMessages');
-const schema = require('../../data/schemaComment/schemaCommentCreate');
+const errors = require('../../utils/schemaComment/errorMessages');
+const schema = require('../../utils/schemaComment/schemaCommentCreate');
 const Ajv = require('ajv');
 
 const ajv = new Ajv();

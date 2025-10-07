@@ -1,5 +1,5 @@
 const { expect } = require('@playwright/test');
-const headersBase = require('../data/schemaComment/header.json');
+const headersBase = require('./schemaComment/header.json');
 const logger = require('./logger');
 
 async function requestPost(request, text, validID, options = {}) {

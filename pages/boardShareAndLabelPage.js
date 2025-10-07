@@ -1,5 +1,6 @@
 const { expect } = require('@playwright/test');
 const { BasePage } = require('./BasePage');
+const logger = require('../utils/logger');
 
 class BoardSharePage extends BasePage {
     constructor(page) {
@@ -109,8 +110,10 @@ class BoardSharePage extends BasePage {
     async expectUser(ok) {
         if (ok === true) {
             await expect(this.nameMembers.last()).toHaveText(process.env.NAME_SHARE);
+            logger.success('miembro agregado');
         } else {
             await expect(this.unregistered).toBeVisible();
+            logger.success('no existe la persona en trello el test funciona');
         }
     }
 }

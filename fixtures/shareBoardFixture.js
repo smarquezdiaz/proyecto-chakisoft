@@ -22,7 +22,6 @@ export const test = base.extend({
 
     await use(page);
 
-    // --- TEARDOWN: borrar el tablero ---
     await page.keyboard.press('Escape');
     await page.keyboard.press('Escape');
     await page.keyboard.press('Escape');
